@@ -740,6 +740,152 @@
 
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform .6s cubic-bezier(0.16, 1, 0.3, 1);}
   .reveal.in{opacity:1;transform:translateY(0);}
+  /* Font Awesome (أضف هذا الرابط في head في index.html إذا لم تكن الأيقونات تظهر:
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+*/
+
+.site-footer {
+  background-color: #090a10;
+  color: #a0a5b5;
+  padding: 40px 20px 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  border-top: 1px solid #1a1c29;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.footer-heading {
+  color: #6c5ce7;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.footer-text strong {
+  color: #ffffff;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* Social & Tech Icons */
+.social-links, .tech-stack-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-links a, .tech-badge {
+  width: 38px;
+  height: 38px;
+  background-color: #151824;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #232738;
+}
+
+.social-links a:hover, .tech-badge:hover {
+  background-color: #6c5ce7;
+  transform: translateY(-3px);
+}
+
+/* Center Logo Column */
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.logo-badge {
+  background-color: #6c5ce7;
+  color: #fff;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.logo-text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.footer-subtext {
+  font-size: 0.8rem;
+  color: #71778d;
+  margin-bottom: 15px;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding-top: 15px;
+  border-top: 1px solid #151824;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #60667a;
+}
+
+#scrollToTopBtn {
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #5b4bc4;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .align-right {
+    text-align: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+}
 </style>
 </head>
 <body>
@@ -1042,7 +1188,17 @@
   <section id="contact">
     <div class="wrap">
       <div class="section-tag" data-en="06 — Contact" data-ar="06 — تواصل معي">06 — Contact</div>
-      <h2 class="section-title" data-en="Let's build reliable systems together." data-ar="لنقم ببناء أنظمة موثوقة معاً.">Let's build reliable systems together.</h2>
+      
+<p
+    data-en="Have a project in mind or looking to build reliable and scalable infrastructure? Feel free to reach out. I’m always open to new opportunities, collaborations, and challenging projects."
+    data-ar="هل لديك مشروع في ذهنك أو تبحث عن بناء بنية تحتية موثوقة وقابلة للتوسع؟ لا تتردد في التواصل معي. أنا دائمًا منفتح على الفرص الجديدة والتعاون والمشاريع الصعبة."
+>
+    Have a project in mind or looking to build reliable and scalable infrastructure?
+    Feel free to reach out. I’m always open to new opportunities, collaborations,
+    and challenging projects.
+</p>
+
+      
       <p class="section-sub" data-en="Currently looking for Cloud/DevOps opportunities, internships, and collaborative infrastructure projects." data-ar="متاح حالياً لفرص العمل في مجالات DevOps والسحابة، والتدريب المهني، والمشاريع المشتركة.">Currently looking for Cloud/DevOps opportunities, internships, and collaborative infrastructure projects.</p>
 
       <div class="contact-layout reveal">
@@ -1084,7 +1240,9 @@
               </div>
               <div class="info-content">
                 <span class="info-label">EMAIL</span>
-                <a href="mailto:adelelghohary@gmail.com" class="info-val">adelelghohary@gmail.com</a>
+                <a href="mailto:adel.elgohary404@gmail.com
+" class="info-val">adel.elgohary404@gmail.com
+</a>
               </div>
             </div>
 
@@ -1094,7 +1252,7 @@
               </div>
               <div class="info-content">
                 <span class="info-label">WHATSAPP</span>
-                <a href="https://wa.me/201026048550" target="_blank" class="info-val">+20 102 604 8550</a>
+                <a href="https://wa.me/201026048550" target="_blank" class="info-val">+20 1204287281</a>
               </div>
             </div>
 
@@ -1104,7 +1262,7 @@
               </div>
               <div class="info-content">
                 <span class="info-label">PHONE</span>
-                <a href="tel:+201026048550" class="info-val">+20 102 604 8550</a>
+                <a href="tel:+201026048550" class="info-val">+20 1102298554</a>
               </div>
             </div>
 
@@ -1121,10 +1279,10 @@
 
           <div class="social-title" data-en="Connect Socially" data-ar="تابعني على">Connect Socially</div>
           <div class="social-links">
-            <a href="https://linkedin.com/in/adel-elgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9z"/></svg>
             </a>
-            <a href="https://github.com/adelelghohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
               <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
             </a>
           </div>
@@ -1134,13 +1292,51 @@
   </section>
 
 </main>
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Column 1: Let's Connect -->
+    <div class="footer-col">
+      <h3 class="footer-heading">LET'S CONNECT</h3>
+      <p class="footer-text">
+        I'm always open to discussing new DevOps opportunities, cloud infrastructure optimization, and CI/CD automation projects.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/YOUR_GITHUB" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/201204287281" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
 
-<footer>
-  <div class="wrap footer-flex">
-    <div>&copy; <span id="year"></span> Adel Elgohary. All rights reserved.</div>
-    <div>Built with HTML, CSS, & JS — Hosted on GitHub Pages</div>
+    <!-- Column 2: Brand / Logo Center -->
+    <div class="footer-col footer-center">
+      <div class="footer-logo">
+        <span class="logo-badge">AE</span>
+        <span class="logo-text">Adel.</span>
+      </div>
+      <p class="footer-subtext">DevOps & Cloud Engineer - Egypt</p>
+      <div class="tech-stack-icons">
+        <span class="tech-badge" title="Docker"><i class="fab fa-docker"></i></span>
+        <span class="tech-badge" title="AWS"><i class="fab fa-aws"></i></span>
+        <span class="tech-badge" title="Linux"><i class="fab fa-linux"></i></span>
+        <span class="tech-badge" title="Python"><i class="fab fa-python"></i></span>
+      </div>
+    </div>
+
+    <!-- Column 3: Who Am I -->
+    <div class="footer-col">
+      <h3 class="footer-heading align-right">WHO AM I?</h3>
+      <p class="footer-text align-right">
+        I'm <strong>Adel Elgohary</strong>, a DevOps & Cloud Engineer passionate about building scalable infrastructure, automating workflows, and securing network deployments.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Adel Elgohary. All Rights Reserved | Built with ♥ & Code</p>
+    <button id="scrollToTopBtn" aria-label="Scroll to top">↑</button>
   </div>
 </footer>
+
 
 <script>
   // Set Current Year
@@ -1287,6 +1483,9 @@
     typeGreeting();
     typeCommand();
   });
+  document.getElementById('scrollToTopBtn').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 </body>
 </html>

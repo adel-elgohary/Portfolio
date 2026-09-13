@@ -374,48 +374,20 @@ html[dir="rtl"] .tag-top-right { right: auto; left: -20px; }
 html[dir="rtl"] .tag-bottom-left { left: auto; right: -30px; }
 html[dir="rtl"] .tag-bottom-right { right: auto; left: -10px; }
 
-/* ---------- ABOUT ---------- */
-
-#about .about-grid {
-    display: block;
+/* ---------- ABOUT (Updated Full Width) ---------- */
+.about-container {
+max-width: 850px;
 }
-
-#about .about-grid p {
-    color: var(--ink-dim);
-    margin-bottom: 18px;
-    font-size: 16px;
-    line-height: 1.8;
-    max-width: 75ch;
+.about-container p {
+color: var(--ink-dim);
+margin-bottom: 20px;
+font-size: 16.5px;
+line-height: 1.7;
 }
-
-#about .about-grid p strong {
-    color: var(--ink);
-    font-weight: 600;
+.about-container p strong {
+color: var(--ink);
+font-weight: 600;
 }
-
-/* Mobile */
-@media (max-width: 860px) {
-    #about .about-grid p {
-        font-size: 15.5px;
-        line-height: 1.75;
-    }
-}
-
-
-.stack-list{
-background: var(--bg-panel);
-border: 1px solid var(--border);
-border-radius: 14px;
-backdrop-filter: blur(10px);
-overflow: hidden;
-}
-.stack-row{
-display:flex;justify-content:space-between;align-items:center;gap:10px;
-padding:16px 20px; border-bottom:1px solid var(--border); font-size:14.5px;
-}
-.stack-row:last-child{border-bottom:none;}
-.stack-row .label{color:var(--ink-faint);font-family:var(--font-mono);font-size:12.5px;flex-shrink:0;}
-.stack-row .val{color:var(--ink);text-align:end;font-weight: 500;}
 
 /* ---------- SKILLS ---------- */
 .skills-grid{
@@ -508,17 +480,231 @@ html[dir="rtl"] .pcol:nth-child(2n){border-left:none;}
 .pcol ul li{padding-left:14px;position:relative;}
 .pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);}
 
-/* ---------- EDUCATION ---------- */
-.edu-card{
-display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;
-border:1px solid var(--border); border-radius:14px; padding:30px 32px; background:var(--bg-panel);
-backdrop-filter: blur(10px);
+/* ---------- EDUCATION (Updated like reference image) ---------- */
+  /* =========================
+   EDUCATION CARD
+   ========================= */
+
+.edu-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--bg-panel);
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease;
+    padding: 32px;
 }
-.edu-card h3{font-size:20px;margin-bottom:6px;}
-.edu-card .org{color:var(--ink-dim);font-size:15px;margin-bottom:4px;}
-.edu-card .dept{color:var(--ink-faint);font-size:14px;}
-.edu-meta{text-align:end;font-family:var(--font-mono);font-size:13px;color:var(--ink-faint);}
-.edu-meta .gpa{color:var(--accent);font-size:15px;margin-top:6px;font-weight:600;}
+
+.edu-card:hover {
+    border-color: var(--border-hover);
+}
+
+
+/* =========================
+   TOP CONTENT
+   ========================= */
+
+.edu-top-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+    .edu-top-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+/* =========================
+   UNIVERSITY LOGO
+   ========================= */
+
+.edu-logo-wrap {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    background: #111a2e;
+    border: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.edu-logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   EDUCATION DETAILS
+   ========================= */
+
+.edu-details {
+    flex: 1;
+}
+
+.edu-details h3 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 0 0 8px;
+    color: var(--ink);
+}
+
+.edu-university {
+    color: var(--line-cyan);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.edu-project {
+    color: var(--ink-dim);
+    font-size: 14px;
+    font-family: var(--font-mono);
+    line-height: 1.6;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+.edu-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 0 0 24px;
+}
+
+
+/* =========================
+   BOTTOM INFORMATION
+   ========================= */
+
+.edu-bottom-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .edu-bottom-info {
+        justify-content: space-around;
+        gap: 15px;
+    }
+}
+
+
+/* Individual Info */
+
+.edu-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--ink-dim);
+}
+
+.edu-info-item i {
+    color: var(--accent);
+}
+/* .edu-card {
+border: 1px solid var(--border);
+border-radius: 16px;
+background: var(--bg-panel);
+overflow: hidden;
+backdrop-filter: blur(12px);
+transition: border-color 0.3s ease;
+padding: 32px;
+}
+.edu-card:hover { border-color: var(--border-hover); }
+.edu-top-content {
+display: flex;
+align-items: flex-start;
+gap: 24px;
+margin-bottom: 24px;
+}
+@media(max-width: 600px){
+.edu-top-content { flex-direction: column; align-items: center; text-align: center; }
+}
+.edu-logo-wrap {
+width: 76px;
+height: 76px;
+border-radius: 14px;
+overflow: hidden;
+background: #111a2e;
+border: 1px solid var(--border);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.edu-logo-wrap img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.edu-details h3 {
+font-size: 24px;
+margin-bottom: 6px;
+color: var(--ink);
+}
+.edu-university {
+color: var(--line-cyan);
+font-size: 15.5px;
+font-weight: 500;
+margin-bottom: 10px;
+}
+.edu-project {
+color: var(--ink-dim);
+font-size: 14px;
+font-family: var(--font-mono);
+}
+.edu-divider {
+width: 100%;
+border: none;
+border-top: 1px dashed var(--border);
+margin-bottom: 24px;
+}
+.edu-bottom-info {
+display: flex;
+flex-wrap: wrap;
+gap: 30px;
+align-items: center;
+}
+@media(max-width: 600px){
+.edu-bottom-info { justify-content: space-around; gap: 15px; }
+}
+.edu-info-item {
+display: flex;
+align-items: center;
+gap: 8px;
+font-family: var(--font-mono);
+font-size: 13.5px;
+color: var(--ink-dim);
+}
+.edu-info-item i {
+color: var(--accent);
+} */
 
 /* ---------- CONTACT SECTION ---------- */
 .contact-layout {
@@ -695,7 +881,7 @@ border-color: #6c5ce7;
 color: #fff;
 }
 
-/* ---------- SITE FOOTER (UPDATED) ---------- */
+/* ---------- SITE FOOTER ---------- */
 .site-footer {
 background-color: #090a10;
 color: #a0a5b5;
@@ -911,71 +1097,19 @@ background-color: #5b4bc4;
 </div>
 </section>
 
-<!-- ABOUT -->
-
+<!-- ABOUT (Updated full width without side box) -->
 <section id="about">
-    <div class="wrap">
-
-        <div class="section-tag"
-             data-en="01 — About"
-             data-ar="01 — عنّي">
-            01 — About
-        </div>
-
-        <h4 class="section-title"
-            data-en="Grounded in networking, focused on building automated infrastructure."
-            data-ar="أساس قوي في الشبكات، وتركيز على بناء بنية تحتية مؤتمتة.">
-            Automating infrastructure, streamlining deployments, and improving system reliability.
-        </h4>
-
-        <div class="about-grid">
-
-            <div>
-
-                <p
-                    data-en="I'm a Computers & Information Technology student at Menofia University, building my career in cloud and DevOps engineering with a strong background in networking and cybersecurity."
-                    data-ar="أنا طالب بكلية الحاسبات والمعلومات بجامعة المنوفية، أبني مساري المهني في مجال Cloud وDevOps، مع خلفية قوية في الشبكات والأمن السيبراني.">
-                    I'm a Computers & Information Technology student at
-                    <strong>Menofia University</strong>, building my career in cloud
-                    and DevOps engineering with a strong background in networking
-                    and cybersecurity.
-                </p>
-
-                <p
-                    data-en="I focus on automating infrastructure and improving how applications are built, deployed, and operated. I work with Docker and Kubernetes for containerization and orchestration, Terraform and Ansible for Infrastructure as Code and automation, Jenkins for CI/CD, and AWS for cloud infrastructure."
-                    data-ar="أركز على أتمتة البنية التحتية وتحسين طريقة بناء التطبيقات ونشرها وتشغيلها. أعمل باستخدام Docker وKubernetes للحاويات وإدارتها، وTerraform وAnsible للبنية التحتية ككود والأتمتة، وJenkins لـ CI/CD، وAWS للبنية التحتية السحابية.">
-                    I focus on <strong>automating infrastructure</strong> and improving
-                    how applications are built, deployed, and operated. I work with
-                    <strong>Docker and Kubernetes</strong> for containerization and
-                    orchestration, <strong>Terraform and Ansible</strong> for
-                    Infrastructure as Code and automation, <strong>Jenkins</strong>
-                    for CI/CD, and <strong>AWS</strong> for cloud infrastructure.
-                </p>
-
-                <p
-                    data-en="My networking background shapes the way I approach infrastructure — from routing, switching, VLANs, and firewalls to understanding how systems communicate across networks."
-                    data-ar="تشكل خلفيتي في الشبكات الطريقة التي أتعامل بها مع البنية التحتية، بدايةً من Routing وSwitching وVLANs وFirewalls، وصولًا إلى فهم كيفية تواصل الأنظمة عبر الشبكات.">
-                    My networking background shapes the way I approach infrastructure —
-                    from <strong>routing, switching, VLANs, and firewalls</strong> to
-                    understanding how systems communicate across networks.
-                </p>
-
-                <p
-                    data-en="I'm currently developing my skills through structured, hands-on training with DEPI and NTI, and looking for opportunities where I can apply my skills, solve real infrastructure challenges, and grow as a DevOps Engineer."
-                    data-ar="أعمل حاليًا على تطوير مهاراتي من خلال تدريبات عملية ومنظمة مع DEPI وNTI، وأبحث عن فرص أستطيع من خلالها تطبيق مهاراتي، وحل تحديات حقيقية في البنية التحتية، والتطور كمهندس DevOps.">
-                    I'm currently developing my skills through structured,
-                    <strong>hands-on training with DEPI and NTI</strong>, and looking
-                    for opportunities where I can apply my skills, solve real
-                    infrastructure challenges, and grow as a DevOps Engineer.
-                </p>
-
-            </div>
-
-        </div>
-    </div>
+<div class="wrap">
+<div class="section-tag" data-en="01 — About" data-ar="01 — عنّي">01 — About</div>
+<h2 class="section-title" data-en="Grounded in networks, moving into automated infrastructure." data-ar="أساس قوي في الشبكات، مع التوسع في البنية التحتية المؤتمتة.">Grounded in networks, moving into automated infrastructure.</h2>
+<div class="about-container">
+<p data-en="I'm a Computers & Information Technology student at Menofia University, building my path into cloud and DevOps engineering one system at a time." data-ar="أنا طالب بكلية الحاسبات والمعلومات بجامعة المنوفية، أبني مساري في مجال السحابة وهندسة DevOps خطوة بخطوة.">I'm a Computers & Information Technology student at <strong>Menofia University</strong>, building my path into cloud and DevOps engineering one system at a time.</p>
+<p data-en="My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container." data-ar="لم تكن نقطة بدايتي السحابة — بل كانت الشبكات: التوجيه والتبديل (Routing & Switching)، تقسيم VLAN، الجدران النارية، وحلول VPN. تشكل هذه الخلفية طريقة تفكيري في البنية التحتية الآن: يهمني ما يحدث على مستوى الحزم (Packets) تمامًا كما يهمني ما يحدث داخل الحاوية.">My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container.</p>
+<p data-en="From there I moved into automation and cloud: Docker and Kubernetes for packaging and orchestration, Terraform and Ansible for infrastructure as code, Jenkins for CI/CD, and AWS for the platform underneath it all — with Prometheus for keeping an eye on whether any of it is actually working." data-ar="من هناك انتقلت إلى الأتمتة والسحابة: Docker و Kubernetes لإدارة الحاويات، Terraform و Ansible للبنية التحتية ككود، Jenkins لـ CI/CD، و AWS كمنصة أساسية — مع Prometheus لمراقبة أداء النظام بالكامل.">From there I moved into automation and cloud: <strong>Docker and Kubernetes</strong> for packaging and orchestration, <strong>Terraform and Ansible</strong> for infrastructure as code, <strong>Jenkins</strong> for CI/CD, and <strong>AWS</strong> for the platform underneath it all — with <strong>Prometheus</strong> for keeping an eye on whether any of it is actually working.</p>
+<p data-en="I'm currently completing structured, hands-on training through DEPI and NTI, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises." data-ar="أكمل حاليًا تدريبًا عمليًا مكثفًا من خلال مبادرة DEPI ومعهد NTI، وأبحث عن فرصة عمل — تدريب عملي، برنامج حديثي التخرج، أو وظيفة مبتدئة — لبناء بنية تحتية حقيقية.">I'm currently completing structured, hands-on training through <strong>DEPI</strong> and <strong>NTI</strong>, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises.</p>
+</div>
+</div>
 </section>
-
-  
 
 <!-- SKILLS -->
 <section id="skills">
@@ -1020,7 +1154,7 @@ background-color: #5b4bc4;
 <p class="section-sub" data-en="Structured, practical programs — not classroom theory. Each one ended in real infrastructure work." data-ar="برامج عملية مكثفة وليست مجرد نظريات. انتهت كل منها بمشاريع بنية تحتية حقيقية.">Structured, practical programs — not classroom theory. Each one ended in real infrastructure work.</p>
   <div class="timeline">
     <div class="tl-item">
-      <div class="tl-date">2026 — Present</div>
+      <div class="tl-date">2024 — Present</div>
       <div class="tl-role" data-en="DevOps Engineering Trainee" data-ar="متدرب هندسة DevOps">DevOps Engineering Trainee</div>
       <div class="tl-org" data-en="Digital Egypt Pioneers Initiative (DEPI)" data-ar="مبادرة رواد مصر الرقمية (DEPI)">Digital Egypt Pioneers Initiative (DEPI)</div>
       <ul>
@@ -1069,23 +1203,125 @@ background-color: #5b4bc4;
 </div>
 </section>
 
+<!-- EDUCATION (Updated with logo and reference styling) -->
 <!-- EDUCATION -->
 <section id="education">
-<div class="wrap">
-<div class="section-tag" data-en="05 — Education" data-ar="05 — التعليم">05 — Education</div>
-<h2 class="section-title" data-en="Academic foundation" data-ar="الخلفية الأكاديمية">Academic foundation</h2>
-<div class="edu-card">
-<div>
-<h3 data-en="Bachelor of Science in Computers & IT" data-ar="بكالوريوس الحاسبات والمعلومات">Bachelor of Science in Computers & IT</h3>
-<div class="org" data-en="Menofia University" data-ar="جامعة المنوفية">Menofia University</div>
-<div class="dept" data-en="Faculty of Computers and Information" data-ar="كلية الحاسبات والمعلومات">Faculty of Computers and Information</div>
-  <div class="dept" data-en="Information Technology (IT) Department" data-ar="قسم تكنولوجيا المعلومات (IT)"> Information Technology (IT) Department </div> </div>
-  <div class="gpa" data-en="GPA: 3.4 / 4.0" data-ar="المعدل التراكمي: 3.4 / 4.0"> GPA: 3.4 / 4.0 </div>
-</div>
-<div class="edu-meta">
-<div data-en="Expected Graduation: 2027" data-ar="التخرج المتوقع: 2027">Expected Graduation: 2027</div>
-<div class="gpa" data-en="Cloud & DevOps Focus" data-ar="تركيز: السحابة و DevOps">Cloud & DevOps Focus</div>
-</div>
+    <div class="wrap">
+
+        <div class="section-tag"
+             data-en="05 — Education"
+             data-ar="05 — التعليم">
+            05 — Education
+        </div>
+
+        <h2 class="section-title"
+            data-en="Academic foundation"
+            data-ar="الخلفية الأكاديمية">
+            Academic foundation
+        </h2>
+
+        <div class="education-card">
+
+            <!-- Top -->
+            <div class="education-main">
+
+                <!-- University Logo -->
+                <div class="university-logo">
+                    <img src="menofia-logo.jpg"
+                         alt="Menofia University">
+                </div>
+
+                <!-- Degree Info -->
+                <div class="education-info">
+
+                    <h3
+                        data-en="Bachelor of Science in Computers & Information"
+                        data-ar="بكالوريوس العلوم في الحاسبات والمعلومات">
+                        Bachelor of Science in Computers & Information
+                    </h3>
+
+                    <div class="university-name"
+                         data-en="Menofia University"
+                         data-ar="جامعة المنوفية">
+                        Menofia University
+                    </div>
+
+                    <div class="education-description"
+                         data-en="Faculty of Computers and Information — Information Technology (IT) Department"
+                         data-ar="كلية الحاسبات والمعلومات — قسم تكنولوجيا المعلومات (IT)">
+                        Faculty of Computers and Information —
+                        Information Technology (IT) Department
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Divider -->
+            <div class="education-divider"></div>
+
+
+            <!-- Bottom Meta -->
+            <div class="education-meta">
+
+                <div class="education-meta-item">
+                    <span class="meta-icon">▣</span>
+
+                    <span
+                        data-en="2023 — 2027"
+                        data-ar="2023 — 2027">
+                        2023 — 2027
+                    </span>
+                </div>
+
+
+                <div class="education-meta-item">
+                    <span class="meta-icon">★</span>
+
+                    <span
+                        data-en="GPA: 3.4 / 4.0"
+                        data-ar="المعدل التراكمي: 3.4 / 4.0">
+                        GPA: 3.4 / 4.0
+                    </span>
+                </div>
+
+
+                <div class="education-meta-item">
+                    <span class="meta-icon">◆</span>
+
+                    <span
+                        data-en="Information Technology (IT)"
+                        data-ar="تكنولوجيا المعلومات (IT)">
+                        Information Technology (IT)
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+  
+
+  
+  <hr class="edu-divider">
+
+  <div class="edu-bottom-info">
+    <div class="edu-info-item">
+      <i class="fas fa-calendar-alt"></i>
+      <span data-en="2023 — 2027" data-ar="2023 — 2027">2023 — 2027</span>
+    </div>
+    <div class="edu-info-item">
+      <i class="fas fa-star"></i>
+      <span data-en="Status: In Progress" data-ar="الحالة: قيد الدراسة">Status: In Progress</span>
+    </div>
+    <div class="edu-info-item">
+      <i class="fas fa-award"></i>
+      <span data-en="Track: Cloud & DevOps" data-ar="المسار: السحابة و DevOps">Track: Cloud & DevOps</span>
+    </div>
+  </div>
 </div>
 </div>
 </section>
@@ -1133,13 +1369,13 @@ background-color: #5b4bc4;
 
       <div class="info-cards">
         <!-- Email -->
-        <a href="mailto:adel.elgohary404@gmail.com" class="info-item">
+        <a href="mailto:adel.elgohary@example.com" class="info-item">
           <div class="info-icon icon-email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
           <div class="info-content">
             <span class="info-label" data-en="Email" data-ar="البريد الإلكتروني">Email</span>
-            <span class="info-val">adel.elgohary404@gmail.com</span>
+            <span class="info-val">adel.elgohary@example.com</span>
           </div>
         </a>
 
@@ -1161,7 +1397,7 @@ background-color: #5b4bc4;
           </div>
           <div class="info-content">
             <span class="info-label" data-en="Phone" data-ar="الهاتف">Phone</span>
-            <span class="info-val">+201102298554</span>
+            <span class="info-val">+20 120 428 7281</span>
           </div>
         </a>
 
@@ -1179,10 +1415,10 @@ background-color: #5b4bc4;
 
       <div class="social-title" data-en="Follow Me On" data-ar="تابعني على">Follow Me On</div>
       <div class="social-links">
-        <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+        <a href="https://github.com/adelelgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
           <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/adelelgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
       </div>
@@ -1202,8 +1438,8 @@ background-color: #5b4bc4;
         I'm always open to discussing new DevOps opportunities, cloud infrastructure optimization, and CI/CD automation projects.
       </p>
       <div class="social-links">
-        <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/adelelgohary" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/adelelgohary" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://wa.me/201204287281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
@@ -1330,8 +1566,8 @@ function typeGreetingEffect() {
   if (!greetingEl) return;
   const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
   const greetings = isRTL
-    ? [" أهلاً، أنا", " مرحباً بك، أنا"]
-    : [" HELLO, I'M", " WELCOME, I'M"];
+    ? ["// أهلاً، أنا", "// مرحباً بك، أنا"]
+    : ["// HELLO, I'M", "// WELCOME, I'M"];
 
   const currentGreeting = greetings[greetingIndex % greetings.length];
 

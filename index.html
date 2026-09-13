@@ -375,10 +375,33 @@ html[dir="rtl"] .tag-bottom-left { left: auto; right: -30px; }
 html[dir="rtl"] .tag-bottom-right { right: auto; left: -10px; }
 
 /* ---------- ABOUT ---------- */
-.about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
-@media(max-width:860px){ .about-grid{grid-template-columns:1fr;gap:36px;} }
-.about-grid p{color:var(--ink-dim);margin-bottom:18px;font-size:16px;max-width:52ch;}
-.about-grid p strong{color:var(--ink);font-weight:600;}
+
+#about .about-grid {
+    display: block;
+}
+
+#about .about-grid p {
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 75ch;
+}
+
+#about .about-grid p strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+    #about .about-grid p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+}
+
+
 .stack-list{
 background: var(--bg-panel);
 border: 1px solid var(--border);
@@ -889,28 +912,70 @@ background-color: #5b4bc4;
 </section>
 
 <!-- ABOUT -->
+
 <section id="about">
-<div class="wrap">
-<div class="section-tag" data-en="01 — About" data-ar="01 — عنّي">01 — About</div>
-<h2 class="section-title" data-en="Grounded in networks, moving into automated infrastructure." data-ar="أساس قوي في الشبكات، مع التوسع في البنية التحتية المؤتمتة.">Grounded in networks, moving into automated infrastructure.</h2>
-<div class="about-grid">
-<div>
-<p data-en="I'm a Computers & Information Technology student at Menofia University, building my path into cloud and DevOps engineering one system at a time." data-ar="أنا طالب بكلية الحاسبات والمعلومات بجامعة المنوفية، أبني مساري في مجال السحابة وهندسة DevOps خطوة بخطوة.">I'm a Computers & Information Technology student at <strong>Menofia University</strong>, building my path into cloud and DevOps engineering one system at a time.</p>
-<p data-en="My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container." data-ar="لم تكن نقطة بدايتي السحابة — بل كانت الشبكات: التوجيه والتبديل (Routing & Switching)، تقسيم VLAN، الجدران النارية، وحلول VPN. تشكل هذه الخلفية طريقة تفكيري في البنية التحتية الآن: يهمني ما يحدث على مستوى الحزم (Packets) تمامًا كما يهمني ما يحدث داخل الحاوية.">My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container.</p>
-<p data-en="From there I moved into automation and cloud: Docker and Kubernetes for packaging and orchestration, Terraform and Ansible for infrastructure as code, Jenkins for CI/CD, and AWS for the platform underneath it all — with Prometheus for keeping an eye on whether any of it is actually working." data-ar="من هناك انتقلت إلى الأتمتة والسحابة: Docker و Kubernetes لإدارة الحاويات، Terraform و Ansible للبنية التحتية ككود، Jenkins لـ CI/CD، و AWS كمنصة أساسية — مع Prometheus لمراقبة أداء النظام بالكامل.">From there I moved into automation and cloud: <strong>Docker and Kubernetes</strong> for packaging and orchestration, <strong>Terraform and Ansible</strong> for infrastructure as code, <strong>Jenkins</strong> for CI/CD, and <strong>AWS</strong> for the platform underneath it all — with <strong>Prometheus</strong> for keeping an eye on whether any of it is actually working.</p>
-<p data-en="I'm currently completing structured, hands-on training through DEPI and NTI, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises." data-ar="أكمل حاليًا تدريبًا عمليًا مكثفًا من خلال مبادرة DEPI ومعهد NTI، وأبحث عن فرصة عمل — تدريب عملي، برنامج حديثي التخرج، أو وظيفة مبتدئة — لبناء بنية تحتية حقيقية.">I'm currently completing structured, hands-on training through <strong>DEPI</strong> and <strong>NTI</strong>, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises.</p>
-</div>
-<div class="stack-list">
-<div class="stack-row"><span class="label" data-en="LOCATION" data-ar="الموقع">LOCATION</span><span class="val" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span></div>
-<div class="stack-row"><span class="label" data-en="EDUCATION" data-ar="التعليم">EDUCATION</span><span class="val" data-en="B.Sc. Computers & IT — Menofia University" data-ar="بكالوريوس الحاسبات والمعلومات — جامعة المنوفية">B.Sc. Computers & IT — Menofia University</span></div>
-<div class="stack-row"><span class="label" data-en="TRACK" data-ar="المسار">TRACK</span><span class="val" data-en="Cloud & DevOps Engineering" data-ar="هندسة السحابة و DevOps">Cloud & DevOps Engineering</span></div>
-<div class="stack-row"><span class="label" data-en="BACKGROUND" data-ar="الخلفية">BACKGROUND</span><span class="val" data-en="Networking & Security → Cloud & Automation" data-ar="الشبكات والأمان ← السحابة والأتمتة">Networking & Security → Cloud & Automation</span></div>
-<div class="stack-row"><span class="label" data-en="CURRENTLY" data-ar="حاليًا">CURRENTLY</span><span class="val" data-en="DEPI DevOps Track, NTI Cloud & Network Track" data-ar="مسار DEPI DevOps، مسار NTI السحابي والشبكات">DEPI DevOps Track, NTI Cloud & Network Track</span></div>
-<div class="stack-row"><span class="label" data-en="LANGUAGES" data-ar="اللغات">LANGUAGES</span><span class="val" data-en="Arabic (native), English (conversational)" data-ar="العربية (اللغة الأم)، الإنجليزية (جيد جداً)">Arabic (native), English (conversational)</span></div>
-</div>
-</div>
-</div>
+    <div class="wrap">
+
+        <div class="section-tag"
+             data-en="01 — About"
+             data-ar="01 — عنّي">
+            01 — About
+        </div>
+
+        <h2 class="section-title"
+            data-en="Grounded in networking, focused on building automated infrastructure."
+            data-ar="أساس قوي في الشبكات، وتركيز على بناء بنية تحتية مؤتمتة.">
+            Grounded in networking, focused on building automated infrastructure.
+        </h2>
+
+        <div class="about-grid">
+
+            <div>
+
+                <p
+                    data-en="I'm a Computers & Information Technology student at Menofia University, building my career in cloud and DevOps engineering with a strong background in networking and cybersecurity."
+                    data-ar="أنا طالب بكلية الحاسبات والمعلومات بجامعة المنوفية، أبني مساري المهني في مجال Cloud وDevOps، مع خلفية قوية في الشبكات والأمن السيبراني.">
+                    I'm a Computers & Information Technology student at
+                    <strong>Menofia University</strong>, building my career in cloud
+                    and DevOps engineering with a strong background in networking
+                    and cybersecurity.
+                </p>
+
+                <p
+                    data-en="I focus on automating infrastructure and improving how applications are built, deployed, and operated. I work with Docker and Kubernetes for containerization and orchestration, Terraform and Ansible for Infrastructure as Code and automation, Jenkins for CI/CD, and AWS for cloud infrastructure."
+                    data-ar="أركز على أتمتة البنية التحتية وتحسين طريقة بناء التطبيقات ونشرها وتشغيلها. أعمل باستخدام Docker وKubernetes للحاويات وإدارتها، وTerraform وAnsible للبنية التحتية ككود والأتمتة، وJenkins لـ CI/CD، وAWS للبنية التحتية السحابية.">
+                    I focus on <strong>automating infrastructure</strong> and improving
+                    how applications are built, deployed, and operated. I work with
+                    <strong>Docker and Kubernetes</strong> for containerization and
+                    orchestration, <strong>Terraform and Ansible</strong> for
+                    Infrastructure as Code and automation, <strong>Jenkins</strong>
+                    for CI/CD, and <strong>AWS</strong> for cloud infrastructure.
+                </p>
+
+                <p
+                    data-en="My networking background shapes the way I approach infrastructure — from routing, switching, VLANs, and firewalls to understanding how systems communicate across networks."
+                    data-ar="تشكل خلفيتي في الشبكات الطريقة التي أتعامل بها مع البنية التحتية، بدايةً من Routing وSwitching وVLANs وFirewalls، وصولًا إلى فهم كيفية تواصل الأنظمة عبر الشبكات.">
+                    My networking background shapes the way I approach infrastructure —
+                    from <strong>routing, switching, VLANs, and firewalls</strong> to
+                    understanding how systems communicate across networks.
+                </p>
+
+                <p
+                    data-en="I'm currently developing my skills through structured, hands-on training with DEPI and NTI, and looking for opportunities where I can apply my skills, solve real infrastructure challenges, and grow as a DevOps Engineer."
+                    data-ar="أعمل حاليًا على تطوير مهاراتي من خلال تدريبات عملية ومنظمة مع DEPI وNTI، وأبحث عن فرص أستطيع من خلالها تطبيق مهاراتي، وحل تحديات حقيقية في البنية التحتية، والتطور كمهندس DevOps.">
+                    I'm currently developing my skills through structured,
+                    <strong>hands-on training with DEPI and NTI</strong>, and looking
+                    for opportunities where I can apply my skills, solve real
+                    infrastructure challenges, and grow as a DevOps Engineer.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
 </section>
+
+  
 
 <!-- SKILLS -->
 <section id="skills">

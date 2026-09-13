@@ -909,8 +909,8 @@
     // التبديل بين اللغتين حسب اتجاه الصفحة
     const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
     const greetings = isRTL 
-      ? [" أهلاً، أنا", "// مرحباً بك، أنا"] 
-      : [" HELLO, I'M", "// WELCOME, I'M"];
+      ? [" أهلاً، أنا", " مرحباً بك، أنا"] 
+      : [" HELLO, I'M", " WELCOME, I'M"];
       
     const currentGreeting = greetings[greetingIndex % greetings.length];
 

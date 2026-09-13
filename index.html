@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
 --bg:#070B12;
@@ -34,7 +36,7 @@
 --font-mono:'IBM Plex Mono', monospace;
 --maxw:1120px;
 }
-{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 @media (prefers-reduced-motion: reduce){
 html{scroll-behavior:auto;}
@@ -109,6 +111,7 @@ font-size:16px;
 margin-bottom:56px;
 }
 @media(max-width:640px){ .section-sub{margin-bottom:32px;} }
+
 /* ---------- NAV ---------- */
 header{
 position:fixed;top:0;left:0;right:0;
@@ -196,8 +199,8 @@ justify-content: center;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .nav-links a:last-child { border-bottom: none; }
-​
 }
+
 body.light-mode {
 --bg: #F8FAFC;
 --bg-panel: rgba(255, 255, 255, 0.85);
@@ -211,6 +214,7 @@ body.light-mode {
 --border-hover: rgba(0, 163, 255, 0.4);
 --line-cyan: #0088FF;
 }
+
 html[dir="rtl"] body {
 font-family: 'Cairo', var(--font-sans);
 direction: rtl;
@@ -224,6 +228,7 @@ html[dir="rtl"] .tl-item ul li::before { left: auto; right: 0; content: "‹"; }
 html[dir="rtl"] .pcol ul li { padding-left: 0; padding-right: 14px; }
 html[dir="rtl"] .pcol ul li::before { left: auto; right: 0; }
 html[dir="rtl"] .brand { direction: ltr; }
+
 .btn{
 display:inline-flex;align-items:center;justify-content:center;gap:9px;
 padding:13px 24px; border-radius:8px; font-size:14.5px; font-weight:600;
@@ -252,6 +257,7 @@ color: var(--line-cyan);
 background: rgba(0, 240, 255, 0.05);
 }
 @media(max-width:480px){ .btn{width:100%;} }
+
 /* ---------- HERO ---------- */
 .hero{ padding:160px 0 90px; position:relative; overflow:hidden; }
 @media(max-width:640px){ .hero{padding:110px 0 50px;} }
@@ -288,6 +294,7 @@ box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 .cursor { color: var(--line-cyan); animation: blink 0.8s infinite; font-weight: bold;}
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
+
 /* PROFILE CONTAINER */
 .profile-container {
 position: relative;
@@ -366,6 +373,7 @@ box-shadow: 0 0 8px currentColor;
 html[dir="rtl"] .tag-top-right { right: auto; left: -20px; }
 html[dir="rtl"] .tag-bottom-left { left: auto; right: -30px; }
 html[dir="rtl"] .tag-bottom-right { right: auto; left: -10px; }
+
 /* ---------- ABOUT ---------- */
 .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
 @media(max-width:860px){ .about-grid{grid-template-columns:1fr;gap:36px;} }
@@ -385,6 +393,7 @@ padding:16px 20px; border-bottom:1px solid var(--border); font-size:14.5px;
 .stack-row:last-child{border-bottom:none;}
 .stack-row .label{color:var(--ink-faint);font-family:var(--font-mono);font-size:12.5px;flex-shrink:0;}
 .stack-row .val{color:var(--ink);text-align:end;font-weight: 500;}
+
 /* ---------- SKILLS ---------- */
 .skills-grid{
 display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
@@ -412,6 +421,7 @@ border:1px solid var(--border);
 border-radius:6px; color:var(--ink);
 background: rgba(255,255,255,0.02);
 }
+
 /* ---------- EXPERIENCE ---------- */
 .timeline{border-left:1px solid var(--border);margin-left:6px;}
 html[dir="rtl"] .timeline{border-left:none;border-right:1px solid var(--border);margin-left:0;margin-right:6px;}
@@ -435,6 +445,7 @@ font-family:var(--font-mono); font-size:11.5px; padding:4px 10px;
 border:1px solid var(--border); border-radius:6px; color:var(--ink-faint);
 background: rgba(255,255,255,0.02);
 }
+
 /* ---------- PROJECT ---------- */
 .project-card{
 border:1px solid var(--border);
@@ -473,6 +484,7 @@ html[dir="rtl"] .pcol:nth-child(2n){border-left:none;}
 .pcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .pcol ul li{padding-left:14px;position:relative;}
 .pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);}
+
 /* ---------- EDUCATION ---------- */
 .edu-card{
 display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;
@@ -484,7 +496,8 @@ backdrop-filter: blur(10px);
 .edu-card .dept{color:var(--ink-faint);font-size:14px;}
 .edu-meta{text-align:end;font-family:var(--font-mono);font-size:13px;color:var(--ink-faint);}
 .edu-meta .gpa{color:var(--accent);font-size:15px;margin-top:6px;font-weight:600;}
-/* ---------- NEW PROFESSIONAL CONTACT SECTION ---------- */
+
+/* ---------- CONTACT SECTION ---------- */
 .contact-layout {
 display: grid;
 grid-template-columns: 1.2fr 0.8fr;
@@ -509,7 +522,6 @@ font-weight: 700;
 margin-bottom: 24px;
 color: var(--ink);
 }
-/* Form Styles */
 .contact-form {
 display: flex;
 flex-direction: column;
@@ -571,7 +583,6 @@ transform: translateY(-2px);
 box-shadow: 0 6px 25px rgba(255, 42, 85, 0.5);
 filter: brightness(1.1);
 }
-/* Info Cards Styles */
 .info-text {
 color: var(--ink-dim);
 font-size: 14px;
@@ -631,7 +642,6 @@ color: var(--ink);
 direction: ltr;
 text-align: left;
 }
-/* Social Icons */
 .social-title {
 font-size: 14px;
 font-weight: 600;
@@ -640,36 +650,148 @@ margin-bottom: 12px;
 }
 .social-links {
 display: flex;
-gap: 12px;
+gap: 10px;
 }
-.social-btn {
-width: 42px;
-height: 42px;
-border-radius: 50%;
-background: rgba(255, 255, 255, 0.05);
-border: 1px solid var(--border);
+.social-links a, .tech-badge, .social-btn {
+width: 38px;
+height: 38px;
+background-color: #151824;
+border-radius: 8px;
 display: flex;
 align-items: center;
 justify-content: center;
-color: var(--ink);
-transition: all 0.2s ease;
+color: #ffffff;
+text-decoration: none;
+transition: all 0.3s ease;
+border: 1px solid #232738;
 }
-.social-btn:hover {
-background: var(--line-cyan);
-color: #000;
-border-color: var(--line-cyan);
+.social-links a:hover, .tech-badge:hover, .social-btn:hover {
+background-color: #6c5ce7;
 transform: translateY(-3px);
-box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+border-color: #6c5ce7;
+color: #fff;
 }
-.social-btn svg { width: 20px; height: 20px; fill: currentColor; }
-footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-faint); font-size:13px; font-family:var(--font-mono); }
-.footer-flex{ display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%; }
+
+/* ---------- SITE FOOTER (UPDATED) ---------- */
+.site-footer {
+background-color: #090a10;
+color: #a0a5b5;
+padding: 50px 20px 20px;
+font-family: system-ui, -apple-system, sans-serif;
+border-top: 1px solid #1a1c29;
+margin-top: 80px;
+}
+.footer-container {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 30px;
+align-items: start;
+}
+.footer-heading {
+color: #6c5ce7;
+font-size: 0.85rem;
+letter-spacing: 1.5px;
+margin-bottom: 12px;
+text-transform: uppercase;
+}
+.footer-text {
+font-size: 0.9rem;
+line-height: 1.6;
+margin-bottom: 15px;
+color: var(--ink-dim);
+}
+.footer-text strong {
+color: #ffffff;
+}
+.align-right {
+text-align: right;
+}
+.tech-stack-icons {
+display: flex;
+gap: 10px;
+}
+.footer-center {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+.footer-logo {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 8px;
+}
+.logo-badge {
+background-color: #6c5ce7;
+color: #fff;
+font-weight: bold;
+padding: 4px 8px;
+border-radius: 6px;
+font-size: 0.9rem;
+}
+.logo-text {
+color: #fff;
+font-weight: bold;
+font-size: 1.2rem;
+}
+.footer-subtext {
+font-size: 0.8rem;
+color: #71778d;
+margin-bottom: 15px;
+}
+.footer-bottom {
+max-width: 1200px;
+margin: 30px auto 0;
+padding-top: 15px;
+border-top: 1px solid #151824;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 0.8rem;
+color: #60667a;
+font-family: var(--font-mono);
+}
+#scrollToTopBtn {
+background-color: #6c5ce7;
+color: white;
+border: none;
+width: 35px;
+height: 35px;
+border-radius: 8px;
+cursor: pointer;
+font-size: 1rem;
+transition: background 0.3s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+#scrollToTopBtn:hover {
+background-color: #5b4bc4;
+}
+
+@media (max-width: 768px) {
+.footer-container {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+.align-right {
+  text-align: center;
+}
+.social-links, .tech-stack-icons {
+  justify-content: center;
+}
+}
+
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform .6s cubic-bezier(0.16, 1, 0.3, 1);}
 .reveal.in{opacity:1;transform:translateY(0);}
 </style>
 </head>
 <body>
 <div class="bg-grid"></div>
+
 <header>
 <nav class="wrap">
 <a href="#home" class="brand">
@@ -695,16 +817,16 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
   <button class="nav-btn" id="themeToggle" aria-label="Toggle Theme">🌙</button>
   <button class="nav-btn lang-btn" id="langToggle">عربي</button>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-    <svg viewBox="0 0 24 24" xmlns="<http://www.w3.org/2000/svg>">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/>
       <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
       <circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
     </svg>
   </button>
 </div>
-​
 </nav>
 </header>
+
 <main id="home">
 <!-- HERO SECTION -->
 <section class="hero">
@@ -729,13 +851,14 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
          data-ar="أقوم بتحويل البنية التحتية إلى بيئات مؤتمتة، قابلة للتوسع، وموثوقة ومصممة للتطبيقات الحديثة.">
          I turn infrastructure into automated, scalable, and reliable environments built for modern applications.
       </p>
-      <div class="typing-wrap">
-        <span class="pr">$</span>
-        <span id="typed"></span><span class="cursor">|</span>
-      </div>
     </div>
 
-    <div class="hero-ctas">
+    <div class="typing-wrap">
+      <span class="pr">$</span>
+      <span id="typed"></span><span class="cursor">|</span>
+    </div>
+
+    <div class="hero-ctas" style="margin-top: 30px;">
       <a href="#project" class="btn btn-primary" data-en="View Project" data-ar="عرض المشروع">View Project</a>
       <a href="./Adel Elgohary - DevOps Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-en="View CV" data-ar="عرض السيرة الذاتية">View CV</a>
       <a href="#contact" class="btn btn-ghost" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
@@ -746,11 +869,9 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
   <div class="profile-container reveal">
     <div class="profile-ring ring-1"></div>
     <div class="profile-ring ring-2"></div>
-
     <div class="profile-img-wrap">
       <img src="my-photo.jpeg" alt="Adel Elgohary">
     </div>
-
     <div class="floating-tag tag-top-right">
       <span class="tag-dot" style="background: var(--accent); color: var(--accent);"></span>
       <span>DevOps • AWS</span>
@@ -765,8 +886,8 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
     </div>
   </div>
 </div>
-​
 </section>
+
 <!-- ABOUT -->
 <section id="about">
 <div class="wrap">
@@ -790,6 +911,7 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 </div>
 </div>
 </section>
+
 <!-- SKILLS -->
 <section id="skills">
 <div class="wrap">
@@ -824,6 +946,7 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 </div>
 </div>
 </section>
+
 <!-- EXPERIENCE -->
 <section id="experience">
 <div class="wrap">
@@ -832,7 +955,7 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 <p class="section-sub" data-en="Structured, practical programs — not classroom theory. Each one ended in real infrastructure work." data-ar="برامج عملية مكثفة وليست مجرد نظريات. انتهت كل منها بمشاريع بنية تحتية حقيقية.">Structured, practical programs — not classroom theory. Each one ended in real infrastructure work.</p>
   <div class="timeline">
     <div class="tl-item">
-      <div class="tl-date">2024 — Present</div>
+      <div class="tl-date">2026 — Present</div>
       <div class="tl-role" data-en="DevOps Engineering Trainee" data-ar="متدرب هندسة DevOps">DevOps Engineering Trainee</div>
       <div class="tl-org" data-en="Digital Egypt Pioneers Initiative (DEPI)" data-ar="مبادرة رواد مصر الرقمية (DEPI)">Digital Egypt Pioneers Initiative (DEPI)</div>
       <ul>
@@ -845,8 +968,8 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
     </div>
   </div>
 </div>
-​
 </section>
+
 <!-- PROJECT -->
 <section id="project">
 <div class="wrap">
@@ -879,8 +1002,8 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
     </div>
   </div>
 </div>
-​
 </section>
+
 <!-- EDUCATION -->
 <section id="education">
 <div class="wrap">
@@ -891,6 +1014,8 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 <h3 data-en="Bachelor of Science in Computers & IT" data-ar="بكالوريوس الحاسبات والمعلومات">Bachelor of Science in Computers & IT</h3>
 <div class="org" data-en="Menofia University" data-ar="جامعة المنوفية">Menofia University</div>
 <div class="dept" data-en="Faculty of Computers and Information" data-ar="كلية الحاسبات والمعلومات">Faculty of Computers and Information</div>
+  <div class="dept" data-en="Information Technology (IT) Department" data-ar="قسم تكنولوجيا المعلومات (IT)"> Information Technology (IT) Department </div> </div>
+  <div class="gpa" data-en="GPA: 3.4 / 4.0" data-ar="المعدل التراكمي: 3.4 / 4.0"> GPA: 3.4 / 4.0 </div>
 </div>
 <div class="edu-meta">
 <div data-en="Expected Graduation: 2027" data-ar="التخرج المتوقع: 2027">Expected Graduation: 2027</div>
@@ -899,7 +1024,8 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 </div>
 </div>
 </section>
-<!-- CONTACT SECTION (UPDATED DUAL CARD DESIGN) -->
+
+<!-- CONTACT SECTION -->
 <section id="contact">
 <div class="wrap">
 <div class="section-tag" data-en="06 — Contact" data-ar="06 — تواصل معي">06 — Contact</div>
@@ -942,35 +1068,35 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 
       <div class="info-cards">
         <!-- Email -->
-        <a href="mailto:adel.elgohary@example.com" class="info-item">
+        <a href="mailto:adel.elgohary404@gmail.com" class="info-item">
           <div class="info-icon icon-email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
           <div class="info-content">
             <span class="info-label" data-en="Email" data-ar="البريد الإلكتروني">Email</span>
-            <span class="info-val">adel.elgohary@example.com</span>
+            <span class="info-val">adel.elgohary404@gmail.com</span>
           </div>
         </a>
 
         <!-- Whatsapp -->
-        <a href="<https://wa.me/201000000000>" target="_blank" rel="noopener noreferrer" class="info-item">
+        <a href="https://wa.me/201204287281" target="_blank" rel="noopener noreferrer" class="info-item">
           <div class="info-icon icon-whatsapp">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           </div>
           <div class="info-content">
             <span class="info-label">Whatsapp</span>
-            <span class="info-val">+20 100 000 0000</span>
+            <span class="info-val">+20 120 428 7281</span>
           </div>
         </a>
 
         <!-- Phone -->
-        <a href="tel:+201000000000" class="info-item">
+        <a href="tel:+201204287281" class="info-item">
           <div class="info-icon icon-phone">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
           <div class="info-content">
             <span class="info-label" data-en="Phone" data-ar="الهاتف">Phone</span>
-            <span class="info-val">+20 100 000 0000</span>
+            <span class="info-val">+201102298554</span>
           </div>
         </a>
 
@@ -988,69 +1114,119 @@ footer{ border-top:1px solid var(--border); padding:36px 0; color:var(--ink-fain
 
       <div class="social-title" data-en="Follow Me On" data-ar="تابعني على">Follow Me On</div>
       <div class="social-links">
-        <a href="<https://github.com/adelelgohary>" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="<https://linkedin.com/in/adelelgohary>" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
       </div>
     </div>
   </div>
 </div>
-​
 </section>
 </main>
-<footer>
-<div class="wrap footer-flex">
-<div>© 2026 Adel Elgohary. All rights reserved.</div>
-<div>Designed for High Reliability.</div>
-</div>
+
+<!-- FOOTER SECTION -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Column 1: Let's Connect -->
+    <div class="footer-col">
+      <h3 class="footer-heading">LET'S CONNECT</h3>
+      <p class="footer-text">
+        I'm always open to discussing new DevOps opportunities, cloud infrastructure optimization, and CI/CD automation projects.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/201204287281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Brand / Logo Center -->
+    <div class="footer-col footer-center">
+      <div class="footer-logo">
+        <span class="logo-badge">AE</span>
+        <span class="logo-text">Adel.</span>
+      </div>
+      <p class="footer-subtext">DevOps & Cloud Engineer - Egypt</p>
+      <div class="tech-stack-icons">
+        <span class="tech-badge" title="Docker"><i class="fab fa-docker"></i></span>
+        <span class="tech-badge" title="AWS"><i class="fab fa-aws"></i></span>
+        <span class="tech-badge" title="Linux"><i class="fab fa-linux"></i></span>
+        <span class="tech-badge" title="Python"><i class="fab fa-python"></i></span>
+      </div>
+    </div>
+
+    <!-- Column 3: Who Am I -->
+    <div class="footer-col">
+      <h3 class="footer-heading align-right">WHO AM I?</h3>
+      <p class="footer-text align-right">
+        I'm <strong>Adel Elgohary</strong>, a DevOps & Cloud Engineer passionate about building scalable infrastructure, automating workflows, and securing network deployments.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Adel Elgohary. All Rights Reserved | Built with ♥ & Code</p>
+    <button id="scrollToTopBtn" aria-label="Scroll to top">↑</button>
+  </div>
 </footer>
+
 <script>
+// Scroll To Top Button functionality
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+if(scrollToTopBtn) {
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 // Mobile Nav Toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 if(navToggle && navLinks) {
-navToggle.addEventListener('click', () => {
-const isOpen = navLinks.classList.toggle('open');
-navToggle.setAttribute('aria-expanded', isOpen);
-});
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
 }
+
 // Language Switcher
 const langToggle = document.getElementById('langToggle');
 if (langToggle) {
-langToggle.addEventListener('click', () => {
-const isAr = document.documentElement.getAttribute('dir') === 'rtl';
-if (isAr) {
-document.documentElement.setAttribute('dir', 'ltr');
-document.documentElement.setAttribute('lang', 'en');
-langToggle.textContent = 'عربي';
-} else {
-document.documentElement.setAttribute('dir', 'rtl');
-document.documentElement.setAttribute('lang', 'ar');
-langToggle.textContent = 'English';
-}
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const text = isAr ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-    if(text) el.textContent = text;
-  });
+  langToggle.addEventListener('click', () => {
+    const isAr = document.documentElement.getAttribute('dir') === 'rtl';
+    if (isAr) {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.documentElement.setAttribute('lang', 'en');
+      langToggle.textContent = 'عربي';
+    } else {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('lang', 'ar');
+      langToggle.textContent = 'English';
+    }
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = isAr ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+      if(text) el.textContent = text;
+    });
 
-  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
-    const placeholder = isAr ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-ar');
-    if(placeholder) el.setAttribute('placeholder', placeholder);
+    document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+      const placeholder = isAr ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-ar');
+      if(placeholder) el.setAttribute('placeholder', placeholder);
+    });
   });
-});
-​
 }
+
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
 if(themeToggle) {
-themeToggle.addEventListener('click', () => {
-document.body.classList.toggle('light-mode');
-themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
-});
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+  });
 }
+
 // Typing Effect for Command Prompt
 const words = ["terraform plan", "kubectl apply -f app.yaml", "docker compose up -d", "ansible-playbook site.yml"];
 let wordIndex = 0;
@@ -1058,76 +1234,77 @@ let charIndex = 0;
 let isDeleting = false;
 const typedEl = document.getElementById("typed");
 function typeEffect() {
-if(!typedEl) return;
-const currentWord = words[wordIndex];
-if (isDeleting) {
-typedEl.textContent = currentWord.substring(0, charIndex - 1);
-charIndex--;
-} else {
-typedEl.textContent = currentWord.substring(0, charIndex + 1);
-charIndex++;
-}
-let speed = isDeleting ? 30 : 70;
-if (!isDeleting && charIndex === currentWord.length) {
-  speed = 2000;
-  isDeleting = true;
-} else if (isDeleting && charIndex === 0) {
-  isDeleting = false;
-  wordIndex = (wordIndex + 1) % words.length;
-  speed = 400;
-}
-setTimeout(typeEffect, speed);
-​
+  if(!typedEl) return;
+  const currentWord = words[wordIndex];
+  if (isDeleting) {
+    typedEl.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typedEl.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+  }
+  let speed = isDeleting ? 30 : 70;
+  if (!isDeleting && charIndex === currentWord.length) {
+    speed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    speed = 400;
+  }
+  setTimeout(typeEffect, speed);
 }
 document.addEventListener("DOMContentLoaded", typeEffect);
+
 // Greeting Typing Effect Script
 const greetingEl = document.getElementById("typed-greeting");
 let greetingIndex = 0;
 let greetingCharIndex = 0;
 let isGreetingDeleting = false;
 function typeGreetingEffect() {
-if (!greetingEl) return;
-const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
-const greetings = isRTL
-  ? ["// أهلاً، أنا", "// مرحباً بك، أنا"]
-  : ["// HELLO, I'M", "// WELCOME, I'M"];
+  if (!greetingEl) return;
+  const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+  const greetings = isRTL
+    ? [" أهلاً، أنا", " مرحباً بك، أنا"]
+    : [" HELLO, I'M", " WELCOME, I'M"];
 
-const currentGreeting = greetings[greetingIndex % greetings.length];
+  const currentGreeting = greetings[greetingIndex % greetings.length];
 
-if (isGreetingDeleting) {
-  greetingEl.textContent = currentGreeting.substring(0, greetingCharIndex - 1);
-  greetingCharIndex--;
-} else {
-  greetingEl.textContent = currentGreeting.substring(0, greetingCharIndex + 1);
-  greetingCharIndex++;
-}
+  if (isGreetingDeleting) {
+    greetingEl.textContent = currentGreeting.substring(0, greetingCharIndex - 1);
+    greetingCharIndex--;
+  } else {
+    greetingEl.textContent = currentGreeting.substring(0, greetingCharIndex + 1);
+    greetingCharIndex++;
+  }
 
-let speed = isGreetingDeleting ? 40 : 80;
+  let speed = isGreetingDeleting ? 40 : 80;
 
-if (!isGreetingDeleting && greetingCharIndex === currentGreeting.length) {
-  speed = 2500;
-  isGreetingDeleting = true;
-} else if (isGreetingDeleting && greetingCharIndex === 0) {
-  isGreetingDeleting = false;
-  greetingIndex++;
-  speed = 500;
-}
+  if (!isGreetingDeleting && greetingCharIndex === currentGreeting.length) {
+    speed = 2500;
+    isGreetingDeleting = true;
+  } else if (isGreetingDeleting && greetingCharIndex === 0) {
+    isGreetingDeleting = false;
+    greetingIndex++;
+    speed = 500;
+  }
 
-setTimeout(typeGreetingEffect, speed);
-​
+  setTimeout(typeGreetingEffect, speed);
 }
 document.addEventListener("DOMContentLoaded", typeGreetingEffect);
+
 // Scroll Reveal Animations
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if(entry.isIntersecting) {
-entry.target.classList.add('in');
-}
-});
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('in');
+    }
+  });
 }, { threshold: 0.15 });
+
 document.querySelectorAll('.reveal, .skill-card, .project-card, .edu-card, .contact-box').forEach(el => {
-el.classList.add('reveal');
-observer.observe(el);
+  el.classList.add('reveal');
+  observer.observe(el);
 });
 </script>
 </body>

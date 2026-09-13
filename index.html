@@ -101,7 +101,7 @@
   header{
     position:fixed;top:0;left:0;right:0;
     z-index:100;
-    background:rgba(11,20,32,0.86);
+    background:rgba(11,20,32,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
   }
@@ -116,20 +116,41 @@
     display:flex;align-items:center;gap:9px;
   }
   .brand-dot{width:7px;height:7px;background:var(--ok);border-radius:50%;flex-shrink:0;}
-  .nav-links{display:flex;gap:34px;font-size:14.5px;}
+  .nav-links{display:flex;gap:28px;font-size:14.5px;align-items:center;}
   .nav-links a{color:var(--ink-dim);transition:color .15s ease;position:relative;}
-  .nav-links a:hover{color:var(--ink);}
-  .nav-icons{display:flex;gap:12px;align-items:center;}
-  .nav-icons a{color:var(--ink-dim);transition:color .15s ease;}
-  .nav-icons a:hover{color:var(--accent);}
-  .nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--ink);width:38px;height:38px;border-radius:6px;align-items:center;justify-content:center;cursor:pointer;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-icons{display:flex;gap:10px;align-items:center;}
+  
+  /* GRID MENU BUTTON ICON */
+  .nav-toggle{
+    display:none;
+    background:var(--bg-panel-raised);
+    border:1px solid var(--border);
+    color:var(--ink);
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:all 0.15s ease;
+    padding: 0;
+  }
+  .nav-toggle:hover{
+    border-color:var(--accent);
+  }
+  .nav-toggle svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
 
   /* ---------- NAV BUTTONS (Theme & Lang) ---------- */
   .nav-btn {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--ink-dim);
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-mono);
@@ -142,6 +163,44 @@
   .nav-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
+  }
+
+  /* ---------- RESPONSIVE MOBILE MENU ---------- */
+  @media(max-width:960px){
+    .desktop-only { display: none !important; }
+    .nav-toggle { display: flex; }
+    
+    .nav-links {
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--bg-panel);
+      flex-direction: column;
+      padding: 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      align-items: flex-start;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .nav-links.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .nav-links a {
+      font-size: 16px;
+      width: 100%;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(140,175,205,0.08);
+    }
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
   }
 
   /* ---------- LIGHT MODE OVERRIDES ---------- */
@@ -194,23 +253,6 @@
   html[dir="rtl"] .pcol ul li::before {
     left: auto;
     right: 0;
-  }
-
-  @media(max-width:860px){
-    .nav-links{
-      position:fixed;top:68px;left:0;right:0;
-      background:var(--bg-panel);
-      flex-direction:column;
-      padding:22px 32px;
-      gap:20px;
-      border-bottom:1px solid var(--border);
-      transform:translateY(-8px);
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .18s ease, transform .18s ease;
-    }
-    .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
-    .nav-toggle{display:flex;}
   }
 
   /* ---------- BUTTONS ---------- */
@@ -530,6 +572,7 @@
       <span style="font-family: var(--font-mono); font-size: 15px; color: var(--ink);">adel.elgohary</span>
     </a>
 
+    <!-- NAV LINKS (Includes Desktop + Mobile Mapped Pages) -->
     <div class="nav-links" id="navLinks">
       <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
       <a href="#about" data-en="About" data-ar="عنّي">About</a>
@@ -537,11 +580,14 @@
       <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
       <a href="#project" data-en="Project" data-ar="المشاريع">Project</a>
       <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
+      <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+      <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener">GitHub</a>
     </div>
 
     <div class="nav-icons">
-      <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
-      <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      <!-- Desktop Only Links -->
+      <a href="#contact" class="desktop-only" data-en="Contact" data-ar="تواصل معي">Contact</a>
+      <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener" class="desktop-only" aria-label="GitHub">GitHub</a>
       
       <!-- Theme Toggle -->
       <button class="nav-btn" id="themeToggle" aria-label="Toggle Theme">🌙</button>
@@ -549,7 +595,20 @@
       <!-- Language Toggle -->
       <button class="nav-btn lang-btn" id="langToggle">عربي</button>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <!-- Grid Icon Menu Button (Mobile) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="2"/>
+          <circle cx="12" cy="5" r="2"/>
+          <circle cx="19" cy="5" r="2"/>
+          <circle cx="5" cy="12" r="2"/>
+          <circle cx="12" cy="12" r="2"/>
+          <circle cx="19" cy="12" r="2"/>
+          <circle cx="5" cy="19" r="2"/>
+          <circle cx="12" cy="19" r="2"/>
+          <circle cx="19" cy="19" r="2"/>
+        </svg>
+      </button>
     </div>
   </nav>
 </header>

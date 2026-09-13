@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%230B1420%22/><path d=%22M20 65 L38 40 L52 55 L80 30%22 stroke=%22%23E8A33D%22 stroke-width=%228%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%2280%22 cy=%2230%22 r=%226%22 fill=%22%23E8A33D%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0B1420;
@@ -27,13 +27,12 @@
     --line-cyan:#5FA8C9;
     --ok:#5FBF8F;
     --border:rgba(140,175,205,0.16);
-    --font-sans:'IBM Plex Sans',-apple-system,sans-serif;
-    --font-mono:'IBM Plex Mono',monospace;
+    --font-sans:'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
     --maxw:1120px;
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-
   html{scroll-behavior:smooth;}
 
   @media (prefers-reduced-motion: reduce){
@@ -54,19 +53,16 @@
   }
 
   a{color:inherit;text-decoration:none;}
-
   ::selection{background:var(--accent-soft);color:var(--ink);}
-
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-
   img{max-width:100%;display:block;}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
 
   .mono{font-family:var(--font-mono);}
-
   section{padding:120px 0;}
-  @media(max-width:640px){ section{padding:76px 0;} }
+  @media(max-width:640px){ section{padding:60px 0;} }
 
   .section-tag{
     font-family:var(--font-mono);
@@ -88,19 +84,18 @@
   }
 
   h1,h2,h3{font-weight:650;letter-spacing:-0.01em;}
-
   h2.section-title{
-    font-size:clamp(28px,3.6vw,40px);
+    font-size:clamp(24px,3.6vw,40px);
     max-width:640px;
     margin-bottom:16px;
   }
-
   .section-sub{
     color:var(--ink-dim);
     max-width:560px;
     font-size:16px;
     margin-bottom:56px;
   }
+  @media(max-width:640px){ .section-sub{margin-bottom:32px;} }
 
   /* ---------- NAV ---------- */
   header{
@@ -124,7 +119,7 @@
   .nav-links{display:flex;gap:34px;font-size:14.5px;}
   .nav-links a{color:var(--ink-dim);transition:color .15s ease;position:relative;}
   .nav-links a:hover{color:var(--ink);}
-  .nav-icons{display:flex;gap:18px;align-items:center;}
+  .nav-icons{display:flex;gap:12px;align-items:center;}
   .nav-icons a{color:var(--ink-dim);transition:color .15s ease;}
   .nav-icons a:hover{color:var(--accent);}
   .nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--ink);width:38px;height:38px;border-radius:6px;align-items:center;justify-content:center;cursor:pointer;}
@@ -134,7 +129,7 @@
     background: transparent;
     border: 1px solid var(--border);
     color: var(--ink-dim);
-    padding: 5px 12px;
+    padding: 5px 10px;
     border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-mono);
@@ -164,6 +159,7 @@
 
   /* ---------- RTL (ARABIC) SUPPORT ---------- */
   html[dir="rtl"] body {
+    font-family: 'Cairo', var(--font-sans);
     direction: rtl;
     text-align: right;
   }
@@ -191,8 +187,13 @@
     right: 0;
     content: "‹";
   }
-  html[dir="rtl"] .hero-links a {
-    direction: ltr;
+  html[dir="rtl"] .pcol ul li {
+    padding-left: 0;
+    padding-right: 14px;
+  }
+  html[dir="rtl"] .pcol ul li::before {
+    left: auto;
+    right: 0;
   }
 
   @media(max-width:860px){
@@ -214,7 +215,7 @@
 
   /* ---------- BUTTONS ---------- */
   .btn{
-    display:inline-flex;align-items:center;gap:9px;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
     padding:13px 22px;
     border-radius:6px;
     font-size:14.5px;
@@ -229,19 +230,25 @@
   .btn-ghost{border-color:var(--border);color:var(--ink);}
   .btn-ghost:hover{border-color:var(--ink-dim);}
 
+  @media(max-width:480px){
+    .btn{width:100%;}
+  }
+
   /* ---------- HERO ---------- */
   .hero{
-    padding:168px 0 110px;
+    padding:150px 0 90px;
     position:relative;
     overflow:hidden;
   }
+  @media(max-width:640px){ .hero{padding:100px 0 50px;} }
+
   .hero-grid{
     display:grid;
     grid-template-columns:1.15fr 0.85fr;
     gap:56px;
     align-items:center;
   }
-  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:40px;} }
 
   .status-pill{
     display:inline-flex;align-items:center;gap:8px;
@@ -257,8 +264,8 @@
   .status-pill span.d{width:6px;height:6px;background:var(--ok);border-radius:50%;}
 
   .hero h1{
-    font-size:clamp(38px,5.4vw,60px);
-    line-height:1.06;
+    font-size:clamp(32px,5.4vw,60px);
+    line-height:1.1;
     margin-bottom:22px;
   }
   .hero h1 .role{
@@ -271,14 +278,14 @@
     letter-spacing:0.01em;
   }
   .hero p.lead{
-    font-size:18px;
+    font-size:17px;
     color:var(--ink-dim);
     max-width:520px;
     margin-bottom:36px;
   }
   .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
 
-  .hero-links{display:flex;gap:24px;font-family:var(--font-mono);font-size:13.5px;color:var(--ink-dim);}
+  .hero-links{display:flex;flex-wrap:wrap;gap:20px;font-family:var(--font-mono);font-size:13.5px;color:var(--ink-dim);}
   .hero-links a{display:flex;align-items:center;gap:7px;transition:color .15s ease;}
   .hero-links a:hover{color:var(--accent);}
 
@@ -301,13 +308,13 @@
     letter-spacing:0.03em;
   }
   .schematic-row{
-    display:flex;justify-content:space-between;
+    display:flex;justify-content:space-between;gap:10px;
     padding:9px 0;
     border-top:1px dashed var(--border);
   }
   .schematic-row:first-of-type{border-top:none;}
   .schematic-row .k{color:var(--ink-faint);}
-  .schematic-row .v{color:var(--ink);}
+  .schematic-row .v{color:var(--ink);text-align:end;}
   .schematic-row .v.ok{color:var(--ok);}
 
   /* ---------- ABOUT ---------- */
@@ -323,14 +330,14 @@
 
   .stack-list{border:1px solid var(--border);border-radius:10px;overflow:hidden;}
   .stack-row{
-    display:flex;justify-content:space-between;align-items:center;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
     padding:16px 20px;
     border-bottom:1px solid var(--border);
     font-size:14.5px;
   }
   .stack-row:last-child{border-bottom:none;}
-  .stack-row .label{color:var(--ink-faint);font-family:var(--font-mono);font-size:12.5px;}
-  .stack-row .val{color:var(--ink);text-align:right;}
+  .stack-row .label{color:var(--ink-faint);font-family:var(--font-mono);font-size:12.5px;flex-shrink:0;}
+  .stack-row .val{color:var(--ink);text-align:end;}
 
   /* ---------- SKILLS ---------- */
   .skills-grid{
@@ -365,6 +372,8 @@
 
   /* ---------- EXPERIENCE (timeline) ---------- */
   .timeline{border-left:1px solid var(--border);margin-left:6px;}
+  html[dir="rtl"] .timeline{border-left:none;border-right:1px solid var(--border);margin-left:0;margin-right:6px;}
+
   .tl-item{position:relative;padding:0 0 48px 34px;}
   .tl-item:last-child{padding-bottom:0;}
   .tl-item::before{
@@ -413,6 +422,8 @@
   .project-head{
     padding:32px 32px 0;
   }
+  @media(max-width:640px){ .project-head{padding:20px 20px 0;} }
+
   .project-head .ptag{font-family:var(--font-mono);font-size:12px;color:var(--accent);margin-bottom:10px;}
   .project-head h3{font-size:24px;margin-bottom:8px;}
   .project-head .ptools{color:var(--ink-faint);font-family:var(--font-mono);font-size:12.5px;margin-bottom:26px;}
@@ -426,25 +437,31 @@
     margin-top:6px;
   }
   @media(max-width:800px){ .project-body{grid-template-columns:1fr 1fr;} }
-  @media(max-width:520px){ .project-body{grid-template-columns:1fr;} }
+  @media(max-width:520px){ .project-body{grid-template-columns:1fr;padding:0 20px 20px;} }
+  
   .pcol{padding:24px 20px 0;}
   .pcol:not(:last-child){border-right:1px solid var(--border);}
+  html[dir="rtl"] .pcol:not(:last-child){border-right:none;border-left:1px solid var(--border);}
+
   @media(max-width:800px){
     .pcol:nth-child(2n){border-right:none;}
+    html[dir="rtl"] .pcol:nth-child(2n){border-left:none;}
     .pcol:nth-child(n+3){border-top:1px solid var(--border);}
   }
   @media(max-width:520px){
-    .pcol{border-right:none !important;border-top:1px solid var(--border);}
+    .pcol{border-right:none !important;border-left:none !important;border-top:1px solid var(--border);padding:20px 0 0;}
     .pcol:first-child{border-top:none;}
   }
+
   .pcol .h{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);margin-bottom:10px;letter-spacing:0.02em;}
   .pcol p, .pcol li{font-size:14px;color:var(--ink-dim);}
   .pcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
   .pcol ul li{padding-left:14px;position:relative;}
   .pcol ul li::before{content:"—";position:absolute;left:0;color:var(--ink-faint);}
 
-  .diagram-wrap{padding:0 32px 32px;}
-  .diagram-wrap svg{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:var(--bg);}
+  .diagram-wrap{padding:0 32px 32px;overflow-x:auto;}
+  @media(max-width:640px){ .diagram-wrap{padding:0 20px 20px;} }
+  .diagram-wrap svg{width:100%;min-width:600px;height:auto;border:1px solid var(--border);border-radius:8px;background:var(--bg);}
 
   /* ---------- EDUCATION ---------- */
   .edu-card{
@@ -457,29 +474,32 @@
   .edu-card h3{font-size:19px;margin-bottom:6px;}
   .edu-card .org{color:var(--ink-dim);font-size:14.5px;margin-bottom:4px;}
   .edu-card .dept{color:var(--ink-faint);font-size:13.5px;}
-  .edu-meta{text-align:right;font-family:var(--font-mono);font-size:13px;color:var(--ink-faint);}
+  .edu-meta{text-align:end;font-family:var(--font-mono);font-size:13px;color:var(--ink-faint);}
   .edu-meta .gpa{color:var(--accent);font-size:15px;margin-top:6px;}
 
   /* ---------- CONTACT ---------- */
   .contact-grid{
     display:grid;grid-template-columns:1fr 1fr;gap:40px;
   }
-  @media(max-width:760px){ .contact-grid{grid-template-columns:1fr;} }
+  @media(max-width:760px){ .contact-grid{grid-template-columns:1fr;gap:20px;} }
   .contact-card{
     border:1px solid var(--border);
     border-radius:10px;
     padding:32px;
     background:var(--bg-panel);
   }
+  @media(max-width:640px){ .contact-card{padding:20px;} }
+
   .contact-list{display:flex;flex-direction:column;gap:20px;margin-top:24px;}
   .contact-list a, .contact-list .item{
-    display:flex;justify-content:space-between;align-items:center;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
     padding-bottom:16px;border-bottom:1px solid var(--border);
     font-size:15px;
+    word-break: break-all;
   }
   .contact-list a:last-child, .contact-list .item:last-child{border-bottom:none;padding-bottom:0;}
-  .contact-list .lbl{color:var(--ink-faint);font-family:var(--font-mono);font-size:12px;}
-  .contact-list a .val{transition:color .15s ease;}
+  .contact-list .lbl{color:var(--ink-faint);font-family:var(--font-mono);font-size:12px;flex-shrink:0;}
+  .contact-list a .val{transition:color .15s ease;text-align:end;}
   .contact-list a:hover .val{color:var(--accent);}
 
   footer{
@@ -488,7 +508,9 @@
     color:var(--ink-faint);
     font-size:13px;
     font-family:var(--font-mono);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  .footer-flex{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;
   }
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;}
@@ -538,16 +560,19 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="status-pill"><span class="d"></span>Open to Cloud / DevOps roles &amp; internships</div>
+        <div class="status-pill">
+          <span class="d"></span>
+          <span data-en="Open to Cloud / DevOps roles & internships" data-ar="متاح لفرص العمل والتدريب في Cloud / DevOps">Open to Cloud / DevOps roles & internships</span>
+        </div>
         <h1>
-          Adel Elgohary
-          <span class="role">Cloud &amp; DevOps Engineer</span>
+          <span data-en="Adel Elgohary" data-ar="عادل الجوهري">Adel Elgohary</span>
+          <span class="role" data-en="Cloud & DevOps Engineer" data-ar="مهندس سحابي وحلول DevOps">Cloud & DevOps Engineer</span>
         </h1>
-        <p class="lead">I design and automate infrastructure — from VLANs and routing tables to containers and CI/CD pipelines — with security built in from the start, not bolted on after.</p>
+        <p class="lead" data-en="I design and automate infrastructure — from VLANs and routing tables to containers and CI/CD pipelines — with security built in from the start, not bolted on after." data-ar="أقوم بتصميم وأتمتة البنية التحتية — بدءًا من شبكات VLAN وجداول التوجيه إلى الحاويات وأنابيب CI/CD — مع دمج الأمان من البداية، وليس كإضافة متأخرة.">I design and automate infrastructure — from VLANs and routing tables to containers and CI/CD pipelines — with security built in from the start, not bolted on after.</p>
         <div class="hero-ctas">
-          <a href="#project" class="btn btn-primary">View Project</a>
-          <a href="./Adel_Elgohary_CV.pdf" class="btn btn-ghost" download>Download CV</a>
-          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          <a href="#project" class="btn btn-primary" data-en="View Project" data-ar="عرض المشروع">View Project</a>
+          <a href="./Adel_Elgohary_CV.pdf" class="btn btn-ghost" download data-en="Download CV" data-ar="تحميل السيرة الذاتية">Download CV</a>
+          <a href="#contact" class="btn btn-ghost" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
         </div>
         <div class="hero-links">
           <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener">→ github.com/adel-elgohary</a>
@@ -555,16 +580,16 @@
         </div>
       </div>
       <div class="schematic reveal" id="schematicPanel">
-        <div class="schematic-head"><span>SYS://profile</span><span>Cairo, EG</span></div>
-        <div class="schematic-row"><span class="k">role</span><span class="v">devops_engineer</span></div>
-        <div class="schematic-row"><span class="k">focus</span><span class="v">cloud · automation · networking</span></div>
-        <div class="schematic-row"><span class="k">cloud</span><span class="v">AWS</span></div>
-        <div class="schematic-row"><span class="k">containers</span><span class="v">Docker, Kubernetes</span></div>
-        <div class="schematic-row"><span class="k">iac</span><span class="v">Terraform, Ansible</span></div>
-        <div class="schematic-row"><span class="k">ci_cd</span><span class="v">Jenkins, Git</span></div>
-        <div class="schematic-row"><span class="k">network</span><span class="v">VLANs, OSPF, VPN</span></div>
-        <div class="schematic-row"><span class="k">monitoring</span><span class="v">Prometheus, Grafana</span></div>
-        <div class="schematic-row"><span class="k">status</span><span class="v ok">● training in progress</span></div>
+        <div class="schematic-head"><span>SYS://profile</span><span data-en="Cairo, EG" data-ar="القاهرة، مصر">Cairo, EG</span></div>
+        <div class="schematic-row"><span class="k" data-en="role" data-ar="المسمى الوظيفي">role</span><span class="v">devops_engineer</span></div>
+        <div class="schematic-row"><span class="k" data-en="focus" data-ar="التركيز">focus</span><span class="v" data-en="cloud · automation · networking" data-ar="السحابة · الأتمتة · الشبكات">cloud · automation · networking</span></div>
+        <div class="schematic-row"><span class="k" data-en="cloud" data-ar="الخدمات السحابية">cloud</span><span class="v">AWS</span></div>
+        <div class="schematic-row"><span class="k" data-en="containers" data-ar="الحاويات">containers</span><span class="v">Docker, Kubernetes</span></div>
+        <div class="schematic-row"><span class="k" data-en="iac" data-ar="البنية التحتية ككود">iac</span><span class="v">Terraform, Ansible</span></div>
+        <div class="schematic-row"><span class="k" data-en="ci_cd" data-ar="أدوات CI/CD">ci_cd</span><span class="v">Jenkins, Git</span></div>
+        <div class="schematic-row"><span class="k" data-en="network" data-ar="الشبكات">network</span><span class="v">VLANs, OSPF, VPN</span></div>
+        <div class="schematic-row"><span class="k" data-en="monitoring" data-ar="المراقبة">monitoring</span><span class="v">Prometheus, Grafana</span></div>
+        <div class="schematic-row"><span class="k" data-en="status" data-ar="الحالة">status</span><span class="v ok" data-en="● training in progress" data-ar="● التدريب مستمر">● training in progress</span></div>
       </div>
     </div>
   </section>
@@ -572,22 +597,22 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
-      <div class="section-tag">01 — About</div>
-      <h2 class="section-title">Grounded in networks, moving into automated infrastructure.</h2>
+      <div class="section-tag" data-en="01 — About" data-ar="01 — عنّي">01 — About</div>
+      <h2 class="section-title" data-en="Grounded in networks, moving into automated infrastructure." data-ar="أساس قوي في الشبكات، مع التوسع في البنية التحتية المؤتمتة.">Grounded in networks, moving into automated infrastructure.</h2>
       <div class="about-grid">
         <div>
-          <p>I'm a Computers &amp; Information Technology student at <strong>Menofia University</strong>, building my path into cloud and DevOps engineering one system at a time.</p>
-          <p>My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container.</p>
-          <p>From there I moved into automation and cloud: <strong>Docker and Kubernetes</strong> for packaging and orchestration, <strong>Terraform and Ansible</strong> for infrastructure as code, <strong>Jenkins</strong> for CI/CD, and <strong>AWS</strong> for the platform underneath it all — with <strong>Prometheus</strong> for keeping an eye on whether any of it is actually working.</p>
-          <p>I'm currently completing structured, hands-on training through <strong>DEPI</strong> and <strong>NTI</strong>, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises.</p>
+          <p data-en="I'm a Computers & Information Technology student at Menofia University, building my path into cloud and DevOps engineering one system at a time." data-ar="أنا طالب بكلية الحاسبات والمعلومات بجامعة المنوفية، أبني مساري في مجال السحابة وهندسة DevOps خطوة بخطوة.">I'm a Computers &amp; Information Technology student at <strong>Menofia University</strong>, building my path into cloud and DevOps engineering one system at a time.</p>
+          <p data-en="My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container." data-ar="لم تكن نقطة بدايتي السحابة — بل كانت الشبكات: التوجيه والتبديل (Routing & Switching)، تقسيم VLAN، الجدران النارية، وحلول VPN. تشكل هذه الخلفية طريقة تفكيري في البنية التحتية الآن: يهمني ما يحدث على مستوى الحزم (Packets) تمامًا كما يهمني ما يحدث داخل الحاوية.">My starting point wasn't the cloud — it was networking. Routing and switching, VLAN segmentation, firewalls, IPsec/SSL VPNs. That background shapes how I think about infrastructure now: I care about what happens at the packet level as much as what happens inside a container.</p>
+          <p data-en="From there I moved into automation and cloud: Docker and Kubernetes for packaging and orchestration, Terraform and Ansible for infrastructure as code, Jenkins for CI/CD, and AWS for the platform underneath it all — with Prometheus for keeping an eye on whether any of it is actually working." data-ar="من هناك انتقلت إلى الأتمتة والسحابة: Docker و Kubernetes لإدارة الحاويات، Terraform و Ansible للبنية التحتية ككود، Jenkins لـ CI/CD، و AWS كمنصة أساسية — مع Prometheus لمراقبة أداء النظام بالكامل.">From there I moved into automation and cloud: <strong>Docker and Kubernetes</strong> for packaging and orchestration, <strong>Terraform and Ansible</strong> for infrastructure as code, <strong>Jenkins</strong> for CI/CD, and <strong>AWS</strong> for the platform underneath it all — with <strong>Prometheus</strong> for keeping an eye on whether any of it is actually working.</p>
+          <p data-en="I'm currently completing structured, hands-on training through DEPI and NTI, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises." data-ar="أكمل حاليًا تدريبًا عمليًا مكثفًا من خلال مبادرة DEPI ومعهد NTI، وأبحث عن فرصة عمل — تدريب عملي، برنامج حديثي التخرج، أو وظيفة مبتدئة — لبناء بنية تحتية حقيقية.">I'm currently completing structured, hands-on training through <strong>DEPI</strong> and <strong>NTI</strong>, and looking for a role — internship, graduate program, or junior position — where I can keep building real infrastructure, not just lab exercises.</p>
         </div>
         <div class="stack-list">
-          <div class="stack-row"><span class="label">LOCATION</span><span class="val">Cairo, Egypt</span></div>
-          <div class="stack-row"><span class="label">EDUCATION</span><span class="val">B.Sc. Computers &amp; IT — Menofia University</span></div>
-          <div class="stack-row"><span class="label">TRACK</span><span class="val">Cloud &amp; DevOps Engineering</span></div>
-          <div class="stack-row"><span class="label">BACKGROUND</span><span class="val">Networking &amp; Security → Cloud &amp; Automation</span></div>
-          <div class="stack-row"><span class="label">CURRENTLY</span><span class="val">DEPI DevOps Track, NTI Cloud &amp; Network Track</span></div>
-          <div class="stack-row"><span class="label">LANGUAGES</span><span class="val">Arabic (native), English (conversational)</span></div>
+          <div class="stack-row"><span class="label" data-en="LOCATION" data-ar="الموقع">LOCATION</span><span class="val" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span></div>
+          <div class="stack-row"><span class="label" data-en="EDUCATION" data-ar="التعليم">EDUCATION</span><span class="val" data-en="B.Sc. Computers & IT — Menofia University" data-ar="بكالوريوس الحاسبات والمعلومات — جامعة المنوفية">B.Sc. Computers &amp; IT — Menofia University</span></div>
+          <div class="stack-row"><span class="label" data-en="TRACK" data-ar="المسار">TRACK</span><span class="val" data-en="Cloud & DevOps Engineering" data-ar="هندسة السحابة و DevOps">Cloud &amp; DevOps Engineering</span></div>
+          <div class="stack-row"><span class="label" data-en="BACKGROUND" data-ar="الخلفية">BACKGROUND</span><span class="val" data-en="Networking & Security → Cloud & Automation" data-ar="الشبكات والأمان ← السحابة والأتمتة">Networking &amp; Security → Cloud &amp; Automation</span></div>
+          <div class="stack-row"><span class="label" data-en="CURRENTLY" data-ar="حاليًا">CURRENTLY</span><span class="val" data-en="DEPI DevOps Track, NTI Cloud & Network Track" data-ar="مسار DEPI DevOps، مسار NTI السحابي والشبكات">DEPI DevOps Track, NTI Cloud &amp; Network Track</span></div>
+          <div class="stack-row"><span class="label" data-en="LANGUAGES" data-ar="اللغات">LANGUAGES</span><span class="val" data-en="Arabic (native), English (conversational)" data-ar="العربية (اللغة الأم)، الإنجليزية (جيد جداً)">Arabic (native), English (conversational)</span></div>
         </div>
       </div>
     </div>
@@ -596,32 +621,32 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="wrap">
-      <div class="section-tag">02 — Skills</div>
-      <h2 class="section-title">Technical toolkit</h2>
-      <p class="section-sub">Organized by where each tool sits in the stack — from the network layer up to orchestration and observability.</p>
+      <div class="section-tag" data-en="02 — Skills" data-ar="02 — المهارات">02 — Skills</div>
+      <h2 class="section-title" data-en="Technical toolkit" data-ar="الأدوات والمهارات التقنية">Technical toolkit</h2>
+      <p class="section-sub" data-en="Organized by where each tool sits in the stack — from the network layer up to orchestration and observability." data-ar="منظمة حسب موقع كل أداة في البنية التحتية — من طبقة الشبكات وحتى الأتمتة والمراقبة.">Organized by where each tool sits in the stack — from the network layer up to orchestration and observability.</p>
       <div class="skills-grid">
         <div class="skill-card">
-          <div class="cat">CLOUD</div>
-          <ul><li>AWS</li><li>Cloud Architecture</li></ul>
+          <div class="cat" data-en="CLOUD" data-ar="الحوسبة السحابية">CLOUD</div>
+          <ul><li>AWS</li><li data-en="Cloud Architecture" data-ar="معمارية السحابة">Cloud Architecture</li></ul>
         </div>
         <div class="skill-card">
-          <div class="cat">DEVOPS &amp; AUTOMATION</div>
+          <div class="cat" data-en="DEVOPS & AUTOMATION" data-ar="DEVOPS والأتمتة">DEVOPS &amp; AUTOMATION</div>
           <ul><li>Docker</li><li>Kubernetes</li><li>Jenkins</li><li>CI/CD</li><li>Git</li><li>GitHub</li></ul>
         </div>
         <div class="skill-card">
-          <div class="cat">INFRASTRUCTURE AS CODE</div>
+          <div class="cat" data-en="INFRASTRUCTURE AS CODE" data-ar="البنية التحتية ككود">INFRASTRUCTURE AS CODE</div>
           <ul><li>Terraform</li><li>Ansible</li></ul>
         </div>
         <div class="skill-card">
-          <div class="cat">NETWORKING &amp; SECURITY</div>
-          <ul><li>TCP/IP</li><li>DNS</li><li>HTTP/HTTPS</li><li>VLANs</li><li>OSPF</li><li>VPN (IPsec/SSL)</li><li>Firewalls</li><li>Linux Security</li></ul>
+          <div class="cat" data-en="NETWORKING & SECURITY" data-ar="الشبكات والأمان">NETWORKING &amp; SECURITY</div>
+          <ul><li>TCP/IP</li><li>DNS</li><li>HTTP/HTTPS</li><li>VLANs</li><li>OSPF</li><li>VPN (IPsec/SSL)</li><li data-en="Firewalls" data-ar="الجدران النارية">Firewalls</li><li data-en="Linux Security" data-ar="أمان لينكس">Linux Security</li></ul>
         </div>
         <div class="skill-card">
-          <div class="cat">MONITORING &amp; OBSERVABILITY</div>
+          <div class="cat" data-en="MONITORING & OBSERVABILITY" data-ar="المراقبة والتحليل">MONITORING &amp; OBSERVABILITY</div>
           <ul><li>Prometheus</li><li>Grafana</li></ul>
         </div>
         <div class="skill-card">
-          <div class="cat">SCRIPTING &amp; LANGUAGES</div>
+          <div class="cat" data-en="SCRIPTING & LANGUAGES" data-ar="اللغات والبرمجة النصية">SCRIPTING &amp; LANGUAGES</div>
           <ul><li>Python</li><li>Bash</li><li>YAML</li><li>JSON</li></ul>
         </div>
       </div>
@@ -631,33 +656,33 @@
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="wrap">
-      <div class="section-tag">03 — Experience</div>
-      <h2 class="section-title">Training &amp; hands-on programs</h2>
-      <p class="section-sub">Structured, practical programs — not classroom theory. Each one ended in real infrastructure work.</p>
+      <div class="section-tag" data-en="03 — Experience" data-ar="03 — الخبرة">03 — Experience</div>
+      <h2 class="section-title" data-en="Training & hands-on programs" data-ar="البرامج التدريبية والخبرة العملية">Training &amp; hands-on programs</h2>
+      <p class="section-sub" data-en="Structured, practical programs — not classroom theory. Each one ended in real infrastructure work." data-ar="برامج عملية مكثفة وليست مجرد نظريات. انتهت كل منها بمشاريع بنية تحتية حقيقية.">Structured, practical programs — not classroom theory. Each one ended in real infrastructure work.</p>
       <div class="timeline">
 
         <div class="tl-item">
-          <div class="tl-date">07/2026 — 12/2026 · Hybrid</div>
-          <div class="tl-role">DevOps Engineer</div>
-          <div class="tl-org">Digital Egypt Pioneers Initiative (DEPI)</div>
+          <div class="tl-date" data-en="07/2026 — 12/2026 · Hybrid" data-ar="07/2026 — 12/2026 · هجين">07/2026 — 12/2026 · Hybrid</div>
+          <div class="tl-role" data-en="DevOps Engineer" data-ar="مهندس DevOps">DevOps Engineer</div>
+          <div class="tl-org" data-en="Digital Egypt Pioneers Initiative (DEPI)" data-ar="مبادرة رواد مصر الرقمية (DEPI)">Digital Egypt Pioneers Initiative (DEPI)</div>
           <ul>
-            <li>Designed and built CI/CD automation pipelines using Git, GitHub, and Jenkins.</li>
-            <li>Containerized and orchestrated applications using Docker and Kubernetes.</li>
-            <li>Managed cloud infrastructure using Terraform, Ansible, and AWS.</li>
-            <li>Monitored system health with Prometheus and delivered a real-world capstone project.</li>
+            <li data-en="Designed and built CI/CD automation pipelines using Git, GitHub, and Jenkins." data-ar="تصميم وبناء أنابيب أتمتة CI/CD باستخدام Git و GitHub و Jenkins.">Designed and built CI/CD automation pipelines using Git, GitHub, and Jenkins.</li>
+            <li data-en="Containerized and orchestrated applications using Docker and Kubernetes." data-ar="تحزيم التطبيقات وإدارتها باستخدام Docker و Kubernetes.">Containerized and orchestrated applications using Docker and Kubernetes.</li>
+            <li data-en="Managed cloud infrastructure using Terraform, Ansible, and AWS." data-ar="إدارة البنية التحتية السحابية باستخدام Terraform و Ansible و AWS.">Managed cloud infrastructure using Terraform, Ansible, and AWS.</li>
+            <li data-en="Monitored system health with Prometheus and delivered a real-world capstone project." data-ar="مراقبة استقرار الأنظمة باستخدام Prometheus وتقديم مشروع تخرج عملي.">Monitored system health with Prometheus and delivered a real-world capstone project.</li>
           </ul>
           <div class="tl-tags"><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Terraform</span><span>Ansible</span><span>AWS</span><span>Prometheus</span></div>
         </div>
 
         <div class="tl-item">
           <div class="tl-date">05/2024 — 04/2026</div>
-          <div class="tl-role">Network &amp; Cloud Infrastructure Specialist</div>
-          <div class="tl-org">National Telecommunication Institute (NTI)</div>
+          <div class="tl-role" data-en="Network & Cloud Infrastructure Specialist" data-ar="أخصائي شبكات وبنية سحابية تحتية">Network &amp; Cloud Infrastructure Specialist</div>
+          <div class="tl-org" data-en="National Telecommunication Institute (NTI)" data-ar="المعهد القومي للاتصالات (NTI)">National Telecommunication Institute (NTI)</div>
           <ul>
-            <li>Designed scalable, highly available, and secure cloud infrastructure on AWS.</li>
-            <li>Configured enterprise routing, switching (OSPF, VLANs), and network topologies.</li>
-            <li>Implemented network security policies, firewalls, and VPNs (IPsec/SSL) to mitigate threats.</li>
-            <li>Managed infrastructure as code with Terraform and delivered hands-on network-cloud projects.</li>
+            <li data-en="Designed scalable, highly available, and secure cloud infrastructure on AWS." data-ar="تصميم بنية تحتية سحابية قابلة للتوسع وعالية التوافر على AWS.">Designed scalable, highly available, and secure cloud infrastructure on AWS.</li>
+            <li data-en="Configured enterprise routing, switching (OSPF, VLANs), and network topologies." data-ar="إعداد التوجيه والتبديل المتقدم (OSPF, VLANs) وهيكلة الشبكات.">Configured enterprise routing, switching (OSPF, VLANs), and network topologies.</li>
+            <li data-en="Implemented network security policies, firewalls, and VPNs (IPsec/SSL) to mitigate threats." data-ar="تطبيق سياسات أمان الشبكات والجدران النارية و VPN (IPsec/SSL) للحماية من التهديدات.">Implemented network security policies, firewalls, and VPNs (IPsec/SSL) to mitigate threats.</li>
+            <li data-en="Managed infrastructure as code with Terraform and delivered hands-on network-cloud projects." data-ar="إدارة البنية التحتية ككود باستخدام Terraform وتنفيذ مشاريع شبكات وسحابة حقيقية.">Managed infrastructure as code with Terraform and delivered hands-on network-cloud projects.</li>
           </ul>
           <div class="tl-tags"><span>AWS</span><span>CCNA</span><span>HCIA</span><span>OSPF</span><span>VLANs</span><span>Terraform</span><span>VPN</span></div>
         </div>
@@ -669,32 +694,30 @@
   <!-- PROJECT -->
   <section id="project">
     <div class="wrap">
-      <div class="section-tag">04 — Featured Project</div>
-      <h2 class="section-title">Enterprise Network Infrastructure</h2>
-      <p class="section-sub">A segmented, routed, and secured enterprise network — designed and validated end to end in Cisco Packet Tracer.</p>
+      <div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع المميز">04 — Featured Project</div>
+      <h2 class="section-title" data-en="Enterprise Network Infrastructure" data-ar="بنية تحتية لشبكة مؤسسية">Enterprise Network Infrastructure</h2>
+      <p class="section-sub" data-en="A segmented, routed, and secured enterprise network — designed and validated end to end in Cisco Packet Tracer." data-ar="شبكة مؤسسية مقسمة وموجهة ومؤمنة بالكامل — تم تصميمها واختبارها عبر Cisco Packet Tracer.">A segmented, routed, and secured enterprise network — designed and validated end to end in Cisco Packet Tracer.</p>
 
       <div class="project-card">
         <div class="project-head">
           <div class="ptag">08/2025</div>
-          <h3>Enterprise Network Infrastructure</h3>
+          <h3 data-en="Enterprise Network Infrastructure" data-ar="البنية التحتية لشبكة الشركات">Enterprise Network Infrastructure</h3>
           <div class="ptools">Cisco Packet Tracer · VLANs · Static Routing · Inter-VLAN Routing · Port Security</div>
         </div>
 
         <div class="diagram-wrap">
-          <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network topology diagram showing three routers connected via trunk links to VLAN switches for Sales, Engineering, and HR departments">
+          <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network topology diagram">
             <defs>
               <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
                 <path d="M0,0 L8,4 L0,8 Z" fill="#5FA8C9"/>
               </marker>
             </defs>
-            <!-- connecting lines -->
             <line x1="150" y1="70" x2="400" y2="70" stroke="#5FA8C9" stroke-width="1.5"/>
             <line x1="400" y1="70" x2="650" y2="70" stroke="#5FA8C9" stroke-width="1.5"/>
             <line x1="150" y1="70" x2="150" y2="190" stroke="#5FA8C9" stroke-width="1.5" stroke-dasharray="4 4"/>
             <line x1="400" y1="70" x2="400" y2="190" stroke="#5FA8C9" stroke-width="1.5" stroke-dasharray="4 4"/>
             <line x1="650" y1="70" x2="650" y2="190" stroke="#5FA8C9" stroke-width="1.5" stroke-dasharray="4 4"/>
 
-            <!-- routers -->
             <g>
               <rect x="110" y="46" width="80" height="48" rx="6" fill="#0F1D2C" stroke="#E8A33D" stroke-width="1.5"/>
               <text x="150" y="65" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="11" text-anchor="middle">R1</text>
@@ -703,7 +726,7 @@
             <g>
               <rect x="360" y="46" width="80" height="48" rx="6" fill="#0F1D2C" stroke="#E8A33D" stroke-width="1.5"/>
               <text x="400" y="65" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="11" text-anchor="middle">R2</text>
-              <text x="400" y="80" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Core / Static Routes</text>
+              <text x="400" y="80" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Core / Static</text>
             </g>
             <g>
               <rect x="610" y="46" width="80" height="48" rx="6" fill="#0F1D2C" stroke="#E8A33D" stroke-width="1.5"/>
@@ -711,7 +734,6 @@
               <text x="650" y="80" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">HR GW</text>
             </g>
 
-            <!-- switches / vlans -->
             <g>
               <rect x="100" y="190" width="100" height="42" rx="6" fill="#132234" stroke="#5FA8C9" stroke-width="1.2"/>
               <text x="150" y="208" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">VLAN 10</text>
@@ -732,25 +754,25 @@
 
         <div class="project-body">
           <div class="pcol">
-            <div class="h">PROBLEM</div>
-            <p>A single flat network doesn't scale for a growing organization — no segmentation between departments, no controlled routing, and no protection against unauthorized device access.</p>
+            <div class="h" data-en="PROBLEM" data-ar="المشكلة">PROBLEM</div>
+            <p data-en="A single flat network doesn't scale for a growing organization — no segmentation between departments, no controlled routing, and no protection against unauthorized device access." data-ar="الشبكات المسطحة البسيطة لا تناسب المؤسسات النامية — غياب الفصل بين الأقسام، عدم وجود توجيه محدد، وغياب الحماية ضد الأجهزة غير المصرح بها.">A single flat network doesn't scale for a growing organization — no segmentation between departments, no controlled routing, and no protection against unauthorized device access.</p>
           </div>
           <div class="pcol">
-            <div class="h">ARCHITECTURE</div>
-            <p>Three routers connected end-to-end, with department-level segmentation via VLANs, trunk links carrying inter-VLAN traffic, and a full IP addressing &amp; subnetting scheme across the topology.</p>
+            <div class="h" data-en="ARCHITECTURE" data-ar="المعمارية">ARCHITECTURE</div>
+            <p data-en="Three routers connected end-to-end, with department-level segmentation via VLANs, trunk links carrying inter-VLAN traffic, and a full IP addressing & subnetting scheme across the topology." data-ar="ثلاثة أجهزة راوتر متصلة، مع تقسيم الأقسام عبر VLANs، ووصلات Trunk لنقل البيانات بين الشبكات، مع مخطط IP وحسابات Subnetting متكاملة.">Three routers connected end-to-end, with department-level segmentation via VLANs, trunk links carrying inter-VLAN traffic, and a full IP addressing &amp; subnetting scheme across the topology.</p>
           </div>
           <div class="pcol">
-            <div class="h">ENGINEERING</div>
+            <div class="h" data-en="ENGINEERING" data-ar="التنفيذ الهندسي">ENGINEERING</div>
             <ul>
-              <li>Configured VLANs, trunk links, and inter-VLAN routing</li>
-              <li>Set up static routing across all three routers</li>
-              <li>Applied port security per switch port</li>
-              <li>Designed the IP addressing &amp; subnetting scheme</li>
+              <li data-en="Configured VLANs, trunk links, and inter-VLAN routing" data-ar="تهيئة الـ VLANs ووصلات Trunk والتوجيه الداخلي">Configured VLANs, trunk links, and inter-VLAN routing</li>
+              <li data-en="Set up static routing across all three routers" data-ar="إعداد التوجيه الثابت (Static Routing) عبر أجهزة الراوتر">Set up static routing across all three routers</li>
+              <li data-en="Applied port security per switch port" data-ar="تطبيق حماية المنافذ (Port Security) لكل منفذ مفتاح">Applied port security per switch port</li>
+              <li data-en="Designed the IP addressing & subnetting scheme" data-ar="تصميم تقسيم عناوين IP والشبكات الفرعية">Designed the IP addressing &amp; subnetting scheme</li>
             </ul>
           </div>
           <div class="pcol">
-            <div class="h">RESULT</div>
-            <p>Verified end-to-end connectivity across all VLANs and routers, with segmented broadcast domains and secured access at the switch port level. Tested and troubleshot until the topology held under normal traffic conditions.</p>
+            <div class="h" data-en="RESULT" data-ar="النتيجة">RESULT</div>
+            <p data-en="Verified end-to-end connectivity across all VLANs and routers, with segmented broadcast domains and secured access at the switch port level." data-ar="التحقق من الاتصال الشامل بين جميع الأجهزة والشبكات الفرعية مع تأمين الوصول على مستوى منافذ المفاتيح الكهربائية.">Verified end-to-end connectivity across all VLANs and routers, with segmented broadcast domains and secured access at the switch port level.</p>
           </div>
         </div>
       </div>
@@ -760,13 +782,13 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="wrap">
-      <div class="section-tag">05 — Education</div>
-      <h2 class="section-title">Education</h2>
+      <div class="section-tag" data-en="05 — Education" data-ar="05 — التعليم">05 — Education</div>
+      <h2 class="section-title" data-en="Education" data-ar="التعليم الأكاديمي">Education</h2>
       <div class="edu-card">
         <div>
-          <h3>Bachelor's Degree in Computers &amp; Information</h3>
-          <div class="org">Menofia University</div>
-          <div class="dept">Information Technology Department</div>
+          <h3 data-en="Bachelor's Degree in Computers & Information" data-ar="بكالوريوس الحاسبات والمعلومات">Bachelor's Degree in Computers &amp; Information</h3>
+          <div class="org" data-en="Menofia University" data-ar="جامعة المنوفية">Menofia University</div>
+          <div class="dept" data-en="Information Technology Department" data-ar="قسم تكنولوجيا المعلومات">Information Technology Department</div>
         </div>
         <div class="edu-meta">
           <div>2023 — 2027</div>
@@ -779,30 +801,30 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <div class="section-tag">06 — Contact</div>
-      <h2 class="section-title">Let's talk infrastructure</h2>
-      <p class="section-sub">Open to Cloud/DevOps internships, graduate programs, and junior infrastructure roles. Reach out directly — I respond quickly.</p>
+      <div class="section-tag" data-en="06 — Contact" data-ar="06 — تواصل معي">06 — Contact</div>
+      <h2 class="section-title" data-en="Let's talk infrastructure" data-ar="لنتحدث حول البنية التحتية">Let's talk infrastructure</h2>
+      <p class="section-sub" data-en="Open to Cloud/DevOps internships, graduate programs, and junior infrastructure roles. Reach out directly — I respond quickly." data-ar="متاح لفرص التدريب، برامج حديثي التخرج، ووظائف Junior DevOps. تواصل معي مباشرة وسيتم الرد سريعا.">Open to Cloud/DevOps internships, graduate programs, and junior infrastructure roles. Reach out directly — I respond quickly.</p>
 
       <div class="contact-grid">
         <div class="contact-card">
-          <div class="section-tag" style="margin-bottom:0;">Direct</div>
+          <div class="section-tag" style="margin-bottom:0;" data-en="Direct" data-ar="مباشر">Direct</div>
           <div class="contact-list">
             <a href="mailto:adel.elgohary404@gmail.com">
-              <span class="lbl">EMAIL</span>
+              <span class="lbl" data-en="EMAIL" data-ar="البريد الإلكتروني">EMAIL</span>
               <span class="val">adel.elgohary404@gmail.com</span>
             </a>
             <a href="tel:+201102298554">
-              <span class="lbl">PHONE</span>
-              <span class="val">+20 110 229 8554</span>
+              <span class="lbl" data-en="PHONE" data-ar="الهاتف">PHONE</span>
+              <span class="val" style="direction: ltr;">+20 110 229 8554</span>
             </a>
             <div class="item">
-              <span class="lbl">LOCATION</span>
-              <span class="val">Cairo, Egypt</span>
+              <span class="lbl" data-en="LOCATION" data-ar="الموقع">LOCATION</span>
+              <span class="val" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
             </div>
           </div>
         </div>
         <div class="contact-card">
-          <div class="section-tag" style="margin-bottom:0;">Profiles</div>
+          <div class="section-tag" style="margin-bottom:0;" data-en="Profiles" data-ar="الحسابات">Profiles</div>
           <div class="contact-list">
             <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener">
               <span class="lbl">GITHUB</span>
@@ -821,14 +843,14 @@
 </main>
 
 <footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
-    <span>&copy; 2026 Adel Elgohary. All rights reserved.</span>
-    <span>Designed &amp; Built for Cloud &amp; DevOps</span>
+  <div class="wrap footer-flex">
+    <span data-en="© 2026 Adel Elgohary. All rights reserved." data-ar="© 2026 عادل الجوهري. جميع الحقوق محفوظة.">© 2026 Adel Elgohary. All rights reserved.</span>
+    <span data-en="Designed & Built for Cloud & DevOps" data-ar="صُمم وبُني لهندسة السحابة و DevOps">Designed &amp; Built for Cloud &amp; DevOps</span>
   </div>
 </footer>
 
 <script>
-  // Mobile Nav Toggle
+  // Mobile Nav Toggle & Close on link click
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
@@ -836,6 +858,13 @@
     navToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
@@ -857,9 +886,12 @@
     document.documentElement.lang = currentLang;
     langToggle.textContent = currentLang === 'en' ? 'عربي' : 'English';
 
-    // Update Nav links text dynamically
+    // Update all text with data attributes dynamically
     document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = el.getAttribute(`data-${currentLang}`);
+      const text = el.getAttribute(`data-${currentLang}`);
+      if (text) {
+        el.textContent = text;
+      }
     });
   });
 

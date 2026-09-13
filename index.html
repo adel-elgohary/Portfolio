@@ -129,6 +129,72 @@
   .nav-icons a:hover{color:var(--accent);}
   .nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--ink);width:38px;height:38px;border-radius:6px;align-items:center;justify-content:center;cursor:pointer;}
 
+  /* ---------- NAV BUTTONS (Theme & Lang) ---------- */
+  .nav-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink-dim);
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ---------- LIGHT MODE OVERRIDES ---------- */
+  body.light-mode {
+    --bg: #F4F7FA;
+    --bg-panel: #FFFFFF;
+    --bg-panel-raised: #EAEFF5;
+    --grid-line: rgba(15, 29, 44, 0.06);
+    --grid-line-strong: rgba(15, 29, 44, 0.12);
+    --ink: #0B1420;
+    --ink-dim: #4A5D6E;
+    --ink-faint: #7C8E9E;
+    --border: rgba(15, 29, 44, 0.14);
+  }
+
+  /* ---------- RTL (ARABIC) SUPPORT ---------- */
+  html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+  }
+  html[dir="rtl"] .section-tag::before {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+  html[dir="rtl"] .tl-item {
+    padding: 0 34px 48px 0;
+    border-left: none;
+    border-right: 1px solid var(--border);
+    margin-left: 0;
+    margin-right: 6px;
+  }
+  html[dir="rtl"] .tl-item::before {
+    left: auto;
+    right: -6px;
+  }
+  html[dir="rtl"] .tl-item ul li {
+    padding-left: 0;
+    padding-right: 18px;
+  }
+  html[dir="rtl"] .tl-item ul li::before {
+    left: auto;
+    right: 0;
+    content: "‹";
+  }
+  html[dir="rtl"] .hero-links a {
+    direction: ltr;
+  }
+
   @media(max-width:860px){
     .nav-links{
       position:fixed;top:68px;left:0;right:0;
@@ -754,34 +820,59 @@
 
 </main>
 
-<footer class="wrap">
-  <span>© 2026 Adel Elgohary</span>
-  <span>Built with HTML, CSS &amp; JS · No framework required</span>
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <span>&copy; 2026 Adel Elgohary. All rights reserved.</span>
+    <span>Designed &amp; Built for Cloud &amp; DevOps</span>
+  </div>
 </footer>
 
 <script>
-  // mobile nav toggle
+  // Mobile Nav Toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }));
 
-  // reveal on load for hero panel + simple scroll reveal for sections
-  const revealEls = document.querySelectorAll('.reveal, section');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add('in');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+  }
+
+  // Theme Toggle (Light / Dark)
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    themeToggle.textContent = isLight ? '☀️' : '🌙';
+  });
+
+  // Language Toggle (EN / AR)
+  const langToggle = document.getElementById('langToggle');
+  let currentLang = 'en';
+
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = currentLang;
+    langToggle.textContent = currentLang === 'en' ? 'عربي' : 'English';
+
+    // Update Nav links text dynamically
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${currentLang}`);
+    });
+  });
+
+  // Simple Reveal Animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
       }
     });
-  }, {threshold:0.12});
-  document.getElementById('schematicPanel').classList.add('in');
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>

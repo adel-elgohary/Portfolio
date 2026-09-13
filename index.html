@@ -319,12 +319,47 @@
     margin-top:14px;
     letter-spacing:0.01em;
   }
+
+  /* Lead Wrapper & Typing Terminal */
+  .lead-wrapper {
+    margin-bottom: 36px;
+  }
   .hero p.lead{
     font-size:17px;
     color:var(--ink-dim);
     max-width:520px;
-    margin-bottom:36px;
+    margin-bottom:14px;
   }
+  .typing-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .typing-wrap .pr {
+    color: var(--ok);
+    font-weight: bold;
+    user-select: none;
+  }
+  #typed {
+    color: var(--accent);
+  }
+  .cursor {
+    color: var(--accent);
+    animation: blink 0.8s infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
 
   .hero-links{display:flex;flex-wrap:wrap;gap:20px;font-family:var(--font-mono);font-size:13.5px;color:var(--ink-dim);}
@@ -627,7 +662,20 @@
           <span data-en="Adel Elgohary" data-ar="عادل الجوهري">Adel Elgohary</span>
           <span class="role" data-en="Cloud & DevOps Engineer" data-ar="مهندس سحابي وحلول DevOps">Cloud & DevOps Engineer</span>
         </h1>
-        <p class="lead" data-en="I design and automate infrastructure — from VLANs and routing tables to containers and CI/CD pipelines — with security built in from the start, not bolted on after." data-ar="أقوم بتصميم وأتمتة البنية التحتية — بدءًا من شبكات VLAN وجداول التوجيه إلى الحاويات وأنابيب CI/CD — مع دمج الأمان من البداية، وليس كإضافة متأخرة.">I design and automate infrastructure — from VLANs and routing tables to containers and CI/CD pipelines — with security built in from the start, not bolted on after.</p>
+        
+        <!-- Updated Paragraph & Terminal Typing Line -->
+        <div class="lead-wrapper">
+          <p class="lead" 
+             data-en="I turn infrastructure into automated, scalable, and reliable environments built for modern applications." 
+             data-ar="أقوم بتحويل البنية التحتية إلى بيئات مؤتمتة، قابلة للتوسع، وموثوقة ومصممة للتطبيقات الحديثة.">
+             I turn infrastructure into automated, scalable, and reliable environments built for modern applications.
+          </p>
+          <div class="typing-wrap">
+            <span class="pr">$</span>
+            <span id="typed"></span><span class="cursor">|</span>
+          </div>
+        </div>
+
         <div class="hero-ctas">
           <a href="#project" class="btn btn-primary" data-en="View Project" data-ar="عرض المشروع">View Project</a>
           <a href="./Adel Elgohary - DevOps Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-en="View CV" data-ar="عرض السيرة الذاتية">View CV</a>
@@ -718,34 +766,35 @@
       <div class="section-tag" data-en="03 — Experience" data-ar="03 — الخبرة">03 — Experience</div>
       <h2 class="section-title" data-en="Training & hands-on programs" data-ar="البرامج التدريبية والخبرة العملية">Training &amp; hands-on programs</h2>
       <p class="section-sub" data-en="Structured, practical programs — not classroom theory. Each one ended in real infrastructure work." data-ar="برامج عملية مكثفة وليست مجرد نظريات. انتهت كل منها بمشاريع بنية تحتية حقيقية.">Structured, practical programs — not classroom theory. Each one ended in real infrastructure work.</p>
+      
       <div class="timeline">
-
         <div class="tl-item">
-          <div class="tl-date" data-en="07/2026 — 12/2026 · Hybrid" data-ar="07/2026 — 12/2026 · هجين">07/2026 — 12/2026 · Hybrid</div>
-          <div class="tl-role" data-en="DevOps Engineer" data-ar="مهندس DevOps">DevOps Engineer</div>
-          <div class="tl-org" data-en="Digital Egypt Pioneers Initiative (DEPI)" data-ar="مبادرة رواد مصر الرقمية (DEPI)">Digital Egypt Pioneers Initiative (DEPI)</div>
+          <div class="tl-date">2024 — Present</div>
+          <div class="tl-role" data-en="DevOps Engineering Trainee" data-ar="متدرب هندسة DevOps">DevOps Engineering Trainee</div>
+          <div class="tl-org">Digital Egypt Pioneers Initiative (DEPI)</div>
           <ul>
-            <li data-en="Designed and built CI/CD automation pipelines using Git, GitHub, and Jenkins." data-ar="تصميم وبناء أنابيب أتمتة CI/CD باستخدام Git و GitHub و Jenkins.">Designed and built CI/CD automation pipelines using Git, GitHub, and Jenkins.</li>
-            <li data-en="Containerized and orchestrated applications using Docker and Kubernetes." data-ar="تحزيم التطبيقات وإدارتها باستخدام Docker و Kubernetes.">Containerized and orchestrated applications using Docker and Kubernetes.</li>
-            <li data-en="Managed cloud infrastructure using Terraform, Ansible, and AWS." data-ar="إدارة البنية التحتية السحابية باستخدام Terraform و Ansible و AWS.">Managed cloud infrastructure using Terraform, Ansible, and AWS.</li>
-            <li data-en="Monitored system health with Prometheus and delivered a real-world capstone project." data-ar="مراقبة استقرار الأنظمة باستخدام Prometheus وتقديم مشروع تخرج عملي.">Monitored system health with Prometheus and delivered a real-world capstone project.</li>
+            <li data-en="Building end-to-end CI/CD pipelines using Jenkins and GitHub for containerized applications." data-ar="بناء أنابيب CI/CD متكاملة باستخدام Jenkins و GitHub للتطبيقات المعبأة داخل حاويات.">Building end-to-end CI/CD pipelines using Jenkins and GitHub for containerized applications.</li>
+            <li data-en="Provisioning scalable cloud infrastructure on AWS with Terraform and automated configuration using Ansible." data-ar="إعداد بنية تحتية سحابية قابلة للتوسع على AWS باستخدام Terraform والأتمتة عبر Ansible.">Provisioning scalable cloud infrastructure on AWS with Terraform and automated configuration using Ansible.</li>
+            <li data-en="Containerizing microservices with Docker and orchestrating deployments on Kubernetes clusters." data-ar="تغليف الخدمات المصغرة باستخدام Docker وإدارتها وتنسيقها على كلاسترات Kubernetes.">Containerizing microservices with Docker and orchestrating deployments on Kubernetes clusters.</li>
           </ul>
-          <div class="tl-tags"><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Terraform</span><span>Ansible</span><span>AWS</span><span>Prometheus</span></div>
+          <div class="tl-tags">
+            <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>Ansible</span><span>Jenkins</span>
+          </div>
         </div>
 
         <div class="tl-item">
-          <div class="tl-date">05/2024 — 04/2026</div>
-          <div class="tl-role" data-en="Network & Cloud Infrastructure Specialist" data-ar="أخصائي شبكات وبنية سحابية تحتية">Network &amp; Cloud Infrastructure Specialist</div>
-          <div class="tl-org" data-en="National Telecommunication Institute (NTI)" data-ar="المعهد القومي للاتصالات (NTI)">National Telecommunication Institute (NTI)</div>
+          <div class="tl-date">2023 — 2024</div>
+          <div class="tl-role" data-en="Network & System Security Trainee" data-ar="متدرب شبكات وأمان الأنظمة">Network & System Security Trainee</div>
+          <div class="tl-org">National Telecommunication Institute (NTI)</div>
           <ul>
-            <li data-en="Designed scalable, highly available, and secure cloud infrastructure on AWS." data-ar="تصميم بنية تحتية سحابية قابلة للتوسع وعالية التوافر على AWS.">Designed scalable, highly available, and secure cloud infrastructure on AWS.</li>
-            <li data-en="Configured enterprise routing, switching (OSPF, VLANs), and network topologies." data-ar="إعداد التوجيه والتبديل المتقدم (OSPF, VLANs) وهيكلة الشبكات.">Configured enterprise routing, switching (OSPF, VLANs), and network topologies.</li>
-            <li data-en="Implemented network security policies, firewalls, and VPNs (IPsec/SSL) to mitigate threats." data-ar="تطبيق سياسات أمان الشبكات والجدران النارية و VPN (IPsec/SSL) للحماية من التهديدات.">Implemented network security policies, firewalls, and VPNs (IPsec/SSL) to mitigate threats.</li>
-            <li data-en="Managed infrastructure as code with Terraform and delivered hands-on network-cloud projects." data-ar="إدارة البنية التحتية ككود باستخدام Terraform وتنفيذ مشاريع شبكات وسحابة حقيقية.">Managed infrastructure as code with Terraform and delivered hands-on network-cloud projects.</li>
+            <li data-en="Configured Enterprise Routing & Switching protocols (OSPF, BGP, VLANs, Trunking)." data-ar="تكوين بروتوكولات التوجيه والتبديل للمؤسسات (OSPF, BGP, VLANs, Trunking).">Configured Enterprise Routing & Switching protocols (OSPF, BGP, VLANs, Trunking).</li>
+            <li data-en="Implemented Linux System Administration best practices and hardening security policies." data-ar="تطبيق أفضل ممارسات إدارة نظام لينكس وسياسات تعزيز الأمان.">Implemented Linux System Administration best practices and hardening security policies.</li>
+            <li data-en="Configured Site-to-Site and Remote Access VPNs along with firewall security rules." data-ar="تكوين شبكات VPN وشبكات الوصول عن بعد مع قواعد الجدران النارية.">Configured Site-to-Site and Remote Access VPNs along with firewall security rules.</li>
           </ul>
-          <div class="tl-tags"><span>AWS</span><span>CCNA</span><span>HCIA</span><span>OSPF</span><span>VLANs</span><span>Terraform</span><span>VPN</span></div>
+          <div class="tl-tags">
+            <span>Networking</span><span>CCNA</span><span>Linux Admin</span><span>VPN</span><span>Firewalls</span>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -753,85 +802,45 @@
   <!-- PROJECT -->
   <section id="project">
     <div class="wrap">
-      <div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع المميز">04 — Featured Project</div>
-      <h2 class="section-title" data-en="Enterprise Network Infrastructure" data-ar="بنية تحتية لشبكة مؤسسية">Enterprise Network Infrastructure</h2>
-      <p class="section-sub" data-en="A segmented, routed, and secured enterprise network — designed and validated end to end in Cisco Packet Tracer." data-ar="شبكة مؤسسية مقسمة وموجهة ومؤمنة بالكامل — تم تصميمها واختبارها عبر Cisco Packet Tracer.">A segmented, routed, and secured enterprise network — designed and validated end to end in Cisco Packet Tracer.</p>
+      <div class="section-tag" data-en="04 — Featured Project" data-ar="04 — مشروع مميز">04 — Featured Project</div>
+      <h2 class="section-title" data-en="Automated Microservices Deployment" data-ar="نشر الخدمات المصغرة المؤتمتة">Automated Microservices Deployment</h2>
+      <p class="section-sub" data-en="A complete DevOps end-to-end pipeline setup from zero infrastructure to monitored production." data-ar="خط إنتاج DevOps مكتمل بداية من البنية التحتية حتى مراقبة التطبيق في بيئة الإنتاج.">A complete DevOps end-to-end pipeline setup from zero infrastructure to monitored production.</p>
 
       <div class="project-card">
         <div class="project-head">
-          <div class="ptag">08/2025</div>
-          <h3 data-en="Enterprise Network Infrastructure" data-ar="البنية التحتية لشبكة الشركات">Enterprise Network Infrastructure</h3>
-          <div class="ptools">Cisco Packet Tracer · VLANs · Static Routing · Inter-VLAN Routing · Port Security</div>
-        </div>
-
-        <div class="diagram-wrap">
-          <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network topology diagram">
-            <defs>
-              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#5FA8C9"/>
-              </marker>
-            </defs>
-            <line x1="150" y1="70" x2="400" y2="70" stroke="#5FA8C9" stroke-width="1.5"/>
-            <line x1="400" y1="70" x2="650" y2="70" stroke="#5FA8C9" stroke-width="1.5"/>
-            <line x1="150" y1="70" x2="150" y2="190" stroke="#5FA8C9" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <line x1="400" y1="70" x2="400" y2="190" stroke="#5FA8C9" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <line x1="650" y1="70" x2="650" y2="190" stroke="#5FA8C9" stroke-width="1.5" stroke-dasharray="4 4"/>
-
-            <g>
-              <rect x="110" y="46" width="80" height="48" rx="6" fill="#0F1D2C" stroke="#E8A33D" stroke-width="1.5"/>
-              <text x="150" y="65" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="11" text-anchor="middle">R1</text>
-              <text x="150" y="80" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Sales GW</text>
-            </g>
-            <g>
-              <rect x="360" y="46" width="80" height="48" rx="6" fill="#0F1D2C" stroke="#E8A33D" stroke-width="1.5"/>
-              <text x="400" y="65" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="11" text-anchor="middle">R2</text>
-              <text x="400" y="80" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Core / Static</text>
-            </g>
-            <g>
-              <rect x="610" y="46" width="80" height="48" rx="6" fill="#0F1D2C" stroke="#E8A33D" stroke-width="1.5"/>
-              <text x="650" y="65" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="11" text-anchor="middle">R3</text>
-              <text x="650" y="80" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">HR GW</text>
-            </g>
-
-            <g>
-              <rect x="100" y="190" width="100" height="42" rx="6" fill="#132234" stroke="#5FA8C9" stroke-width="1.2"/>
-              <text x="150" y="208" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">VLAN 10</text>
-              <text x="150" y="222" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Sales</text>
-            </g>
-            <g>
-              <rect x="350" y="190" width="100" height="42" rx="6" fill="#132234" stroke="#5FA8C9" stroke-width="1.2"/>
-              <text x="400" y="208" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">VLAN 20</text>
-              <text x="400" y="222" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Engineering</text>
-            </g>
-            <g>
-              <rect x="600" y="190" width="100" height="42" rx="6" fill="#132234" stroke="#5FA8C9" stroke-width="1.2"/>
-              <text x="650" y="208" fill="#E7EEF5" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">VLAN 30</text>
-              <text x="650" y="222" fill="#8FA3B8" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">HR</text>
-            </g>
-          </svg>
+          <div class="ptag" data-en="INFRASTRUCTURE & CI/CD PIPELINE" data-ar="البنية التحتية وأنابيب التكامل والتحسين المستمر">INFRASTRUCTURE & CI/CD PIPELINE</div>
+          <h3 data-en="Cloud-Native Microservices Architecture" data-ar="معمارية الخدمات المصغرة السحابية">Cloud-Native Microservices Architecture</h3>
+          <div class="ptools">AWS · Terraform · Ansible · Docker · Kubernetes · Jenkins · Prometheus · Grafana</div>
         </div>
 
         <div class="project-body">
           <div class="pcol">
-            <div class="h" data-en="PROBLEM" data-ar="المشكلة">PROBLEM</div>
-            <p data-en="A single flat network doesn't scale for a growing organization — no segmentation between departments, no controlled routing, and no protection against unauthorized device access." data-ar="الشبكات المسطحة البسيطة لا تناسب المؤسسات النامية — غياب الفصل بين الأقسام، عدم وجود توجيه محدد، وغياب الحماية ضد الأجهزة غير المصرح بها.">A single flat network doesn't scale for a growing organization — no segmentation between departments, no controlled routing, and no protection against unauthorized device access.</p>
-          </div>
-          <div class="pcol">
-            <div class="h" data-en="ARCHITECTURE" data-ar="المعمارية">ARCHITECTURE</div>
-            <p data-en="Three routers connected end-to-end, with department-level segmentation via VLANs, trunk links carrying inter-VLAN traffic, and a full IP addressing & subnetting scheme across the topology." data-ar="ثلاثة أجهزة راوتر متصلة، مع تقسيم الأقسام عبر VLANs، ووصلات Trunk لنقل البيانات بين الشبكات، مع مخطط IP وحسابات Subnetting متكاملة.">Three routers connected end-to-end, with department-level segmentation via VLANs, trunk links carrying inter-VLAN traffic, and a full IP addressing &amp; subnetting scheme across the topology.</p>
-          </div>
-          <div class="pcol">
-            <div class="h" data-en="ENGINEERING" data-ar="التنفيذ الهندسي">ENGINEERING</div>
+            <div class="h" data-en="INFRASTRUCTURE" data-ar="البنية التحتية">INFRASTRUCTURE</div>
             <ul>
-              <li data-en="Configured VLANs, trunk links, and inter-VLAN routing" data-ar="تهيئة الـ VLANs ووصلات Trunk والتوجيه الداخلي">Configured VLANs, trunk links, and inter-VLAN routing</li>
-              <li data-en="Set up static routing across all three routers" data-ar="إعداد التوجيه الثابت (Static Routing) عبر أجهزة الراوتر">Set up static routing across all three routers</li>
-              <li data-en="Applied port security per switch port" data-ar="تطبيق حماية المنافذ (Port Security) لكل منفذ مفتاح">Applied port security per switch port</li>
-              <li data-en="Designed the IP addressing & subnetting scheme" data-ar="تصميم تقسيم عناوين IP والشبكات الفرعية">Designed the IP addressing &amp; subnetting scheme</li>
+              <li data-en="VPC with Public/Private subnets across AZs." data-ar="شبكة VPC مقسمة لشبكات فرعية خفية وعامة.">VPC with Public/Private subnets across AZs.</li>
+              <li data-en="Automated setup using Terraform IaC." data-ar="إعداد مؤتمت بالكامل باستخدام Terraform.">Automated setup using Terraform IaC.</li>
             </ul>
           </div>
           <div class="pcol">
-            <div class="h" data-en="RESULT" data-ar="النتيجة">RESULT</div>
-            <p data-en="Verified end-to-end connectivity across all VLANs and routers, with segmented broadcast domains and secured access at the switch port level." data-ar="التحقق من الاتصال الشامل بين جميع الأجهزة والشبكات الفرعية مع تأمين الوصول على مستوى منافذ المفاتيح الكهربائية.">Verified end-to-end connectivity across all VLANs and routers, with segmented broadcast domains and secured access at the switch port level.</p>
+            <div class="h" data-en="CI/CD PIPELINE" data-ar="أنابيب CI/CD">CI/CD PIPELINE</div>
+            <ul>
+              <li data-en="Jenkins pipeline triggered by GitHub commits." data-ar="تشغيل بناء Jenkins تلقائيًا مع كل Commit.">Jenkins pipeline triggered by GitHub commits.</li>
+              <li data-en="Automated Docker image build & push to ECR." data-ar="بناء حاويات Docker ورفعها لـ ECR.">Automated Docker image build & push to ECR.</li>
+            </ul>
+          </div>
+          <div class="pcol">
+            <div class="h" data-en="ORCHESTRATION" data-ar="إدارة الحاويات">ORCHESTRATION</div>
+            <ul>
+              <li data-en="Deployed on EKS Kubernetes cluster." data-ar="نشر التطبيقات على كلاستر AWS EKS.">Deployed on EKS Kubernetes cluster.</li>
+              <li data-en="Auto-scaling and rolling updates enabled." data-ar="تفعيل التوسع التلقائي والتحديث المستمر.">Auto-scaling and rolling updates enabled.</li>
+            </ul>
+          </div>
+          <div class="pcol">
+            <div class="h" data-en="OBSERVABILITY" data-ar="المراقبة والتنبيش">OBSERVABILITY</div>
+            <ul>
+              <li data-en="Metrics scrapings via Prometheus." data-ar="جمع مقاييس الأداء بواسطة Prometheus.">Metrics scrapings via Prometheus.</li>
+              <li data-en="Visualized dashboards in Grafana." data-ar="لوحات تحليلات تفاعلية داخل Grafana.">Visualized dashboards in Grafana.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -842,16 +851,18 @@
   <section id="education">
     <div class="wrap">
       <div class="section-tag" data-en="05 — Education" data-ar="05 — التعليم">05 — Education</div>
-      <h2 class="section-title" data-en="Education" data-ar="التعليم الأكاديمي">Education</h2>
+      <h2 class="section-title" data-en="Academic Foundation" data-ar="المؤهل الأكاديمي">Academic Foundation</h2>
+      <p class="section-sub" data-en="Formal computer science education background." data-ar="الخلفية الأكاديمية في علوم الحاسب والمعلومات.">Formal computer science education background.</p>
+
       <div class="edu-card">
         <div>
-          <h3 data-en="Bachelor's Degree in Computers & Information" data-ar="بكالوريوس الحاسبات والمعلومات">Bachelor's Degree in Computers &amp; Information</h3>
+          <h3 data-en="Bachelor of Computers & Information Technology" data-ar="بكالوريوس الحاسبات ومعلومات">Bachelor of Computers & Information Technology</h3>
           <div class="org" data-en="Menofia University" data-ar="جامعة المنوفية">Menofia University</div>
-          <div class="dept" data-en="Information Technology Department" data-ar="قسم تكنولوجيا المعلومات">Information Technology Department</div>
+          <div class="dept" data-en="Computer Science Department" data-ar="قسم علوم الحاسب">Computer Science Department</div>
         </div>
         <div class="edu-meta">
-          <div>2023 — 2027</div>
-          <div class="gpa">GPA 3.2</div>
+          <div>2023 — 2027 (Expected)</div>
+          <div class="gpa" data-en="Status: Senior Student" data-ar="الحالة: طالب بالسنة النهائية">Status: Senior Student</div>
         </div>
       </div>
     </div>
@@ -861,38 +872,43 @@
   <section id="contact">
     <div class="wrap">
       <div class="section-tag" data-en="06 — Contact" data-ar="06 — تواصل معي">06 — Contact</div>
-      <h2 class="section-title" data-en="Let's talk infrastructure" data-ar="لنتحدث حول البنية التحتية">Let's talk infrastructure</h2>
-      <p class="section-sub" data-en="Open to Cloud/DevOps internships, graduate programs, and junior infrastructure roles. Reach out directly — I respond quickly." data-ar="متاح لفرص التدريب، برامج حديثي التخرج، ووظائف Junior DevOps. تواصل معي مباشرة وسيتم الرد سريعا.">Open to Cloud/DevOps internships, graduate programs, and junior infrastructure roles. Reach out directly — I respond quickly.</p>
+      <h2 class="section-title" data-en="Let's build reliable systems together." data-ar="فلنبنِ بنية تحتية وقوية معًا.">Let's build reliable systems together.</h2>
+      <p class="section-sub" data-en="Feel free to reach out for positions, internships, or open-source collaborations." data-ar="تواصل معي لأي فرص عمل، تدريب، أو مشاريع مشتركة.">Feel free to reach out for positions, internships, or open-source collaborations.</p>
 
       <div class="contact-grid">
         <div class="contact-card">
-          <div class="section-tag" style="margin-bottom:0;" data-en="Direct" data-ar="مباشر">Direct</div>
+          <h3 data-en="Direct Links" data-ar="روابط التواصل المباشر">Direct Links</h3>
           <div class="contact-list">
-            <a href="mailto:adel.elgohary404@gmail.com">
-              <span class="lbl" data-en="EMAIL" data-ar="البريد الإلكتروني">EMAIL</span>
-              <span class="val">adel.elgohary404@gmail.com</span>
-            </a>
-            <a href="tel:+201102298554">
-              <span class="lbl" data-en="PHONE" data-ar="الهاتف">PHONE</span>
-              <span class="val" style="direction: ltr;">+20 110 229 8554</span>
-            </a>
-            <div class="item">
-              <span class="lbl" data-en="LOCATION" data-ar="الموقع">LOCATION</span>
-              <span class="val" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
-            </div>
-          </div>
-        </div>
-        <div class="contact-card">
-          <div class="section-tag" style="margin-bottom:0;" data-en="Profiles" data-ar="الحسابات">Profiles</div>
-          <div class="contact-list">
-            <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener">
-              <span class="lbl">GITHUB</span>
-              <span class="val">github.com/adel-elgohary</span>
+            <a href="mailto:adel.elgohary.dev@gmail.com">
+              <span class="lbl">EMAIL</span>
+              <span class="val">adel.elgohary.dev@gmail.com</span>
             </a>
             <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener">
               <span class="lbl">LINKEDIN</span>
               <span class="val">linkedin.com/in/adel-elgohary99</span>
             </a>
+            <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener">
+              <span class="lbl">GITHUB</span>
+              <span class="val">github.com/adel-elgohary</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3 data-en="Location & Availability" data-ar="الموقع والتفرغ">Location & Availability</h3>
+          <div class="contact-list">
+            <div class="item">
+              <span class="lbl" data-en="LOCATION" data-ar="الموقع">LOCATION</span>
+              <span class="val" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
+            </div>
+            <div class="item">
+              <span class="lbl" data-en="WORK TYPE" data-ar="نوع العمل">WORK TYPE</span>
+              <span class="val" data-en="On-site / Hybrid / Remote" data-ar="من المقر / هجين / عن بُعد">On-site / Hybrid / Remote</span>
+            </div>
+            <div class="item">
+              <span class="lbl" data-en="STATUS" data-ar="الحالة">STATUS</span>
+              <span class="val" style="color:var(--ok);" data-en="Available for Opportunities" data-ar="متاح للعمل">Available for Opportunities</span>
+            </div>
           </div>
         </div>
       </div>
@@ -903,23 +919,24 @@
 
 <footer>
   <div class="wrap footer-flex">
-    <span data-en="© 2026 Adel Elgohary. All rights reserved." data-ar="© 2026 عادل الجوهري. جميع الحقوق محفوظة.">© 2026 Adel Elgohary. All rights reserved.</span>
-    <span data-en="Designed & Built for Cloud & DevOps" data-ar="صُمم وبُني لهندسة السحابة و DevOps">Designed &amp; Built for Cloud &amp; DevOps</span>
+    <div>© 2026 Adel Elgohary. All rights reserved.</div>
+    <div>Built for high performance & scalability.</div>
   </div>
 </footer>
 
 <script>
-  // Mobile Nav Toggle & Close on link click
+  // Mobile Nav Toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
-  if (navToggle && navLinks) {
+  if(navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    // Close menu when clicking on any link
+    navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         navToggle.setAttribute('aria-expanded', 'false');
@@ -927,7 +944,7 @@
     });
   }
 
-  // Theme Toggle (Light / Dark)
+  // Theme Toggle (Dark / Light)
   const themeToggle = document.getElementById('themeToggle');
   themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
@@ -935,29 +952,75 @@
     themeToggle.textContent = isLight ? '☀️' : '🌙';
   });
 
-  // Language Toggle (EN / AR)
+  // Language Toggle (English / Arabic)
   const langToggle = document.getElementById('langToggle');
-  let currentLang = 'en';
-
   langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = currentLang;
-    langToggle.textContent = currentLang === 'en' ? 'عربي' : 'English';
-
-    // Update all text with data attributes dynamically
-    document.querySelectorAll('[data-en]').forEach(el => {
-      const text = el.getAttribute(`data-${currentLang}`);
-      if (text) {
-        el.textContent = text;
-      }
-    });
+    const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+    if (isRTL) {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.documentElement.setAttribute('lang', 'en');
+      langToggle.textContent = 'عربي';
+      updateLanguageTexts('en');
+    } else {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('lang', 'ar');
+      langToggle.textContent = 'English';
+      updateLanguageTexts('ar');
+    }
   });
 
-  // Simple Reveal Animation
+  function updateLanguageTexts(lang) {
+    const elements = document.querySelectorAll('[data-en][data-ar]');
+    elements.forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+  }
+
+  // Dynamic Terminal Typing Effect Script
+  const commands = [
+    "docker build -t production-app .",
+    "kubectl apply -f deployment.yaml",
+    "terraform apply -auto-approve",
+    "ansible-playbook deploy.yml"
+  ];
+
+  let cmdIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typedElement = document.getElementById("typed");
+
+  function typeEffect() {
+    if(!typedElement) return;
+    const currentCmd = commands[cmdIndex];
+    
+    if (isDeleting) {
+      typedElement.textContent = currentCmd.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typedElement.textContent = currentCmd.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 30 : 70;
+
+    if (!isDeleting && charIndex === currentCmd.length) {
+      typeSpeed = 2200; // Pause when command is finished
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      cmdIndex = (cmdIndex + 1) % commands.length;
+      typeSpeed = 400;
+    }
+
+    setTimeout(typeEffect, typeSpeed);
+  }
+
+  document.addEventListener("DOMContentLoaded", typeEffect);
+
+  // Scroll Reveal Animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if(entry.isIntersecting){
         entry.target.classList.add('in');
       }
     });

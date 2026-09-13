@@ -434,23 +434,33 @@
 <header>
   <nav class="wrap">
     <a href="#home" class="brand" style="display: flex; align-items: center; gap: 9px; text-decoration: none;">
-  <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <text x="15" y="70" font-family="'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="65" fill="#E7EEF5">A</text>
-    <text x="45" y="75" font-family="'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="65" fill="#E8A33D" opacity="0.9">E</text>
-  </svg>
-  <span class="brand-dot"></span>
-  <span style="font-family: var(--font-mono); font-size: 15px; color: var(--ink);">adel.elgohary</span>
-</a>
+      <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <text x="15" y="70" font-family="'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="65" fill="#E7EEF5">A</text>
+        <text x="45" y="75" font-family="'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="65" fill="#E8A33D" opacity="0.9">E</text>
+      </svg>
+      <span class="brand-dot"></span>
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--ink);">adel.elgohary</span>
+    </a>
+
     <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#project">Project</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+      <a href="#about" data-en="About" data-ar="عنّي">About</a>
+      <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+      <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+      <a href="#project" data-en="Project" data-ar="المشاريع">Project</a>
+      <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
     </div>
+
     <div class="nav-icons">
+      <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
       <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      
+      <!-- Theme Toggle -->
+      <button class="nav-btn" id="themeToggle" aria-label="Toggle Theme">🌙</button>
+
+      <!-- Language Toggle -->
+      <button class="nav-btn lang-btn" id="langToggle">عربي</button>
+
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </nav>

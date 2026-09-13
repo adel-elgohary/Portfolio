@@ -514,10 +514,11 @@
           <span data-en="Open to Cloud / DevOps roles & internships" data-ar="متاح لفرص العمل والتدريب في Cloud / DevOps">Open to Cloud / DevOps roles & internships</span>
         </div>
 
-        <!-- النص المتحرك فوق الاسم -->
-        <div class="typing-wrap" style="background: none; border: none; padding: 0; box-shadow: none; margin-bottom: 8px;">
-          <span id="typed-greeting" style="color: var(--line-cyan); font-family: var(--font-mono); font-size: 18px; font-weight: 600;"></span><span class="cursor" style="color: var(--line-cyan); font-size: 18px;">|</span>
-        </div>
+        <!-- أضف هذا السطر فوق <h1> الذي يحتوي على اسمك مباشرة -->
+<div style="display: block; width: 100%; margin-top: 10px; margin-bottom: 8px;">
+  <span id="typed-greeting" style="color: var(--line-cyan); font-family: var(--font-mono); font-size: 16px; font-weight: 600; letter-spacing: 0.05em;"></span><span class="cursor" style="color: var(--line-cyan); font-size: 16px;">|</span>
+</div>
+
 
         <h1>
           <span data-en="Adel Elgohary" data-ar="عادل الجوهري">Adel Elgohary</span>
@@ -550,7 +551,7 @@
         
         <!-- Profile Picture Box -->
         <div class="profile-img-wrap">
-          <img src="my-photo.jpg" alt="Adel Elgohary">
+          <img src="my-photo.jpeg" alt="Adel Elgohary">
         </div>
 
         <!-- Floating Badges around photo -->
@@ -908,8 +909,8 @@
     // التبديل بين اللغتين حسب اتجاه الصفحة
     const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
     const greetings = isRTL 
-      ? ["// أهلاً، أنا", "// مرحباً بك، أنا"] 
-      : ["// HELLO, I'M", "// WELCOME, I'M"];
+      ? [" أهلاً، أنا", "// مرحباً بك، أنا"] 
+      : [" HELLO, I'M", "// WELCOME, I'M"];
       
     const currentGreeting = greetings[greetingIndex % greetings.length];
 

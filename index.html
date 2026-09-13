@@ -706,6 +706,110 @@ color: var(--ink-dim);
 color: var(--accent);
 } */
 
+  /* تنسيق القسم العام والخلفية الغامقة */
+.certifications-section {
+    background-color: #0b110e; /* خلفية داكنة قريبة من اللكنة اللي في صورتك */
+    color: #ffffff;
+    padding: 60px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.section-header .subtitle {
+    color: #c19a5b; /* لون برتقالي/ذهبي هادئ */
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.section-header .title {
+    font-size: 32px;
+    color: #00ff66; /* الأخضر النيون الخاص بالعناوين */
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+/* شبكة الكروت (Grid) */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* تصميم الكارت نفسه كـ رابط */
+.cert-card {
+    background-color: #121c16; /* لون خلفية الكارت الداكنة */
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none; /* إزالة خط الرابط الافتراضي */
+    color: inherit;
+    border: 1px solid #1e2d24;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تأثير عند الوقوف بالماوس (Hover) */
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff66;
+    box-shadow: 0 10px 20px rgba(0, 255, 102, 0.1);
+}
+
+/* صورة الشهادة بالأعلى */
+.cert-image-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.cert-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-image-container img {
+    transform: scale(1.03);
+}
+
+/* محتوى النصوص أسفل الصورة */
+.cert-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cert-content h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.cert-issuer, .cert-date {
+    font-size: 13px;
+    color: #a0aec0;
+    margin: 0;
+}
+
+/* الـ Tags الصغيرة (نسبة النجاح أو الجهة) */
+.cert-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #1a2e22;
+    color: #00ff66;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #284c35;
+}
 /* ---------- CONTACT SECTION ---------- */
 .contact-layout {
 display: grid;
@@ -1302,10 +1406,7 @@ background-color: #5b4bc4;
         </div>
 
     </div>
-</section>
-  
-
-  
+   
   <hr class="edu-divider">
 
   <div class="edu-bottom-info">
@@ -1322,9 +1423,55 @@ background-color: #5b4bc4;
       <span data-en="Track: Cloud & DevOps" data-ar="المسار: السحابة و DevOps">Track: Cloud & DevOps</span>
     </div>
   </div>
-</div>
-</div>
+
+
 </section>
+  
+<section class="certifications-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">// CREDENTIALS</span>
+            <h2 class="title">My Certifications</h2>
+        </div>
+
+        <div class="cert-grid">
+            <!-- كارت الشهادة الأول -->
+            <a href="path-to-your-certificate.pdf" target="_blank" class="cert-card">
+                <div class="cert-image-container">
+                    <img src="certificate-image.jpg" alt="Ethical Hacking Certificate">
+                </div>
+                <div class="cert-content">
+                    <h3>Ethical Hacking</h3>
+                    <p class="cert-issuer">🏛️ MCIT / NTI</p>
+                    <p class="cert-date">Oct-Dec 2025 | 72 hrs</p>
+                    <div class="cert-tags">
+                        <span class="tag">85%</span>
+                        <span class="tag">MCIT</span>
+                        <span class="tag">NTI</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- تقدر تكرر الكارت دا لأي شهادة تانية -->
+            <a href="path-to-your-certificate-2.pdf" target="_blank" class="cert-card">
+                <div class="cert-image-container">
+                    <img src="certificate-image-2.jpg" alt="Infrastructure & Security Certificate">
+                </div>
+                <div class="cert-content">
+                    <h3>Infrastructure & Security — VAPT</h3>
+                    <p class="cert-issuer">⚖️ DEPI / MCIT</p>
+                    <p class="cert-date">Apr-Oct 2024</p>
+                    <div class="cert-tags">
+                        <span class="tag">DEPI</span>
+                        <span class="tag">MCIT</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+  
+ 
 
 <!-- CONTACT SECTION -->
 <section id="contact">

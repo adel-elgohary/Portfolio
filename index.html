@@ -519,56 +519,8 @@ font-family:var(--font-mono); font-size:13.5px; color:var(--ink-dim);
 .education-meta-item .meta-icon{ color:var(--accent); }
 
 /* ---------- CERTIFICATIONS ---------- */
-  <style>
-.cert-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-.cert-modal.active {
-  display: flex;
-}
-.cert-modal-inner {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  height: 90vh;
-  background: #111;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-.cert-modal-inner iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: #fff;
-}
-.cert-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  z-index: 2;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  border: none;
-  font-size: 28px;
-  line-height: 1;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.cert-modal-close:hover {
-  background: rgba(0,0,0,0.85);
-}
-</style>
-/* .cert-grid{
+ 
+.cert-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
@@ -609,7 +561,7 @@ padding:4px 9px;
 border-radius:5px;
 border:1px solid var(--border);
 font-family:var(--font-mono);
-} */
+}
 
 /* ---------- CONTACT SECTION ---------- */
 .contact-layout {
@@ -1105,7 +1057,55 @@ justify-content: center;
   </div>
 </div>
 
-
+ <style>
+.cert-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.cert-modal.active {
+  display: flex;
+}
+.cert-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.cert-modal-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+}
+.cert-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  z-index: 2;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cert-modal-close:hover {
+  background: rgba(0,0,0,0.85);
+}
+</style>
 
 <script>
 function openCertModal(e, url) {

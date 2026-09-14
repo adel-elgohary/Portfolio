@@ -1519,7 +1519,102 @@ function closeCertModal(e) {
 </div>
 </div>
 </section>
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-tag" data-en="06 — Services" data-ar="06 — الخدمات">06 — Services</div>
+    <h2 class="section-title" data-en="What I do, and how" data-ar="إيه بتقدّم، وبكام">What I do</h2>
+    <p class="section-sub" data-en="Practical infrastructure work, scoped to the problem it solves." data-ar="شغل بنية تحتية عملي، محدد حسب المشكلة اللي بيحلها.">Practical infrastructure work, scoped to the problem it solves.</p>
 
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🧱</div>
+        <h3 data-en="Infrastructure as Code" data-ar="البنية التحتية كـ كود">Infrastructure as Code</h3>
+        <p class="service-problem" data-en="Manual server setup that breaks when someone else tries to repeat it."
+           data-ar="سيرفرات بتتظبط يدوي وبتتعطل لما حد تاني يحاول يكررها.">Manual server setup that breaks when someone else tries to repeat it.</p>
+        <p class="service-what" data-en="I write Terraform + Ansible playbooks that provision and configure infrastructure reproducibly."
+           data-ar="بكتب Terraform + Ansible playbooks تبني وتظبط البنية التحتية بشكل قابل للتكرار.">I write Terraform + Ansible playbooks that provision and configure infrastructure reproducibly.</p>
+        <p class="service-result" data-en="Result: environments spin up in minutes, identically, every time."
+           data-ar="النتيجة: بيئات بتتبني في دقايق، بنفس الشكل، كل مرة.">Result: environments spin up in minutes, identically, every time.</p>
+        <div class="service-tags">
+          <span class="tag">Terraform</span>
+          <span class="tag">Ansible</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3 data-en="CI/CD Pipeline Setup" data-ar="بناء CI/CD Pipeline">CI/CD Pipeline Setup</h3>
+        <p class="service-problem" data-en="Deployments that depend on someone manually running commands in the right order."
+           data-ar="عمليات نشر معتمدة على حد يشغّل أوامر يدويًا بترتيب معيّن.">Deployments that depend on someone manually running commands in the right order.</p>
+        <p class="service-what" data-en="I set up Jenkins pipelines that build, test, and deploy automatically on every push."
+           data-ar="بظبط Jenkins pipelines تعمل build وtest وdeploy أوتوماتيك مع كل push.">I set up Jenkins pipelines that build, test, and deploy automatically on every push.</p>
+        <p class="service-result" data-en="Result: fewer deployment mistakes, faster release cycles."
+           data-ar="النتيجة: أخطاء نشر أقل، ودورة إصدار أسرع.">Result: fewer deployment mistakes, faster release cycles.</p>
+        <div class="service-tags">
+          <span class="tag">Jenkins</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <h3 data-en="Cloud Deployment & Monitoring" data-ar="النشر السحابي والمراقبة">Cloud Deployment & Monitoring</h3>
+        <p class="service-problem" data-en="Apps running in the cloud with no visibility into whether they're actually healthy."
+           data-ar="تطبيقات شغالة على الكلاود من غير أي رؤية لو هي فعلاً شغالة صح.">Apps running in the cloud with no visibility into whether they're actually healthy.</p>
+        <p class="service-what" data-en="I deploy on AWS with Kubernetes orchestration, and wire up Prometheus for monitoring."
+           data-ar="بعمل نشر على AWS باستخدام Kubernetes، وبربط Prometheus للمراقبة.">I deploy on AWS with Kubernetes orchestration, and wire up Prometheus for monitoring.</p>
+        <p class="service-result" data-en="Result: problems get caught before users notice them."
+           data-ar="النتيجة: المشاكل بتتكشف قبل ما المستخدم يحسها.">Result: problems get caught before users notice them.</p>
+        <div class="service-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Prometheus</span>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<style>
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: #0d1117;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 28px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #2dd4bf;
+}
+
+.service-icon { font-size: 28px; margin-bottom: 12px; }
+.service-card h3 { margin-bottom: 10px; color: #fff; }
+.service-problem { color: #8b93a5; font-size: 14px; margin-bottom: 10px; }
+.service-what { color: #c9d1d9; font-size: 14px; margin-bottom: 10px; }
+.service-result { color: #2dd4bf; font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+.service-tags .tag {
+  display: inline-block;
+  font-size: 12px;
+  color: #8b93a5;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin: 2px 4px 2px 0;
+}
+</style>
 <!-- CONTACT SECTION -->
 <section id="contact">
 <div class="wrap">

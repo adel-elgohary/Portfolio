@@ -519,7 +519,56 @@ font-family:var(--font-mono); font-size:13.5px; color:var(--ink-dim);
 .education-meta-item .meta-icon{ color:var(--accent); }
 
 /* ---------- CERTIFICATIONS ---------- */
-.cert-grid{
+  <style>
+.cert-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.cert-modal.active {
+  display: flex;
+}
+.cert-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.cert-modal-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+}
+.cert-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  z-index: 2;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cert-modal-close:hover {
+  background: rgba(0,0,0,0.85);
+}
+</style>
+/* .cert-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
@@ -560,7 +609,7 @@ padding:4px 9px;
 border-radius:5px;
 border:1px solid var(--border);
 font-family:var(--font-mono);
-}
+} */
 
 /* ---------- CONTACT SECTION ---------- */
 .contact-layout {
@@ -1005,7 +1054,81 @@ justify-content: center;
 
 
 <!-- CERTIFICATIONS -->
+  <!-- CERTIFICATIONS -->
 <section id="certifications">
+  <div class="wrap">
+    <div class="section-tag" data-en="06 — Credentials" data-ar="06 — الشهادات">06 — Credentials</div>
+    <h2 class="section-title" data-en="Certifications" data-ar="الشهادات">Certifications</h2>
+    <p class="section-sub" data-en="Formal training programs completed alongside hands-on infrastructure work." data-ar="برامج تدريبية رسمية أُنجزت جنبًا إلى جنب مع العمل العملي في البنية التحتية.">Formal training programs completed alongside hands-on infrastructure work.</p>
+
+    <div class="cert-grid">
+      <a href="CCNA Certificate.pdf" class="cert-card" onclick="openCertModal(event, 'CCNA Certificate.pdf')">
+        <div class="cert-image-container">
+          <img src="CCNA.png" alt="CCNA Certificate">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="CCNA" data-ar="CCNA">CCNA</h3>
+          <p class="cert-issuer">CCNA / NTI</p>
+          <p class="cert-date" data-en="FEB 2026 · 120 hrs" data-ar="فبراير 2026 · 120 ساعة">Feb 2026 · 120 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">95%</span>
+            <span class="tag">CCNA</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="Cloud Certificate.pdf" class="cert-card" onclick="openCertModal(event, 'Cloud Certificate.pdf')">
+        <div class="cert-image-container">
+          <img src="CLOUD.png" alt="CLOUD Certificate">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Cloud Services Management and Operation" data-ar="إدارة وتشغيل الخدمات السحابية">Cloud Services Management and Operation</h3>
+          <p class="cert-issuer">CLOUD / NTI</p>
+          <p class="cert-date" data-en="Jan-Apr 2026" data-ar="يناير-أبريل 2026">Jan–Apr 2026 · 120 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">98%</span>
+            <span class="tag">CLOUD</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CERT MODAL -->
+<div id="certModal" class="cert-modal" onclick="closeCertModal(event)">
+  <div class="cert-modal-inner">
+    <button class="cert-modal-close" onclick="closeCertModal(event)" aria-label="Close">&times;</button>
+    <iframe id="certModalFrame" src="" frameborder="0"></iframe>
+  </div>
+</div>
+
+
+
+<script>
+function openCertModal(e, url) {
+  e.preventDefault();
+  const modal = document.getElementById('certModal');
+  const frame = document.getElementById('certModalFrame');
+  frame.src = url;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal(e) {
+  // إغلاق فقط لو ضغط على الخلفية أو زرار الإغلاق، مش على المحتوى جوا
+  if (e.target.id === 'certModal' || e.target.classList.contains('cert-modal-close')) {
+    const modal = document.getElementById('certModal');
+    const frame = document.getElementById('certModalFrame');
+    modal.classList.remove('active');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+}
+</script>
+<!-- <section id="certifications">
   <div class="wrap">
     <div class="section-tag" data-en="06 — Credentials" data-ar="06 — الشهادات">06 — Credentials</div>
     <h2 class="section-title" data-en="Certifications" data-ar="الشهادات">Certifications</h2>
@@ -1045,7 +1168,7 @@ justify-content: center;
       </a>
     </div>
   </div>
-</section>
+</section> -->
 <!-- SKILLS -->
 <section id="skills">
 <div class="wrap">

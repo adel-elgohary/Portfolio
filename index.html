@@ -433,7 +433,7 @@ background: rgba(255,255,255,0.02);
 }
 
 
- /* ---------- PROJECT ---------- */
+/* ---------- PROJECT ---------- */
 
 .project-card{
   border:1px solid var(--border);
@@ -446,21 +446,44 @@ background: rgba(255,255,255,0.02);
 }
 .project-card:hover { border-color: var(--border-hover); }
 
+/* Project image thumbnail */
 .project-image {
   width: 100%;
+  max-height: 220px;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  position: relative;
+}
+.project-image::after {
+  content: "🔍";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.project-image:hover::after {
+  opacity: 1;
 }
 .project-image img {
   width: 100%;
-  height: auto;
-  display: block;
-  aspect-ratio: 16 / 9;
+  height: 220px;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
-.project-card:hover .project-image img {
-  transform: scale(1.03);
+.project-image:hover img {
+  transform: scale(1.05);
 }
 
 .project-head{ padding:36px 36px 0; }
@@ -491,7 +514,25 @@ background: rgba(255,255,255,0.02);
 .pcol p, .pcol li{font-size:14px;color:var(--ink-dim);}
 .pcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .pcol ul li{padding-left:14px;position:relative;}
-.pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);} 
+.pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);}
+
+/* Image modal (uses same popup base as certificates) */
+.image-modal-inner {
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  height: auto;
+  max-height: 90vh;
+}
+.image-modal-inner img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
  /* ---------- PROJECT ---------- */
   
 /*
@@ -1436,16 +1477,16 @@ justify-content: center;
 </section>
 
 
-  <!-- PROJECT -->
+<!-- PROJECT -->
 <section id="project">
 <div class="wrap">
 <div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع البارز">04 — Featured Project</div>
 <h2 class="section-title" data-en="Automated Microservices Deployment" data-ar="نشر الخدمات المصغرة المؤتمتة">Automated Microservices Deployment</h2>
 <p class="section-sub" data-en="A full end-to-end cloud infrastructure showcasing automated pipeline delivery." data-ar="بنية تحتية سحابية متكاملة توضح التسليم المؤتمت عبر أنابيب التطوير.">A full end-to-end cloud infrastructure showcasing automated pipeline delivery.</p>
 
-  <!-- NEW: DOCKER PROJECT CARD -->
+  <!-- DOCKER PROJECT CARD -->
   <div class="project-card">
-    <div class="project-image">
+    <div class="project-image" onclick="openImageModal('myfirst-project-with-docker.png')">
       <img src="myfirst-project-with-docker.png" alt="Dockerized Portfolio Screenshot">
     </div>
     <div class="project-head">
@@ -1469,7 +1510,7 @@ justify-content: center;
     </div>
   </div>
 
-  <!-- EXISTING PROJECT CARD -->
+  <!-- MULTI-CONTAINER PROJECT CARD -->
   <div class="project-card">
     <div class="project-head">
       <div class="ptag" data-en="END-TO-END DEPLOYMENT" data-ar="نشر كامل للنظام">END-TO-END DEPLOYMENT</div>
@@ -1498,6 +1539,35 @@ justify-content: center;
 
 </div>
 </section>
+
+<!-- IMAGE MODAL (project screenshots popup) -->
+<div id="imageModal" class="cert-modal" onclick="closeImageModal(event)">
+  <div class="cert-modal-inner image-modal-inner">
+    <button class="cert-modal-close" onclick="closeImageModal(event)" aria-label="Close">&times;</button>
+    <img id="imageModalImg" src="" alt="Project screenshot">
+  </div>
+</div>
+
+<script>
+function openImageModal(src) {
+  const modal = document.getElementById('imageModal');
+  const img = document.getElementById('imageModalImg');
+  img.src = src;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal(e) {
+  if (e.target.id === 'imageModal' || e.target.classList.contains('cert-modal-close')) {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('imageModalImg');
+    modal.classList.remove('active');
+    img.src = '';
+    document.body.style.overflow = '';
+  }
+}
+</script>
+
  <!-- PROJECT -->
   <!--
 <section id="project">
@@ -1701,7 +1771,7 @@ justify-content: center;
 
       <a href="Linux-adminstration.pdf" class="cert-card" onclick="openCertModal(event, 'Linux-adminstration.pdf')">
         <div class="cert-image-container">
-          <img src="Linux-adminstration.jpg" alt="Linux-adminstration">
+          <img src="Linux-adminstration.png" alt="Linux-adminstration">
         </div>
         <div class="cert-content">
           <h3 data-en="Linux-adminstration" data-ar="إدارة أنظمة التشغيل ">Linux-adminstration</h3>

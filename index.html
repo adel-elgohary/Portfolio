@@ -433,6 +433,93 @@ background: rgba(255,255,255,0.02);
 }
 
 /* ---------- PROJECT ---------- */
+
+.project-card {
+  background: #0d1117;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #2dd4bf;
+}
+
+.project-head {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ptag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #2dd4bf;
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 20px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
+}
+
+.project-head h3 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.ptools {
+  color: #8b93a5;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+}
+
+.project-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.pcol .h {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #2dd4bf;
+  margin-bottom: 8px;
+}
+
+.pcol p {
+  color: #c9d1d9;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.project-image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.03);
+}
+  
+  
 .project-card{
 border:1px solid var(--border);
 border-radius:16px;
@@ -1293,6 +1380,85 @@ justify-content: center;
 <div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع البارز">04 — Featured Project</div>
 <h2 class="section-title" data-en="Automated Microservices Deployment" data-ar="نشر الخدمات المصغرة المؤتمتة">Automated Microservices Deployment</h2>
 <p class="section-sub" data-en="A full end-to-end cloud infrastructure showcasing automated pipeline delivery." data-ar="بنية تحتية سحابية متكاملة توضح التسليم المؤتمت عبر أنابيب التطوير.">A full end-to-end cloud infrastructure showcasing automated pipeline delivery.</p>
+
+  <!-- NEW: SECOND PROJECT CARD -->
+<div class="project-card">
+  <div class="project-image">
+    <img src="myfirst-project-with-docker.png" alt="Dockerized Portfolio Screenshot">
+  </div>
+  <div class="project-head">
+    <div class="ptag" data-en="CONTAINERIZATION" data-ar="حوسبة الحاويات">CONTAINERIZATION</div>
+    <h3 data-en="Dockerized Portfolio" data-ar="بورتفوليو مُحوسب بـ Docker">Dockerized Portfolio</h3>
+    <div class="ptools">Docker • Dockerfile</div>
+  </div>
+  <div class="project-body">
+    <!-- باقي الكارت زي ما هو -->
+<div class="project-card">
+    <div class="project-head">
+      <div class="ptag" data-en="CONTAINERIZATION" data-ar="حوسبة الحاويات">CONTAINERIZATION</div>
+      <h3 data-en="Dockerized Portfolio" data-ar="بورتفوليو مُحوسب بـ Docker">Dockerized Portfolio</h3>
+      <div class="ptools">Docker • Dockerfile</div>
+    </div>
+    <div class="project-body">
+      <div class="pcol">
+        <div class="h" data-en="PACKAGING" data-ar="التغليف">PACKAGING</div>
+        <p data-en="Wrote a custom Dockerfile to package this portfolio site and all its dependencies into a single image." data-ar="كتبت Dockerfile مخصص لتغليف موقع البورتفوليو ده وكل الـ dependencies بتاعته جوه image واحد.">Wrote a custom Dockerfile to package this portfolio site and all its dependencies into a single image.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="BUILD & RUN" data-ar="البناء والتشغيل">BUILD & RUN</div>
+        <p data-en="Built and ran the container locally, verifying it serves correctly on a mapped port." data-ar="بنيت وشغّلت الكونتينر محليًا، وتأكدت إنه شغال صح على البورت المحدد.">Built and ran the container locally, verifying it serves correctly on a mapped port.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="PORTABILITY" data-ar="قابلية النقل">PORTABILITY</div>
+        <p data-en="The site now runs identically on any machine with Docker installed — no manual setup required." data-ar="الموقع بقى بيشتغل بنفس الشكل على أي جهاز عليه Docker — من غير أي إعداد يدوي.">The site now runs identically on any machine with Docker installed — no manual setup required.</p>
+      </div>
+    </div>
+  </div>
+    
+  </div>
+</div>
+
+  
+
+  
+  <!-- EXISTING PROJECT CARD -->
+
+  <div class="project-card">
+    <div class="project-head">
+      <div class="ptag" data-en="END-TO-END DEPLOYMENT" data-ar="نشر كامل للنظام">END-TO-END DEPLOYMENT</div>
+      <h3 data-en="Multi-Container Cloud Environment" data-ar="بيئة سحابية متعدّدة الحاويات">Multi-Container Cloud Environment</h3>
+      <div class="ptools">Docker • Kubernetes • Terraform • AWS • Jenkins • Prometheus</div>
+    </div>
+    <div class="project-body">
+      <div class="pcol">
+        <div class="h" data-en="INFRASTRUCTURE" data-ar="البنية التحتية">INFRASTRUCTURE</div>
+        <p data-en="Provisioned via Terraform on AWS with isolated subnets and secure access." data-ar="تم إعدادها عبر Terraform على AWS مع شبكات فرعية معزولة ووصول آمن.">Provisioned via Terraform on AWS with isolated subnets and secure access.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="ORCHESTRATION" data-ar="الإدارة والأتمتة">ORCHESTRATION</div>
+        <p data-en="Containerized with Docker and managed seamlessly using Kubernetes clusters." data-ar="تم وضعها في حاويات Docker وإدارتها بمرونة بواسطة عناقيد Kubernetes.">Containerized with Docker and managed seamlessly using Kubernetes clusters.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="CI/CD PIPELINE" data-ar="أنابيب CI/CD">CI/CD PIPELINE</div>
+        <p data-en="Automated build, test, and deployment workflows using Jenkins." data-ar="سير عمل مؤتمت للبناء والتأكد والتنفيذ باستخدام Jenkins.">Automated build, test, and deployment workflows using Jenkins.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="OBSERVABILITY" data-ar="المراقبة">OBSERVABILITY</div>
+        <p data-en="Configured Prometheus and Grafana for live metric collection and alert management." data-ar="تهيئة Prometheus و Grafana لتجميع المقاييس الحية وإدارة التنبيهات.">Configured Prometheus and Grafana for live metric collection and alert management.</p>
+      </div>
+    </div>
+  </div>
+
+ 
+
+</div>
+</section>
+  
+<!-- <section id="project">
+<div class="wrap">
+<div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع البارز">04 — Featured Project</div>
+<h2 class="section-title" data-en="Automated Microservices Deployment" data-ar="نشر الخدمات المصغرة المؤتمتة">Automated Microservices Deployment</h2>
+<p class="section-sub" data-en="A full end-to-end cloud infrastructure showcasing automated pipeline delivery." data-ar="بنية تحتية سحابية متكاملة توضح التسليم المؤتمت عبر أنابيب التطوير.">A full end-to-end cloud infrastructure showcasing automated pipeline delivery.</p>
   <div class="project-card">
     <div class="project-head">
       <div class="ptag" data-en="END-TO-END DEPLOYMENT" data-ar="نشر كامل للنظام">END-TO-END DEPLOYMENT</div>
@@ -1319,7 +1485,7 @@ justify-content: center;
     </div>
   </div>
 </div>
-</section>
+</section> -->
 
 
 <!-- CERTIFICATIONS -->
@@ -1406,6 +1572,22 @@ justify-content: center;
           <div class="cert-tags">
             <span class="tag">94.5%</span>
             <span class="tag">network_infrastructure</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="Linux-adminstration.pdf" class="cert-card" onclick="openCertModal(event, 'Linux-adminstration.pdf')">
+        <div class="cert-image-container">
+          <img src="Linux-adminstration.jpg" alt="Linux-adminstration">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Linux-adminstration" data-ar="إدارة أنظمة التشغيل ">Linux-adminstration</h3>
+          <p class="cert-issuer">Linux-adminstration / NTI</p>
+          <p class="cert-date" data-en="Aug–Sep 2026" data-ar="أغسطس-سبتمبر 2026">Aug–Sep 2026 · 120 hrs</p>
+          <div class="cert-tags">
+          
+            <span class="tag">Linux-adminstration</span>
             <span class="tag">NTI</span>
           </div>
         </div>

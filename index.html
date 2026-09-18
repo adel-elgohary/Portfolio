@@ -432,8 +432,69 @@ border:1px solid var(--border); border-radius:6px; color:var(--ink-faint);
 background: rgba(255,255,255,0.02);
 }
 
-/* ---------- PROJECT ---------- */
 
+ /* ---------- PROJECT ---------- */
+
+.project-card{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-panel);
+  overflow:hidden;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease;
+  margin-bottom:24px;
+}
+.project-card:hover { border-color: var(--border-hover); }
+
+.project-image {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.03);
+}
+
+.project-head{ padding:36px 36px 0; }
+@media(max-width:640px){ .project-head{padding:24px 20px 0;} }
+.project-head .ptag{font-family:var(--font-mono);font-size:12px;color:var(--line-cyan);margin-bottom:10px;letter-spacing:0.05em;}
+.project-head h3{font-size:26px;margin-bottom:8px;}
+.project-head .ptools{color:var(--ink-faint);font-family:var(--font-mono);font-size:13px;margin-bottom:26px;}
+
+.project-body{
+  padding:0 36px 36px; display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; border-top:1px solid var(--border); margin-top:6px;
+}
+@media(max-width:800px){ .project-body{grid-template-columns:1fr 1fr;} }
+@media(max-width:520px){ .project-body{grid-template-columns:1fr;padding:0 20px 20px;} }
+
+.pcol{padding:24px 20px 0;}
+.pcol:not(:last-child){border-right:1px solid var(--border);}
+@media(max-width:800px){
+  .pcol:nth-child(2n){border-right:none;}
+  html[dir="rtl"] .pcol:nth-child(2n){border-left:none;}
+  .pcol:nth-child(n+3){border-top:1px solid var(--border);}
+}
+@media(max-width:520px){
+  .pcol{border-right:none !important;border-left:none !important;border-top:1px solid var(--border);padding:20px 0 0;}
+  .pcol:first-child{border-top:none;}
+}
+.pcol .h{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);margin-bottom:10px;letter-spacing:0.05em;}
+.pcol p, .pcol li{font-size:14px;color:var(--ink-dim);}
+.pcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.pcol ul li{padding-left:14px;position:relative;}
+.pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);} 
+ /* ---------- PROJECT ---------- */
+  
+/*
 .project-card {
   background: #0d1117;
   border: 1px solid rgba(255,255,255,0.08);
@@ -555,7 +616,7 @@ html[dir="rtl"] .pcol:nth-child(2n){border-left:none;}
 .pcol p, .pcol li{font-size:14px;color:var(--ink-dim);}
 .pcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .pcol ul li{padding-left:14px;position:relative;}
-.pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);}
+.pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);} */
 
 /* ---------- EDUCATION ---------- */
 .education-card{
@@ -1374,14 +1435,78 @@ justify-content: center;
 </div>
 </section>
 
-<!-- PROJECT -->
+
+  <!-- PROJECT -->
 <section id="project">
 <div class="wrap">
 <div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع البارز">04 — Featured Project</div>
 <h2 class="section-title" data-en="Automated Microservices Deployment" data-ar="نشر الخدمات المصغرة المؤتمتة">Automated Microservices Deployment</h2>
 <p class="section-sub" data-en="A full end-to-end cloud infrastructure showcasing automated pipeline delivery." data-ar="بنية تحتية سحابية متكاملة توضح التسليم المؤتمت عبر أنابيب التطوير.">A full end-to-end cloud infrastructure showcasing automated pipeline delivery.</p>
 
-  <!-- NEW: SECOND PROJECT CARD -->
+  <!-- NEW: DOCKER PROJECT CARD -->
+  <div class="project-card">
+    <div class="project-image">
+      <img src="myfirst-project-with-docker.png" alt="Dockerized Portfolio Screenshot">
+    </div>
+    <div class="project-head">
+      <div class="ptag" data-en="CONTAINERIZATION" data-ar="حوسبة الحاويات">CONTAINERIZATION</div>
+      <h3 data-en="Dockerized Portfolio" data-ar="بورتفوليو مُحوسب بـ Docker">Dockerized Portfolio</h3>
+      <div class="ptools">Docker • Dockerfile</div>
+    </div>
+    <div class="project-body">
+      <div class="pcol">
+        <div class="h" data-en="PACKAGING" data-ar="التغليف">PACKAGING</div>
+        <p data-en="Wrote a custom Dockerfile to package this portfolio site and all its dependencies into a single image." data-ar="كتبت Dockerfile مخصص لتغليف موقع البورتفوليو ده وكل الـ dependencies بتاعته جوه image واحد.">Wrote a custom Dockerfile to package this portfolio site and all its dependencies into a single image.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="BUILD & RUN" data-ar="البناء والتشغيل">BUILD & RUN</div>
+        <p data-en="Built and ran the container locally, verifying it serves correctly on a mapped port." data-ar="بنيت وشغّلت الكونتينر محليًا، وتأكدت إنه شغال صح على البورت المحدد.">Built and ran the container locally, verifying it serves correctly on a mapped port.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="PORTABILITY" data-ar="قابلية النقل">PORTABILITY</div>
+        <p data-en="The site now runs identically on any machine with Docker installed — no manual setup required." data-ar="الموقع بقى بيشتغل بنفس الشكل على أي جهاز عليه Docker — من غير أي إعداد يدوي.">The site now runs identically on any machine with Docker installed — no manual setup required.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXISTING PROJECT CARD -->
+  <div class="project-card">
+    <div class="project-head">
+      <div class="ptag" data-en="END-TO-END DEPLOYMENT" data-ar="نشر كامل للنظام">END-TO-END DEPLOYMENT</div>
+      <h3 data-en="Multi-Container Cloud Environment" data-ar="بيئة سحابية متعدّدة الحاويات">Multi-Container Cloud Environment</h3>
+      <div class="ptools">Docker • Kubernetes • Terraform • AWS • Jenkins • Prometheus</div>
+    </div>
+    <div class="project-body">
+      <div class="pcol">
+        <div class="h" data-en="INFRASTRUCTURE" data-ar="البنية التحتية">INFRASTRUCTURE</div>
+        <p data-en="Provisioned via Terraform on AWS with isolated subnets and secure access." data-ar="تم إعدادها عبر Terraform على AWS مع شبكات فرعية معزولة ووصول آمن.">Provisioned via Terraform on AWS with isolated subnets and secure access.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="ORCHESTRATION" data-ar="الإدارة والأتمتة">ORCHESTRATION</div>
+        <p data-en="Containerized with Docker and managed seamlessly using Kubernetes clusters." data-ar="تم وضعها في حاويات Docker وإدارتها بمرونة بواسطة عناقيد Kubernetes.">Containerized with Docker and managed seamlessly using Kubernetes clusters.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="CI/CD PIPELINE" data-ar="أنابيب CI/CD">CI/CD PIPELINE</div>
+        <p data-en="Automated build, test, and deployment workflows using Jenkins." data-ar="سير عمل مؤتمت للبناء والتأكد والتنفيذ باستخدام Jenkins.">Automated build, test, and deployment workflows using Jenkins.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="OBSERVABILITY" data-ar="المراقبة">OBSERVABILITY</div>
+        <p data-en="Configured Prometheus and Grafana for live metric collection and alert management." data-ar="تهيئة Prometheus و Grafana لتجميع المقاييس الحية وإدارة التنبيهات.">Configured Prometheus and Grafana for live metric collection and alert management.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+ <!-- PROJECT -->
+  <!--
+<section id="project">
+<div class="wrap">
+<div class="section-tag" data-en="04 — Featured Project" data-ar="04 — المشروع البارز">04 — Featured Project</div>
+<h2 class="section-title" data-en="Automated Microservices Deployment" data-ar="نشر الخدمات المصغرة المؤتمتة">Automated Microservices Deployment</h2>
+<p class="section-sub" data-en="A full end-to-end cloud infrastructure showcasing automated pipeline delivery." data-ar="بنية تحتية سحابية متكاملة توضح التسليم المؤتمت عبر أنابيب التطوير.">A full end-to-end cloud infrastructure showcasing automated pipeline delivery.</p>
+
+  
 <div class="project-card">
   <div class="project-image">
     <img src="myfirst-project-with-docker.png" alt="Dockerized Portfolio Screenshot">
@@ -1392,7 +1517,7 @@ justify-content: center;
     <div class="ptools">Docker • Dockerfile</div>
   </div>
   <div class="project-body">
-    <!-- باقي الكارت زي ما هو -->
+   
 <div class="project-card">
     <div class="project-head">
       <div class="ptag" data-en="CONTAINERIZATION" data-ar="حوسبة الحاويات">CONTAINERIZATION</div>
@@ -1419,9 +1544,6 @@ justify-content: center;
 </div>
 
   
-
-  
-  <!-- EXISTING PROJECT CARD -->
 
   <div class="project-card">
     <div class="project-head">
@@ -1452,7 +1574,7 @@ justify-content: center;
  
 
 </div>
-</section>
+</section> -->
   
 <!-- <section id="project">
 <div class="wrap">
@@ -1488,7 +1610,7 @@ justify-content: center;
 </section> -->
 
 
-<!-- CERTIFICATIONS -->
+
   <!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="wrap">

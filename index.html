@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adel Elgohary — Cloud & DevOps Engineer</title>
+<meta name="description" content="Adel Elgohary — Cloud & DevOps Engineer building automated, secure infrastructure across networking, cloud, and containers. Based in Cairo, Egypt.">
+<meta property="og:title" content="Adel Elgohary — Cloud & DevOps Engineer">
+<meta property="og:description" content="Building automated, secure infrastructure — from VLANs to Kubernetes clusters.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%23080d1a%22/><path d=%22M20 65 L38 40 L52 55 L80 30%22 stroke=%22%2300F0FF%22 stroke-width=%228%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%2280%22 cy=%2230%22 r=%226%22 fill=%22%23FF9E2C%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+--bg:#070B12;
+--bg-panel:rgba(15, 23, 42, 0.65);
+--bg-panel-raised:rgba(30, 41, 59, 0.7);
+--grid-line:rgba(0, 240, 255, 0.03);
+--grid-line-strong:rgba(0, 240, 255, 0.08);
+--ink:#F1F5F9;
+--ink-dim:#94A3B8;
+--ink-faint:#64748B;
+--accent:#FF9E2C;
+--accent-soft:rgba(255, 158, 44, 0.15);
+--line-cyan:#00F0FF;
+--line-cyan-soft:rgba(0, 240, 255, 0.12);
+--purple-glow:#7928CA;
+--ok:#00FF85;
+--border:rgba(255, 255, 255, 0.08);
+--border-hover:rgba(0, 240, 255, 0.3);
+--header-bg:rgba(7, 11, 18, 0.75);
+--font-sans:'IBM Plex Sans', -apple-system, sans-serif;
+--font-mono:'IBM Plex Mono', monospace;
+--maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto;}
+*{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+body{
+background:var(--bg);
+color:var(--ink);
+font-family:var(--font-sans);
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+position:relative;
+transition:background .2s ease, color .2s ease;
+}
+body::before {
+content:""; position:fixed; top:-100px; left:-100px; width:500px; height:500px;
+background:radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0,0,0,0) 70%);
+z-index:-1; pointer-events:none; filter:blur(50px);
+}
+body::after {
+content:""; position:fixed; bottom:-100px; right:-100px; width:600px; height:600px;
+background:radial-gradient(circle, rgba(121, 40, 202, 0.15) 0%, rgba(0,0,0,0) 70%);
+z-index:-1; pointer-events:none; filter:blur(60px);
+}
+.bg-grid {
+position:fixed; top:0; left:0; right:0; bottom:0;
+background-image:
+linear-gradient(var(--grid-line) 1px, transparent 1px),
+linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-2; pointer-events:none;
+}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--accent-soft);color:var(--ink);}
+:focus-visible{outline:2px solid var(--line-cyan);outline-offset:3px;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+@media(max-width:640px){ .wrap{padding:0 20px;} }
+.mono{font-family:var(--font-mono);}
+section{padding:120px 0; position:relative;}
+@media(max-width:640px){ section{padding:60px 0;} }
+.section-tag{
+font-family:var(--font-mono);
+font-size:13px;
+color:var(--line-cyan);
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:18px;
+letter-spacing:0.05em;
+text-shadow: 0 0 10px rgba(0,240,255,0.3);
+}
+.section-tag::before{
+content:"";
+width:8px;height:8px;
+background:var(--line-cyan);
+border-radius:1px;
+transform:rotate(45deg);
+flex-shrink:0;
+box-shadow: 0 0 8px var(--line-cyan);
+}
+h1,h2,h3{font-weight:650;letter-spacing:-0.01em;}
+h2.section-title{
+font-size:clamp(24px,3.6vw,40px);
+max-width:640px;
+margin-bottom:16px;
+}
+.section-sub{
+color:var(--ink-dim);
+max-width:560px;
+font-size:16px;
+margin-bottom:56px;
+}
+@media(max-width:640px){ .section-sub{margin-bottom:32px;} }
+
+/* ---------- NAV ---------- */
+header{
+position:fixed;top:0;left:0;right:0;
+z-index:100;
+background:var(--header-bg);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(--border);
+transition: background .2s ease, border-color .2s ease;
+}
+nav.wrap{
+display:flex;align-items:center;justify-content:space-between;
+height:68px;
+max-width:1400px;
+gap:24px;
+}
+.brand{
+flex-shrink:0;
+white-space:nowrap;
+font-family:var(--font-mono);
+font-size:15px;
+display:inline-flex;
+align-items:center;
+gap:9px;
+text-decoration:none;
+}
+.brand-dot{width:7px;height:7px;background:var(--ok);border-radius:50%;flex-shrink:0;box-shadow: 0 0 8px var(--ok);}
+.nav-links{display:flex;gap:18px;font-size:14px;align-items:center;margin:0 auto;}
+.nav-links a{color:var(--ink-dim);transition:color .15s ease;position:relative;white-space:nowrap;}
+.nav-links a:hover{color:var(--line-cyan);}
+.nav-icons{display:flex;gap:10px;align-items:center;flex-shrink:0;}
+.nav-toggle{
+display:none;
+background:var(--bg-panel-raised);
+border:1px solid var(--border);
+color:var(--ink);
+width:38px;
+height:38px;
+border-radius:50%;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+transition:all 0.15s ease;
+padding: 0;
+}
+.nav-toggle:hover{ border-color:var(--line-cyan); }
+.nav-toggle svg { width: 18px; height: 18px; fill: currentColor; }
+.nav-btn {
+background: transparent;
+border: 1px solid var(--border);
+color: var(--ink-dim);
+padding: 6px 12px;
+border-radius: 6px;
+cursor: pointer;
+font-family: var(--font-mono);
+font-size: 13px;
+transition: all 0.15s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+.nav-btn:hover { border-color: var(--line-cyan); color: var(--line-cyan); box-shadow: 0 0 10px rgba(0,240,255,0.2); }
+@media(max-width:1320px){
+.desktop-only { display: none !important; }
+.nav-toggle { display: flex; }
+.nav-links {
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  padding: 24px; gap: 16px;
+  border-bottom: 1px solid var(--border);
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  align-items: flex-start;
+  margin: 0;
+  max-height: calc(100vh - 68px);
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.nav-links.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav-links a {
+  font-size: 16px;
+  width: 100%;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-links a:last-child { border-bottom: none; }
+}
+
+body.light-mode {
+--bg: #F8FAFC;
+--bg-panel: rgba(255, 255, 255, 0.85);
+--bg-panel-raised: #FFFFFF;
+--grid-line: rgba(15, 23, 42, 0.04);
+--grid-line-strong: rgba(15, 23, 42, 0.08);
+--ink: #0F172A;
+--ink-dim: #475569;
+--ink-faint: #94A3B8;
+--border: rgba(15, 23, 42, 0.1);
+--border-hover: rgba(0, 163, 255, 0.4);
+--line-cyan: #0088FF;
+/* Header needs its own light-mode value: the dark translucent
+   header background loses contrast once the page behind it turns
+   light, so give it a light, mostly-opaque background instead. */
+--header-bg: rgba(248, 250, 252, 0.88);
+}
+
+html[dir="rtl"] body {
+font-family: 'Cairo', var(--font-sans);
+direction: rtl;
+text-align: right;
+}
+html[dir="rtl"] .section-tag::before { margin-left: 8px; margin-right: 0; }
+html[dir="rtl"] .timeline { border-left: none; border-right: 1px solid var(--border); margin-left: 0; margin-right: 6px; }
+html[dir="rtl"] .tl-item { padding: 0 34px 48px 0; }
+html[dir="rtl"] .tl-item::before { left: auto; right: -6px; }
+html[dir="rtl"] .tl-item ul li { padding-left: 0; padding-right: 18px; }
+html[dir="rtl"] .tl-item ul li::before { left: auto; right: 0; content: "‹"; }
+html[dir="rtl"] .pcol ul li { padding-left: 0; padding-right: 14px; }
+html[dir="rtl"] .pcol ul li::before { left: auto; right: 0; }
+html[dir="rtl"] .brand { direction: ltr; }
+html[dir="rtl"] .pcol:not(:last-child){border-right:none;border-left:1px solid var(--border);}
+html[dir="rtl"] .info-item:hover { transform: translateX(-4px); }
+
+.btn{
+display:inline-flex;align-items:center;justify-content:center;gap:9px;
+padding:13px 24px; border-radius:8px; font-size:14.5px; font-weight:600;
+cursor:pointer; border:1px solid transparent;
+transition:all .2s cubic-bezier(0.16, 1, 0.3, 1);
+font-family:inherit;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{
+background: linear-gradient(135deg, var(--line-cyan), #00A3FF);
+color: #030712;
+box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+.btn-primary:hover{
+box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+filter: brightness(1.1);
+}
+.btn-ghost{
+background: rgba(255, 255, 255, 0.03);
+border-color: var(--border);
+color: var(--ink);
+backdrop-filter: blur(8px);
+}
+.btn-ghost:hover{
+border-color: var(--line-cyan);
+color: var(--line-cyan);
+background: rgba(0, 240, 255, 0.05);
+}
+@media(max-width:480px){ .btn{width:100%;} }
+
+/* ---------- HERO ---------- */
+.hero{ padding:160px 0 90px; position:relative; overflow:hidden; }
+@media(max-width:640px){ .hero{padding:110px 0 50px;} }
+.hero-grid{
+display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+}
+@media(max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:50px;} }
+.status-pill{
+display:inline-flex;align-items:center;gap:8px;
+font-family:var(--font-mono); font-size:12.5px; color:var(--ok);
+border:1px solid rgba(0, 255, 133, 0.25); background:rgba(0, 255, 133, 0.06);
+padding:6px 14px; border-radius:100px; margin-bottom:20px;
+backdrop-filter: blur(6px);
+box-shadow: 0 0 15px rgba(0, 255, 133, 0.1);
+}
+.status-pill span.d{width:6px;height:6px;background:var(--ok);border-radius:50%;box-shadow: 0 0 8px var(--ok);}
+.hero h1{ font-size:clamp(34px,5.5vw,62px); line-height:1.1; margin-bottom:22px; font-weight:700; }
+.hero h1 .role{
+display:block; color:var(--ink-dim); font-size:0.42em; font-family:var(--font-mono);
+font-weight:500; margin-top:14px; letter-spacing:0.01em;
+}
+.lead-wrapper { margin-bottom: 36px; }
+.hero p.lead{ font-size:17.5px; color:var(--ink-dim); max-width:520px; margin-bottom:16px; line-height: 1.6; }
+.typing-wrap {
+display: inline-flex; align-items: center; gap: 8px;
+background: rgba(15, 23, 42, 0.8);
+border: 1px solid var(--border); padding: 10px 18px; border-radius: 8px;
+font-family: var(--font-mono); font-size: 14px; color: var(--ink);
+backdrop-filter: blur(10px);
+box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.typing-wrap .pr { color: var(--ok); font-weight: bold; user-select: none; }
+#typed { color: var(--accent); }
+.cursor { color: var(--line-cyan); animation: blink 0.8s infinite; font-weight: bold;}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
+
+/* PROFILE CONTAINER */
+.profile-container {
+position: relative;
+width: 340px;
+height: 340px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+@media(max-width:440px){
+.profile-container { width: 280px; height: 280px; }
+}
+.profile-ring {
+position: absolute;
+border-radius: 50%;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+.ring-1 {
+width: 100%; height: 100%;
+border: 1px solid rgba(0, 240, 255, 0.25);
+box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+}
+.ring-2 {
+width: 120%; height: 120%;
+border: 1px dashed rgba(255, 158, 44, 0.2);
+}
+.profile-img-wrap {
+width: 270px;
+height: 270px;
+border-radius: 50%;
+overflow: hidden;
+position: relative;
+border: 2px solid var(--line-cyan);
+box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+background: var(--bg-panel);
+}
+@media(max-width:440px){
+.profile-img-wrap { width: 220px; height: 220px; }
+}
+.profile-img-wrap img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.floating-tag {
+position: absolute;
+background: rgba(15, 23, 42, 0.85);
+border: 1px solid var(--border);
+backdrop-filter: blur(12px);
+padding: 8px 16px;
+border-radius: 30px;
+font-family: var(--font-mono);
+font-size: 12px;
+color: var(--ink);
+display: flex;
+align-items: center;
+gap: 8px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+z-index: 2;
+white-space: nowrap;
+transition: transform 0.3s ease;
+}
+.floating-tag:hover { transform: translateY(-3px); border-color: var(--line-cyan); }
+.floating-tag .tag-dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+box-shadow: 0 0 8px currentColor;
+}
+.tag-top-right { top: 10px; right: -20px; }
+.tag-bottom-left { bottom: 30px; left: -30px; }
+.tag-bottom-right { bottom: 0px; right: -10px; }
+html[dir="rtl"] .tag-top-right { right: auto; left: -20px; }
+html[dir="rtl"] .tag-bottom-left { left: auto; right: -30px; }
+html[dir="rtl"] .tag-bottom-right { right: auto; left: -10px; }
+
+/* ---------- ABOUT ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-text p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: var(--ink-dim);
+  font-size: 16.5px;
+}
+.about-text p strong { color: var(--ink); font-weight: 600; }
+.about-visual {
+  display: flex;
+  justify-content: center;
+}
+.code-card-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+.code-card {
+  background: #0a0e14;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+.code-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #11161f;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+.code-card-filename {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8b93a5;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+}
+.code-card-body {
+  margin: 0;
+  padding: 20px 22px;
+  font-family: 'Courier New', monospace;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: #c9d1d9;
+  overflow-x: auto;
+  white-space: pre;
+}
+.code-card-body .key { color: #ffcb6b; }
+.code-card-body .str { color: #9ece6a; }
+.floating-icon {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  background: #11161f;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  z-index: 2;
+  animation: float 4s ease-in-out infinite;
+}
+.floating-icon img {
+  width: 28px;
+  height: 28px;
+}
+.icon-1 { top: -22px; left: -22px; animation-delay: 0s; }
+.icon-2 { top: -22px; right: -22px; animation-delay: 1s; }
+.icon-3 { bottom: -22px; left: -22px; animation-delay: 2s; }
+.icon-4 { bottom: -22px; right: -22px; animation-delay: 3s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { order: -1; }
+}
+@media (max-width: 640px) {
+  .floating-icon { width: 40px; height: 40px; }
+  .floating-icon img { width: 20px; height: 20px; }
+}
+
+/* ---------- SKILLS ---------- */
+.skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media(max-width:860px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .skills-grid{grid-template-columns:1fr;} }
+.skill-card{
+background:var(--bg-panel);
+padding:26px 24px;
+border-radius:14px;
+border:1px solid var(--border);
+backdrop-filter:blur(10px);
+transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-card:hover {
+border-color: var(--border-hover);
+transform: translateY(-4px);
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+.skill-card .cat{ font-family:var(--font-mono); font-size:12px; color:var(--line-cyan); margin-bottom:16px; letter-spacing:0.05em; }
+.skill-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+.skill-card li{
+font-size:13px; padding:6px 12px;
+border:1px solid var(--border);
+border-radius:6px; color:var(--ink);
+background: rgba(255,255,255,0.02);
+}
+
+/* ---------- EXPERIENCE ---------- */
+.timeline{border-left:1px solid var(--border);margin-left:6px;}
+.tl-item{position:relative;padding:0 0 48px 34px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+content:""; position:absolute;left:-6px;top:4px;
+width:11px;height:11px; background:var(--bg);
+border:2px solid var(--line-cyan); border-radius:2px; transform:rotate(45deg);
+box-shadow: 0 0 8px var(--line-cyan);
+}
+.tl-date{font-family:var(--font-mono);font-size:12.5px;color:var(--accent);margin-bottom:6px;}
+.tl-role{font-size:19px;font-weight:600;margin-bottom:3px;}
+.tl-org{color:var(--ink-dim);font-size:14.5px;margin-bottom:16px;}
+.tl-item ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
+.tl-item ul li{ color:var(--ink-dim); font-size:14.5px; padding-left:18px; position:relative; }
+.tl-item ul li::before{ content:"›"; position:absolute;left:0;top:0; color:var(--line-cyan); font-weight:bold; }
+.tl-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tl-tags span{
+font-family:var(--font-mono); font-size:11.5px; padding:4px 10px;
+border:1px solid var(--border); border-radius:6px; color:var(--ink-faint);
+background: rgba(255,255,255,0.02);
+}
+
+/* ---------- PROJECT ---------- */
+.project-card{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-panel);
+  overflow:hidden;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease;
+  margin-bottom:24px;
+}
+.project-card:hover { border-color: var(--border-hover); }
+
+.project-image {
+  width: 100%;
+  max-height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  position: relative;
+}
+.project-image::after {
+  content: "🔍";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.project-image:hover::after { opacity: 1; }
+.project-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.project-image:hover img { transform: scale(1.05); }
+
+.project-head{ padding:36px 36px 0; }
+@media(max-width:640px){ .project-head{padding:24px 20px 0;} }
+.project-head .ptag{font-family:var(--font-mono);font-size:12px;color:var(--line-cyan);margin-bottom:10px;letter-spacing:0.05em;}
+.project-head h3{font-size:26px;margin-bottom:8px;}
+.project-head .ptools{color:var(--ink-faint);font-family:var(--font-mono);font-size:13px;margin-bottom:26px;}
+.project-body{
+padding:0 36px 36px; display:grid; grid-template-columns:repeat(4,1fr);
+gap:0; border-top:1px solid var(--border); margin-top:6px;
+}
+@media(max-width:800px){ .project-body{grid-template-columns:1fr 1fr;} }
+@media(max-width:520px){ .project-body{grid-template-columns:1fr;padding:0 20px 20px;} }
+.pcol{padding:24px 20px 0;}
+.pcol:not(:last-child){border-right:1px solid var(--border);}
+@media(max-width:800px){
+.pcol:nth-child(2n){border-right:none;}
+html[dir="rtl"] .pcol:nth-child(2n){border-left:none;}
+.pcol:nth-child(n+3){border-top:1px solid var(--border);}
+}
+@media(max-width:520px){
+.pcol{border-right:none !important;border-left:none !important;border-top:1px solid var(--border);padding:20px 0 0;}
+.pcol:first-child{border-top:none;}
+}
+.pcol .h{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);margin-bottom:10px;letter-spacing:0.05em;}
+.pcol p, .pcol li{font-size:14px;color:var(--ink-dim);}
+.pcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.pcol ul li{padding-left:14px;position:relative;}
+.pcol ul li::before{content:"—";position:absolute;left:0;color:var(--line-cyan);}
+
+.image-modal-inner {
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  height: auto;
+  max-height: 90vh;
+}
+.image-modal-inner img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ---------- EDUCATION ---------- */
+.education-card{
+border:1px solid var(--border);
+border-radius:16px;
+background:var(--bg-panel);
+overflow:hidden;
+backdrop-filter:blur(12px);
+transition:border-color 0.3s ease;
+padding:32px;
+}
+.education-card:hover{ border-color:var(--border-hover); }
+.education-main{
+display:flex;
+align-items:flex-start;
+gap:24px;
+margin-bottom:24px;
+}
+@media(max-width:600px){
+.education-main{ flex-direction:column; align-items:center; text-align:center; }
+}
+.university-logo{
+width:100px;
+height:100px;
+border-radius:16px;
+overflow:hidden;
+background:var(--bg-panel-raised);
+border:1px solid var(--border);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+.university-logo img{ width:100%; height:100%; object-fit:cover; }
+.education-info{ flex:1; }
+.education-info h3{ font-size:22px; line-height:1.3; margin:0 0 8px; color:var(--ink); }
+@media(max-width:600px){ .education-info h3{ font-size:19px; } }
+.university-name{ color:var(--line-cyan); font-size:15.5px; font-weight:500; margin-bottom:10px; }
+.education-description{ color:var(--ink-dim); font-size:14px; font-family:var(--font-mono); line-height:1.6; }
+.education-divider{ width:100%; border:none; border-top:1px dashed var(--border); margin:0 0 24px; }
+.education-meta{ display:flex; flex-wrap:wrap; gap:28px; align-items:center; }
+@media(max-width:600px){ .education-meta{ justify-content:space-around; gap:14px; } }
+.education-meta-item{
+display:flex; align-items:center; gap:8px;
+font-family:var(--font-mono); font-size:13.5px; color:var(--ink-dim);
+}
+.education-meta-item .meta-icon{ color:var(--accent); }
+
+/* ---------- CERTIFICATIONS ---------- */
+.cert-tabs{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:32px;
+}
+.cert-tab{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:var(--bg-panel);
+border:1px solid var(--border);
+color:var(--ink-dim);
+padding:9px 16px;
+border-radius:100px;
+font-family:var(--font-mono);
+font-size:13px;
+cursor:pointer;
+backdrop-filter:blur(8px);
+transition:all .2s ease;
+}
+.cert-tab:hover{ border-color:var(--line-cyan); color:var(--line-cyan); }
+.cert-tab.active{
+background:linear-gradient(135deg, var(--line-cyan), #00A3FF);
+color:#030712;
+border-color:transparent;
+font-weight:600;
+box-shadow:0 0 18px rgba(0,240,255,0.25);
+}
+.cert-tab .count{
+font-size:11px;
+padding:1px 7px;
+border-radius:100px;
+background:rgba(255,255,255,0.08);
+}
+.cert-tab.active .count{ background:rgba(3,7,18,0.18); }
+body.light-mode .cert-tab .count{ background:rgba(15,23,42,0.08); }
+body.light-mode .cert-tab.active .count{ background:rgba(3,7,18,0.18); }
+@media(max-width:640px){
+.cert-tabs{
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  padding-bottom:8px;
+  scrollbar-width:thin;
+  -webkit-overflow-scrolling:touch;
+}
+.cert-tab{ flex-shrink:0; }
+}
+.cert-card.is-hidden{ display:none; }
+.cert-empty{ display:none; color:var(--ink-dim); font-family:var(--font-mono); font-size:14px; padding:20px 0; }
+
+.cert-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+.cert-card{
+background:var(--bg-panel);
+border:1px solid var(--border);
+border-radius:14px;
+overflow:hidden;
+text-decoration:none;
+color:inherit;
+display:flex;
+flex-direction:column;
+backdrop-filter:blur(10px);
+transition:all .25s cubic-bezier(0.16,1,0.3,1);
+}
+.cert-card:hover{
+border-color:var(--border-hover);
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,0,0,0.3), 0 0 20px rgba(0,240,255,0.1);
+}
+.cert-image-container{
+width:100%; height:170px; overflow:hidden;
+background:var(--bg-panel-raised);
+display:flex;align-items:center;justify-content:center;
+}
+.cert-image-container img{ width:100%; height:100%; object-fit:cover; transition:transform .3s ease; }
+.cert-card:hover .cert-image-container img{ transform:scale(1.03); }
+.cert-content{ padding:18px 20px; display:flex; flex-direction:column; gap:6px; }
+.cert-content h3{ font-size:17px; color:var(--ink); margin:0; }
+.cert-issuer, .cert-date{ font-size:13px; color:var(--ink-dim); margin:0; font-family:var(--font-mono); }
+.cert-tags{ display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.cert-tags .tag{
+background:var(--accent-soft);
+color:var(--accent);
+font-size:11px;
+padding:4px 9px;
+border-radius:5px;
+border:1px solid var(--border);
+font-family:var(--font-mono);
+}
+
+.cert-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.cert-modal.active { display: flex; }
+.cert-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.cert-modal-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+}
+.cert-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  z-index: 2;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cert-modal-close:hover { background: rgba(0,0,0,0.85); }
+html[dir="rtl"] .cert-modal-close { right: auto; left: 14px; }
+
+/* ---------- ACHIEVEMENTS ---------- */
+.ach-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+}
+@media(max-width:900px){ .ach-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:480px){ .ach-grid{grid-template-columns:1fr;} }
+.ach-card{
+background:var(--bg-panel);
+border:1px solid var(--border);
+border-radius:14px;
+padding:28px 22px;
+text-align:center;
+backdrop-filter:blur(10px);
+transition:all .25s cubic-bezier(0.16,1,0.3,1);
+}
+.ach-card:hover{
+border-color:var(--border-hover);
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,0,0,0.3), 0 0 20px rgba(0,240,255,0.1);
+}
+.ach-icon{ font-size:26px; margin-bottom:12px; }
+.ach-num{
+font-family:var(--font-mono);
+font-size:clamp(28px,4vw,38px);
+font-weight:600;
+color:var(--line-cyan);
+text-shadow:0 0 14px rgba(0,240,255,0.3);
+line-height:1.1;
+margin-bottom:10px;
+}
+.ach-title{ font-size:15px; font-weight:600; color:var(--ink); margin-bottom:6px; }
+.ach-desc{ font-size:13px; color:var(--ink-dim); }
+
+/* ---------- SERVICES ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.service-card{
+  background:var(--bg-panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+}
+.service-icon { font-size: 28px; margin-bottom: 12px; }
+.service-card h3 { margin-bottom: 10px; color: var(--ink); }
+.service-problem { color: var(--ink-dim); font-size: 14px; margin-bottom: 10px; }
+.service-what { color: var(--ink-dim); font-size: 14px; margin-bottom: 10px; }
+.service-result { color: var(--line-cyan); font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+.service-tags .tag {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--ink-faint);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin: 2px 4px 2px 0;
+  font-family: var(--font-mono);
+}
+.pricing-cta{ display:flex; justify-content:center; margin-top:40px; }
+
+/* ---------- PRICING MODAL ---------- */
+.pricing-modal-inner{
+position:relative;
+width:100%;
+max-width:1000px;
+max-height:90vh;
+overflow-y:auto;
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:18px;
+padding:40px 36px 32px;
+box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+@media(max-width:640px){ .pricing-modal-inner{ padding:32px 18px 22px; } }
+.pricing-modal-inner .cert-modal-close{ background:var(--bg-panel-raised); color:var(--ink); border:1px solid var(--border); }
+.pricing-title{ font-size:24px; margin-bottom:6px; }
+.pricing-sub{ color:var(--ink-dim); font-size:14.5px; margin-bottom:28px; max-width:560px; }
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+}
+.price-card{
+background:var(--bg-panel);
+border:1px solid var(--border);
+border-radius:14px;
+padding:24px 22px;
+display:flex;
+flex-direction:column;
+transition:border-color .2s ease, transform .2s ease;
+}
+.price-card:hover{ border-color:var(--border-hover); transform:translateY(-3px); }
+.price-card.featured{ border-color:var(--line-cyan); box-shadow:0 0 24px rgba(0,240,255,0.12); }
+.price-icon{ font-size:24px; margin-bottom:8px; }
+.price-name{ font-size:17px; font-weight:600; margin-bottom:12px; }
+.price-from{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); }
+.price-amount{
+font-family:var(--font-mono);
+font-size:32px;
+font-weight:600;
+color:var(--line-cyan);
+margin-bottom:16px;
+direction:ltr;
+}
+html[dir="rtl"] .price-amount{ text-align:right; }
+.price-list{ list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:22px; flex:1; }
+.price-list li{ font-size:14px; color:var(--ink-dim); padding-left:20px; position:relative; }
+.price-list li::before{ content:"✓"; position:absolute; left:0; color:var(--ok); font-weight:bold; }
+html[dir="rtl"] .price-list li{ padding-left:0; padding-right:20px; }
+html[dir="rtl"] .price-list li::before{ left:auto; right:0; }
+.price-card .btn{ width:100%; }
+.pricing-note{ margin-top:22px; font-size:12.5px; color:var(--ink-faint); font-family:var(--font-mono); }
+
+/* ---------- TESTIMONIALS ---------- */
+.testi-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+gap:20px;
+}
+.testi-card{
+background:var(--bg-panel);
+border:1px solid var(--border);
+border-radius:14px;
+padding:16px;
+backdrop-filter:blur(10px);
+display:flex;
+flex-direction:column;
+gap:14px;
+margin:0;
+position:relative;
+transition:all .25s cubic-bezier(0.16,1,0.3,1);
+}
+.testi-card:hover{
+border-color:var(--border-hover);
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,0,0,0.3), 0 0 20px rgba(0,240,255,0.1);
+}
+.testi-shot{
+display:block;
+width:100%;
+height:300px;
+padding:0;
+border:1px solid var(--border);
+border-radius:10px;
+overflow:hidden;
+background:var(--bg-panel-raised);
+cursor:zoom-in;
+position:relative;
+font-family:inherit;
+}
+.testi-shot img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:top center;
+transition:transform .4s ease;
+}
+.testi-shot:hover img{ transform:scale(1.03); }
+.testi-shot::after{
+content:"🔍";
+position:absolute; top:10px; right:10px;
+width:32px; height:32px; border-radius:50%;
+background:rgba(0,0,0,0.6); color:#fff;
+display:flex; align-items:center; justify-content:center;
+font-size:14px; opacity:0; transition:opacity .25s ease;
+}
+.testi-shot:hover::after{ opacity:1; }
+.testi-empty{
+display:none;
+position:absolute; inset:0;
+align-items:center; justify-content:center;
+text-align:center;
+padding:20px;
+border:2px dashed var(--border);
+border-radius:10px;
+color:var(--ink-faint);
+font-family:var(--font-mono);
+font-size:12.5px;
+line-height:1.6;
+}
+.testi-shot.is-empty img{ display:none; }
+.testi-shot.is-empty .testi-empty{ display:flex; }
+.testi-shot.is-empty{ cursor:default; }
+.testi-shot.is-empty::after{ display:none; }
+html[dir="rtl"] .testi-shot::after{ right:auto; left:10px; }
+.testi-author{ display:flex; align-items:center; gap:12px; }
+.testi-avatar{
+width:42px; height:42px; border-radius:50%;
+background:var(--accent-soft);
+color:var(--accent);
+display:flex; align-items:center; justify-content:center;
+font-family:var(--font-mono); font-weight:600; font-size:14px;
+border:1px solid var(--border);
+flex-shrink:0;
+}
+.testi-name{ font-size:14.5px; font-weight:600; color:var(--ink); }
+.testi-role{ font-size:12.5px; color:var(--ink-faint); font-family:var(--font-mono); }
+
+/* ---------- CONTACT SECTION ---------- */
+.contact-layout {
+display: grid;
+grid-template-columns: 1.2fr 0.8fr;
+gap: 32px;
+align-items: start;
+}
+@media(max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+.contact-box {
+background: var(--bg-panel);
+border: 1px solid var(--border);
+border-radius: 20px;
+padding: 36px;
+backdrop-filter: blur(12px);
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+@media(max-width: 640px) { .contact-box { padding: 24px; } }
+.contact-box-title {
+font-size: 22px;
+font-weight: 700;
+margin-bottom: 24px;
+color: var(--ink);
+}
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media(max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.form-control {
+background: rgba(7, 11, 18, 0.6);
+border: 1px solid var(--border);
+border-radius: 10px;
+padding: 12px 16px;
+color: var(--ink);
+font-family: var(--font-sans);
+font-size: 14.5px;
+transition: all 0.2s ease;
+outline: none;
+}
+body.light-mode .form-control{ background: rgba(255,255,255,0.6); }
+.form-control:focus { border-color: var(--line-cyan); box-shadow: 0 0 12px rgba(0, 240, 255, 0.2); }
+textarea.form-control { resize: vertical; min-height: 120px; }
+.btn-submit {
+background: linear-gradient(135deg, #FF4B6E, #FF2A55);
+color: #FFF;
+border: none;
+border-radius: 30px;
+padding: 14px 28px;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.25s ease;
+box-shadow: 0 4px 20px rgba(255, 42, 85, 0.3);
+align-self: flex-start;
+width: 100%;
+margin-top: 8px;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(255, 42, 85, 0.5); filter: brightness(1.1); }
+.info-text { color: var(--ink-dim); font-size: 14px; margin-bottom: 24px; }
+.info-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.info-item {
+display: flex;
+align-items: center;
+gap: 16px;
+background: rgba(7, 11, 18, 0.15);
+border: 1px solid var(--border);
+padding: 14px 18px;
+border-radius: 12px;
+transition: all 0.2s ease;
+word-break: break-all;
+}
+.info-item:hover { border-color: var(--line-cyan); transform: translateX(4px); }
+.info-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.info-icon svg { width: 20px; height: 20px; }
+.icon-email { background: rgba(255, 75, 110, 0.15); color: #FF4B6E; }
+.icon-whatsapp { background: rgba(37, 211, 102, 0.15); color: #25D366; }
+.icon-phone { background: rgba(0, 240, 255, 0.15); color: #00F0FF; }
+.icon-location { background: rgba(255, 158, 44, 0.15); color: #FF9E2C; }
+.info-content { display: flex; flex-direction: column; }
+.info-label { font-size: 12px; color: var(--ink-faint); font-family: var(--font-mono); }
+.info-val { font-size: 14px; font-weight: 600; color: var(--ink); direction: ltr; text-align: left; }
+html[dir="rtl"] .info-val{ text-align: right; }
+.social-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+.social-links { display: flex; gap: 10px; }
+.social-links a, .tech-badge, .social-btn {
+width: 38px;
+height: 38px;
+background-color: var(--bg-panel-raised);
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--ink);
+text-decoration: none;
+transition: all 0.3s ease;
+border: 1px solid var(--border);
+}
+.social-links a:hover, .tech-badge:hover, .social-btn:hover {
+background-color: #6c5ce7;
+transform: translateY(-3px);
+border-color: #6c5ce7;
+color: #fff;
+}
+
+/* ---------- SITE FOOTER ---------- */
+.site-footer {
+background-color: var(--bg);
+color: var(--ink-dim);
+padding: 50px 20px 20px;
+font-family: system-ui, -apple-system, sans-serif;
+border-top: 1px solid var(--border);
+margin-top: 80px;
+}
+.footer-container {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1.3fr 1fr 1fr;
+gap: 40px;
+align-items: start;
+}
+.footer-heading { color: #6c5ce7; font-size: 0.85rem; letter-spacing: 1.5px; margin-bottom: 12px; text-transform: uppercase; }
+.footer-text { font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; color: var(--ink-dim); }
+.footer-text strong { color: var(--ink); }
+.align-right { text-align: right; }
+html[dir="rtl"] .align-right { text-align: left; }
+.tech-stack-icons { display: flex; gap: 10px; }
+.footer-center { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.logo-badge { background-color: #6c5ce7; color: #fff; font-weight: bold; padding: 4px 8px; border-radius: 6px; font-size: 0.9rem; }
+.logo-text { color: var(--ink); font-weight: bold; font-size: 1.2rem; }
+.footer-subtext { font-size: 0.8rem; color: var(--ink-faint); margin-bottom: 15px; }
+.footer-freelance-heading { margin-top: 22px; }
+.freelance-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.freelance-links a {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+padding: 8px 14px 8px 10px;
+border-radius: 10px;
+border: 1px solid var(--border);
+background-color: var(--bg-panel-raised);
+color: var(--ink);
+font-size: 0.85rem;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+.freelance-links a { white-space: nowrap; }
+.freelance-links a .freelance-icon {
+width: 24px; height: 24px;
+object-fit: contain;
+flex-shrink: 0;
+background: #fff;
+border-radius: 6px;
+padding: 2px;
+}
+.freelance-links a i { color: var(--accent); transition: color .3s ease; }
+.freelance-links a:hover {
+background-color: #6c5ce7;
+border-color: #6c5ce7;
+color: #fff;
+transform: translateY(-3px);
+}
+.freelance-links a:hover i { color: #fff; }
+.footer-bottom {
+max-width: 1200px;
+margin: 30px auto 0;
+padding-top: 15px;
+border-top: 1px solid var(--border);
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 0.8rem;
+color: var(--ink-faint);
+font-family: var(--font-mono);
+flex-wrap: wrap;
+gap: 12px;
+}
+#scrollToTopBtn {
+background-color: #6c5ce7;
+color: white;
+border: none;
+width: 35px;
+height: 35px;
+border-radius: 8px;
+cursor: pointer;
+font-size: 1rem;
+transition: background 0.3s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+#scrollToTopBtn:hover { background-color: #5b4bc4; }
+
+@media (max-width: 768px) {
+.footer-container { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+.align-right { text-align: center; }
+.social-links, .tech-stack-icons, .freelance-links { justify-content: center; }
+}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(0.16, 1, 0.3, 1), transform .6s cubic-bezier(0.16, 1, 0.3, 1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<header>
+<nav class="wrap">
+<a href="#home" class="brand">
+<svg width="42" height="38" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="overflow: visible; color: var(--ink);">
+<text x="5" y="70" font-family="'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="65" fill="currentColor">A</text>
+<text x="45" y="75" font-family="'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="65" fill="#00F0FF" opacity="0.9">E</text>
+</svg>
+<span class="brand-dot"></span>
+<span style="font-family: var(--font-mono); font-size: 15px; color: var(--ink);">adel.elgohary</span>
+</a>
+<div class="nav-links" id="navLinks">
+  <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+  <a href="#about" data-en="About" data-ar="عنّي">About</a>
+  <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
+  <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+  <a href="#project" data-en="Project" data-ar="المشاريع">Project</a>
+  <a href="#certifications" data-en="Certifications" data-ar="الشهادات">Certifications</a>
+  <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+  <a href="#achievements" data-en="Achievements" data-ar="الإنجازات">Achievements</a>
+  <a href="#Services" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="#testimonials" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a>
+  <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+</div>
+
+<div class="nav-icons">
+  <button class="nav-btn" id="themeToggle" aria-label="Toggle Theme">🌙</button>
+  <button class="nav-btn lang-btn" id="langToggle">عربي</button>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/>
+      <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
+      <circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+    </svg>
+  </button>
+</div>
+</nav>
+</header>
+
+<main id="home">
+<!-- HERO SECTION -->
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="status-pill">
+<span class="d"></span>
+<span data-en="Open to Cloud / DevOps roles & internships" data-ar="متاح لفرص العمل والتدريب في Cloud / DevOps">Open to Cloud / DevOps roles & internships</span>
+</div>
+    <div style="display: block; width: 100%; margin-top: 10px; margin-bottom: 8px;">
+      <span id="typed-greeting" style="color: var(--line-cyan); font-family: var(--font-mono); font-size: 16px; font-weight: 600; letter-spacing: 0.05em; text-shadow: 0 0 10px rgba(0,240,255,0.4);"></span><span class="cursor">|</span>
+    </div>
+
+    <h1>
+      <span data-en="Adel Elgohary" data-ar="عادل الجوهري">Adel Elgohary</span>
+      <span class="role" data-en="Cloud & DevOps Engineer" data-ar="مهندس سحابي وحلول DevOps">Cloud & DevOps Engineer</span>
+    </h1>
+
+    <div class="lead-wrapper" style="margin-top: 20px;">
+      <p class="lead"
+         data-en="I turn infrastructure into automated, scalable, and reliable environments built for modern applications."
+         data-ar="أقوم بتحويل البنية التحتية إلى بيئات مؤتمتة، قابلة للتوسع، وموثوقة ومصممة للتطبيقات الحديثة.">
+         I turn infrastructure into automated, scalable, and reliable environments built for modern applications.
+      </p>
+    </div>
+
+    <div class="typing-wrap">
+      <span class="pr">$</span>
+      <span id="typed"></span><span class="cursor">|</span>
+    </div>
+
+    <div class="hero-ctas" style="margin-top: 30px;">
+      <a href="#project" class="btn btn-primary" data-en="View Project" data-ar="عرض المشروع">View Project</a>
+      <a href="./Adel Elgohary - DevOps Engineer.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-en="View CV" data-ar="عرض السيرة الذاتية">View CV</a>
+      <a href="#contact" class="btn btn-ghost" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
+    </div>
+  </div>
+
+  <!-- PHOTO SECTION -->
+  <div class="profile-container reveal">
+    <div class="profile-ring ring-1"></div>
+    <div class="profile-ring ring-2"></div>
+    <div class="profile-img-wrap">
+      <img src="my-photo.jpeg" alt="Adel Elgohary">
+    </div>
+    <div class="floating-tag tag-top-right">
+      <span class="tag-dot" style="background: var(--accent); color: var(--accent);"></span>
+      <span>DevOps • AWS</span>
+    </div>
+    <div class="floating-tag tag-bottom-left">
+      <span class="tag-dot" style="background: var(--line-cyan); color: var(--line-cyan);"></span>
+      <span>CI/CD • IaC</span>
+    </div>
+    <div class="floating-tag tag-bottom-right">
+      <span class="tag-dot" style="background: var(--ok); color: var(--ok);"></span>
+      <span>DEPI • NTI</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="wrap">
+
+    <div class="section-tag" data-en="01 — About" data-ar="01 — نبذة تعريفيّة">01 — About</div>
+
+    <div class="about-grid">
+      <!-- LEFT: TEXT -->
+      <div class="about-text">
+        <p class="about-lead" data-en="Automating infrastructure, streamlining deployments, and improving system reliability."
+                  data-ar="أتمتة البنية التحتية، تبسيط عمليات النشر، وتحسين موثوقية الأنظمة." ><strong>Automating infrastructure, streamlining deployments, and improving system reliability.</strong></p>
+
+        <p data-en="I'm a Computers &amp; Information Technology student , building hands-on expertise in cloud infrastructure and DevOps engineering."
+           data-ar="أنا طالب في كلية الحاسبات والمعلومات  ، وأبني خبرة عملية في البنية التحتية السحابية وهندسة الـ DevOps.">I'm a Computers &amp; Information Technology student , building hands-on expertise in cloud infrastructure and DevOps engineering.</p>
+        <p data-en="I build scalable, automated, and secure infrastructure. Bridging the gap between traditional networking and modern cloud computing, I leverage IaC, container orchestration, and CI/CD to transform complex technical challenges into highly available systems. My ultimate goal is to continuously enhance operational efficiency and build robust environments from the ground up."
+           data-ar="أقوم ببناء بنية تحتية قابلة للتوسع، ومؤتمتة، وآمنة. أعمل على سد الفجوة بين الشبكات التقليدية والحوسبة السحابية الحديثة، مستخدماً البنية التحتية ككود (IaC)، وتنسيق الحاويات، وأنظمة التكامل والنشر المستمر (CI/CD) لتحويل التحديات التقنية المعقدة إلى أنظمة ذات توفر عالٍ. هدفي الأساسي هو التحسين المستمر للكفاءة التشغيلية وبناء بيئات عمل قوية من الأساس.">I build scalable, automated, and secure infrastructure. Bridging the gap between traditional networking and modern cloud computing, I leverage IaC, container orchestration, and CI/CD to transform complex technical challenges into highly available systems. My ultimate goal is to continuously enhance operational efficiency and build robust environments from the ground up.</p>
+      </div>
+
+      <!-- RIGHT: YAML CODE CARD -->
+      <div class="about-visual">
+        <div class="code-card-wrap">
+          <div class="floating-icon icon-1">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+          </div>
+          <div class="floating-icon icon-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+          </div>
+          <div class="floating-icon icon-3">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
+          </div>
+          <div class="floating-icon icon-4">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+          </div>
+
+          <div class="code-card">
+            <div class="code-card-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-card-filename">engineer.yaml</span>
+            </div>
+            <pre class="code-card-body"><code><span class="key">engineer</span>:
+  <span class="key">name</span>: <span class="str">Adel Elgohary</span>
+  <span class="key">role</span>: <span class="str">Cloud & DevOps Engineer</span>
+  <span class="key">background</span>: <span class="str">Networking</span>
+  <span class="key">stack</span>:
+    - <span class="str">Docker</span>
+    - <span class="str">Kubernetes</span>
+    - <span class="str">Terraform</span>
+    - <span class="str">Ansible</span>
+    - <span class="str">Jenkins</span>
+    - <span class="str">AWS</span>
+    - <span class="str">Prometheus</span>
+    - <span class="str">...</span>
+  <span class="key">status</span>: <span class="str">open_to_work</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+
+    <div class="section-tag" data-en="02 — Education" data-ar="02 — التعليم">02 — Education</div>
+    <h2 class="section-title" data-en="Academic foundation" data-ar="الخلفية الأكاديمية">Academic foundation</h2>
+
+    <div class="education-card">
+
+      <div class="education-main">
+        <div class="university-logo">
+          <img src="menofia-logo.jpg" alt="Menofia University">
+        </div>
+
+        <div class="education-info">
+          <h3 data-en="Bachelor of Computers & Information in IT" data-ar="بكالوريوس الحاسبات والمعلومات في تكنولوجيا المعلومات">Bachelor of Computers & Information in IT </h3>
+          <div class="university-name" data-en="Menofia University" data-ar="جامعة المنوفية">Menofia University</div>
+          <div class="education-description" data-en="Faculty of Computers and Information — Information Technology (IT) Department" data-ar="كلية الحاسبات والمعلومات — قسم تكنولوجيا المعلومات (IT)">Faculty of Computers and Information — Information Technology (IT) Department</div>
+        </div>
+      </div>
+
+      <hr class="education-divider">
+
+      <div class="education-meta">
+        <div class="education-meta-item">
+          <span class="meta-icon">▣</span>
+          <span data-en="2023 — 2027" data-ar="2023 — 2027">2023 — 2027</span>
+        </div>
+        <div class="education-meta-item">
+          <span class="meta-icon">★</span>
+          <span data-en="GPA: 3.2 / 4.0" data-ar="المعدل التراكمي: 3.2 / 4.0">GPA: 3.2 / 4.0</span>
+        </div>
+        <div class="education-meta-item">
+          <span class="meta-icon">◆</span>
+          <span data-en="Track: Cloud & DevOps" data-ar="المسار: السحابة و DevOps">Track: Cloud & DevOps</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="wrap">
+<div class="section-tag" data-en="03 — Experience" data-ar="03 — الخبرة">03 — Experience</div>
+<h2 class="section-title" data-en="Training & hands-on programs" data-ar="البرامج التدريبية والخبرة العملية">Training & hands-on programs</h2>
+<p class="section-sub" data-en="Structured, practical programs — not classroom theory. Each one ended in real infrastructure work." data-ar="برامج عملية مكثفة وليست مجرد نظريات. انتهت كل منها بمشاريع بنية تحتية حقيقية.">Structured, practical programs — not classroom theory. Each one ended in real infrastructure work.</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">2026 — Present</div>
+      <div class="tl-role" data-en="DevOps Engineering Trainee" data-ar="متدرب هندسة DevOps">DevOps Engineering Trainee</div>
+      <div class="tl-org" data-en="Digital Egypt Pioneers Initiative (DEPI)" data-ar="مبادرة رواد مصر الرقمية (DEPI)">Digital Egypt Pioneers Initiative (DEPI)</div>
+      <ul>
+        <li data-en="Building automated CI/CD pipelines and managing containerized applications." data-ar="بناء أنابيب CI/CD المؤتمتة وإدارة التطبيقات الحاوية.">Building automated CI/CD pipelines and managing containerized applications.</li>
+        <li data-en="Practicing infrastructure orchestration with Docker, Kubernetes, Terraform, and Ansible." data-ar="تطبيق الأتمتة وإدارة البنية التحتية باستخدام Docker و Kubernetes و Terraform و Ansible.">Practicing infrastructure orchestration with Docker, Kubernetes, Terraform, and Ansible.</li>
+      </ul>
+      <div class="tl-tags">
+        <span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>Ansible</span><span>CI/CD</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+<div class="wrap">
+<div class="section-tag" data-en="04 — Projects" data-ar="04 — المشروع البارز">04 — Projects</div>
+<h2 class="section-title" data-en="Building, Shipping, Running" data-ar="بناء، تسليم، وتشغيل">Building, Shipping, Running</h2>
+<p class="section-sub" data-en="Real infrastructure work — from containerizing a single application to orchestrating a full cloud environment." data-ar="أعمال بنية تحتية حقيقية — من حوسبة تطبيق واحد إلى إدارة بيئة سحابية متكاملة.">Real infrastructure work — from containerizing a single application to orchestrating a full cloud environment.</p>
+
+  <!-- DOCKER PROJECT CARD -->
+  <div class="project-card">
+    <div class="project-image" onclick="openImageModal('myfirst-project-with-docker.png')">
+      <img src="myfirst-project-with-docker.png" alt="Dockerized Portfolio Screenshot">
+    </div>
+    <div class="project-head">
+      <div class="ptag" data-en="CONTAINERIZATION" data-ar="حوسبة الحاويات">CONTAINERIZATION</div>
+      <h3 data-en="Dockerized Portfolio" data-ar="بورتفوليو مُحوسب بـ Docker">Dockerized Portfolio</h3>
+      <div class="ptools">Docker • Dockerfile</div>
+    </div>
+    <div class="project-body">
+      <div class="pcol">
+        <div class="h" data-en="PACKAGING" data-ar="التغليف">PACKAGING</div>
+        <p data-en="Wrote a custom Dockerfile to package this portfolio site and all its dependencies into a single image." data-ar="كتبت Dockerfile مخصص لتغليف موقع البورتفوليو ده وكل الـ dependencies بتاعته جوه image واحد.">Wrote a custom Dockerfile to package this portfolio site and all its dependencies into a single image.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="BUILD & RUN" data-ar="البناء والتشغيل">BUILD & RUN</div>
+        <p data-en="Built and ran the container locally, verifying it serves correctly on a mapped port." data-ar="بنيت وشغّلت الكونتينر محليًا، وتأكدت إنه شغال صح على البورت المحدد.">Built and ran the container locally, verifying it serves correctly on a mapped port.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="PORTABILITY" data-ar="قابلية النقل">PORTABILITY</div>
+        <p data-en="The site now runs identically on any machine with Docker installed — no manual setup required." data-ar="الموقع بقى بيشتغل بنفس الشكل على أي جهاز عليه Docker — من غير أي إعداد يدوي.">The site now runs identically on any machine with Docker installed — no manual setup required.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTI-CONTAINER PROJECT CARD -->
+  <div class="project-card">
+    <div class="project-head">
+      <div class="ptag" data-en="END-TO-END DEPLOYMENT" data-ar="نشر كامل للنظام">END-TO-END DEPLOYMENT</div>
+      <h3 data-en="Multi-Container Cloud Environment" data-ar="بيئة سحابية متعدّدة الحاويات">Multi-Container Cloud Environment</h3>
+      <div class="ptools">Docker • Kubernetes • Terraform • AWS • Jenkins • Prometheus</div>
+    </div>
+    <div class="project-body">
+      <div class="pcol">
+        <div class="h" data-en="INFRASTRUCTURE" data-ar="البنية التحتية">INFRASTRUCTURE</div>
+        <p data-en="Provisioned via Terraform on AWS with isolated subnets and secure access." data-ar="تم إعدادها عبر Terraform على AWS مع شبكات فرعية معزولة ووصول آمن.">Provisioned via Terraform on AWS with isolated subnets and secure access.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="ORCHESTRATION" data-ar="الإدارة والأتمتة">ORCHESTRATION</div>
+        <p data-en="Containerized with Docker and managed seamlessly using Kubernetes clusters." data-ar="تم وضعها في حاويات Docker وإدارتها بمرونة بواسطة عناقيد Kubernetes.">Containerized with Docker and managed seamlessly using Kubernetes clusters.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="CI/CD PIPELINE" data-ar="أنابيب CI/CD">CI/CD PIPELINE</div>
+        <p data-en="Automated build, test, and deployment workflows using Jenkins." data-ar="سير عمل مؤتمت للبناء والتأكد والتنفيذ باستخدام Jenkins.">Automated build, test, and deployment workflows using Jenkins.</p>
+      </div>
+      <div class="pcol">
+        <div class="h" data-en="OBSERVABILITY" data-ar="المراقبة">OBSERVABILITY</div>
+        <p data-en="Configured Prometheus and Grafana for live metric collection and alert management." data-ar="تهيئة Prometheus و Grafana لتجميع المقاييس الحية وإدارة التنبيهات.">Configured Prometheus and Grafana for live metric collection and alert management.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- IMAGE MODAL (project screenshots popup) -->
+<div id="imageModal" class="cert-modal" onclick="closeImageModal(event)">
+  <div class="cert-modal-inner image-modal-inner">
+    <button class="cert-modal-close" onclick="closeImageModal(event)" aria-label="Close">&times;</button>
+    <img id="imageModalImg" src="" alt="Project screenshot">
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-tag" data-en="05 — Credentials" data-ar="05 — الشهادات">05 — Credentials</div>
+    <h2 class="section-title" data-en="Certifications" data-ar="الشهادات">Certifications</h2>
+    <p class="section-sub" data-en="Formal training programs completed alongside hands-on infrastructure work." data-ar="برامج تدريبية رسمية أُنجزت جنبًا إلى جنب مع العمل العملي في البنية التحتية.">Formal training programs completed alongside hands-on infrastructure work.</p>
+
+    <!-- TRACK TABS: each card below has data-track="..." matching one of these filters -->
+    <div class="cert-tabs" id="certTabs" role="tablist">
+      <button class="cert-tab active" role="tab" aria-selected="true" data-filter="all"><span data-en="All" data-ar="الكل">All</span><span class="count"></span></button>
+      <button class="cert-tab" role="tab" aria-selected="false" data-filter="cloud-devops"><span data-en="Cloud & DevOps" data-ar="السحابة و DevOps">Cloud & DevOps</span><span class="count"></span></button>
+      <button class="cert-tab" role="tab" aria-selected="false" data-filter="networking"><span data-en="Networking" data-ar="الشبكات">Networking</span><span class="count"></span></button>
+      <button class="cert-tab" role="tab" aria-selected="false" data-filter="security"><span data-en="Security" data-ar="الأمن السيبراني">Security</span><span class="count"></span></button>
+      <button class="cert-tab" role="tab" aria-selected="false" data-filter="web"><span data-en="Web & Other" data-ar="الويب وأخرى">Web & Other</span><span class="count"></span></button>
+    </div>
+
+    <div class="cert-grid" id="certGrid">
+      <a href="CCNA Certificate.pdf" class="cert-card" data-track="networking" onclick="openCertModal(event, 'CCNA Certificate.pdf')">
+        <div class="cert-image-container">
+          <img src="CCNA.png" alt="CCNA Certificate">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="CCNA" data-ar="CCNA">CCNA</h3>
+          <p class="cert-issuer">CCNA / NTI</p>
+          <p class="cert-date" data-en="Feb 2026 · 120 hrs" data-ar="فبراير 2026 · 120 ساعة">Feb 2026 · 120 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">95%</span>
+            <span class="tag">CCNA</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="Cloud Certificate.pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'Cloud Certificate.pdf')">
+        <div class="cert-image-container">
+          <img src="CLOUD.png" alt="CLOUD Certificate">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Cloud Services Management and Operation" data-ar="إدارة وتشغيل الخدمات السحابية">Cloud Services Management and Operation</h3>
+          <p class="cert-issuer">CLOUD / NTI</p>
+          <p class="cert-date" data-en="Jan–Apr 2026 · 120 hrs" data-ar="يناير-أبريل 2026 · 120 ساعة">Jan–Apr 2026 · 120 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">98%</span>
+            <span class="tag">CLOUD</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="HCIA- Security .pdf" class="cert-card" data-track="security" onclick="openCertModal(event, 'HCIA- Security .pdf')">
+        <div class="cert-image-container">
+          <img src="HCIA-Security.png" alt="HCIA-Security">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="HCIA-Security" data-ar="تأمين الشبكات واعداد الفايروول">HCIA-Security</h3>
+          <p class="cert-issuer">HCIA-Security / NTI</p>
+          <p class="cert-date" data-en="Nov–Dec 2025 · 80 hrs" data-ar="نوفمبر-ديسمبر 2025 · 80 ساعة">Nov–Dec 2025 · 80 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">98.5%</span>
+            <span class="tag">HCIA-Security</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="Penetration Testing orange .pdf" class="cert-card" data-track="security" onclick="openCertModal(event, 'Penetration Testing orange .pdf')">
+        <div class="cert-image-container">
+          <img src="orange-pentest.png" alt="orange-pentest Certificate">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Penteration testing" data-ar="اختبار الاختراق">Penteration testing</h3>
+          <p class="cert-issuer">Penteration testing / Orange Digital Center</p>
+          <p class="cert-date" data-en="Feb 2026 · 28 hrs" data-ar="فبراير 2026 · 28 ساعة">Feb 2026 · 28 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">95%</span>
+            <span class="tag">Penteration testing</span>
+            <span class="tag">Orange Digital Center</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="network_infrastructure.pdf" class="cert-card" data-track="networking" onclick="openCertModal(event, 'network_infrastructure.pdf')">
+        <div class="cert-image-container">
+          <img src="network_infrastructure.jpg" alt="network_infrastructure">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="network_infrastructure" data-ar="البنيه التحتية للشبكات">network_infrastructure</h3>
+          <p class="cert-issuer">network_infrastructure / NTI</p>
+          <p class="cert-date" data-en="Jul–Aug 2025 · 120 hrs" data-ar="يوليو-أغسطس 2025 · 120 ساعة">Jul–Aug 2025 · 120 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">94.5%</span>
+            <span class="tag">network_infrastructure</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="CCNA-_Introduction_to_Networks_certificate_adel-elgohary404-gmail-com_fbe4cbc6-38ef-45fc-9e49-76a3b091026d_copy.pdf" class="cert-card" data-track="networking" onclick="openCertModal(event, 'CCNA-_Introduction_to_Networks_certificate_adel-elgohary404-gmail-com_fbe4cbc6-38ef-45fc-9e49-76a3b091026d_copy.pdf')">
+        <div class="cert-image-container">
+          <img src="ccna-introduction.png" alt="CCNA Introduction to Networks">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="CCNA: Introduction to Networks" data-ar="CCNA: مقدمة في الشبكات">CCNA: Introduction to Networks</h3>
+          <p class="cert-issuer">CCNA_introduction / NTI</p>
+          <p class="cert-date" data-en="Mar 2026" data-ar="مارس 2026">Mar 2026</p>
+          <div class="cert-tags">
+            <span class="tag">CCNA_introduction</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_adel-elgohary404-gmail-com_7f615db8-5181-4d9e-b083-9b0ad99f1f1f (1)_copy.pdf" class="cert-card" data-track="networking" onclick="openCertModal(event, 'CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_adel-elgohary404-gmail-com_7f615db8-5181-4d9e-b083-9b0ad99f1f1f (1)_copy.pdf')">
+        <div class="cert-image-container">
+          <img src="Routing_and_switching.png" alt="CCNA Switching, Routing and Wireless Essentials">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="CCNA: Routing &amp; Switching" data-ar="CCNA: التوجيه والتبديل">CCNA: Routing &amp; Switching</h3>
+          <p class="cert-issuer">CCNA_Routing &amp; Switching / NTI</p>
+          <p class="cert-date" data-en="Mar 2026" data-ar="مارس 2026">Mar 2026</p>
+          <div class="cert-tags">
+            <span class="tag">CCNA_Routing &amp; Switching</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="CCNA-_Enterprise_Networking-_Security-_and_Automation_certificate_adel-elgohary404-gmail-com_de7fdc82-806c-4740-bda9-27b8833d7f5b.pdf" class="cert-card" data-track="networking" onclick="openCertModal(event, 'CCNA-_Enterprise_Networking-_Security-_and_Automation_certificate_adel-elgohary404-gmail-com_de7fdc82-806c-4740-bda9-27b8833d7f5b.pdf')">
+        <div class="cert-image-container">
+          <img src="ccna-enterprise.png" alt="CCNA Enterprise Networking, Security and Automation">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="CCNA: Enterprise Networking" data-ar="CCNA: شبكات المؤسسات">CCNA: Enterprise Networking</h3>
+          <p class="cert-issuer">CCNA_Enterprise / NTI</p>
+          <p class="cert-date" data-en="Mar 2026" data-ar="مارس 2026">Mar 2026</p>
+          <div class="cert-tags">
+            <span class="tag">CCNA_Enterprise</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="Linux-adminstration.pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'Linux-adminstration.pdf')">
+        <div class="cert-image-container">
+          <img src="Linux-adminstration.png" alt="Linux-adminstration">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Linux-adminstration" data-ar="إدارة أنظمة التشغيل ">Linux-adminstration</h3>
+          <p class="cert-issuer">Linux-adminstration / NTI</p>
+          <p class="cert-date" data-en="Aug–Sep 2026 · 120 hrs" data-ar="أغسطس-سبتمبر 2026 · 120 ساعة">Aug–Sep 2026 · 120 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">Linux-adminstration</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="RED_HAT Admin 1.pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'RED_HAT Admin 1.pdf')">
+        <div class="cert-image-container">
+          <img src="RED_HAT_Admin_1.png" alt="RED_HAT_Admin_1">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Red Hat Admin I" data-ar="إدارة أنظمة التشغيل">Red Hat Admin I</h3>
+          <p class="cert-issuer">RED_HAT_Admin_1 / NTI</p>
+          <p class="cert-date" data-en="Aug 2026 · 40 hrs" data-ar="أغسطس 2026 · 40 ساعة">Aug 2026 · 40 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">Admin I</span>
+            <span class="tag">Red_Hat</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="RED_HAT Admin 11.pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'RED_HAT Admin 11.pdf')">
+        <div class="cert-image-container">
+          <img src="RED_HAT_Admin_2.png" alt="RED_HAT_Admin_2">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Red Hat Admin II" data-ar="إدارة أنظمة التشغيل">Red Hat Admin II</h3>
+          <p class="cert-issuer">RED_HAT_Admin_2 / NTI</p>
+          <p class="cert-date" data-en="Aug 2026 · 40 hrs" data-ar="أغسطس 2026 · 40 ساعة">Aug 2026 · 40 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">Admin II</span>
+            <span class="tag">Red_Hat</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="redhat_admin1_mahara_ (1).pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'redhat_admin1_mahara_ (1).pdf')">
+        <div class="cert-image-container">
+          <img src="redhat_admin1_mahara_.png" alt="redhat_admin1_mahara_">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="redhat_admin1_mahara_" data-ar="إدارة أنظمة التشغيل">redhat_admin1_mahara_</h3>
+          <p class="cert-issuer">RED_HAT_Admin_1 / ITI</p>
+          <p class="cert-date" data-en="Sep 2026 · 9 hrs" data-ar="سبتمبر 2026 · 9 ساعة">Sep 2026 · 9 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">RED_HAT Admin I</span>
+            <span class="tag">Mahara-Tech</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="redhat_admin2_mahara_.pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'redhat_admin2_mahara_.pdf')">
+        <div class="cert-image-container">
+          <img src="redhat_admin2_mahara_.png" alt="redhat_admin2_mahara_">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="redhat_admin2_mahara_" data-ar="إدارة أنظمة التشغيل">redhat_admin2_mahara_</h3>
+          <p class="cert-issuer">RED_HAT_Admin_2 / ITI</p>
+          <p class="cert-date" data-en="Sep 2026 · 13.5 hrs" data-ar="سبتمبر 2026 · 13.5 ساعة">Sep 2026 · 13.5 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">RED_HAT Admin II</span>
+            <span class="tag">Mahara-Tech</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="certificate_ethical hacker cisco.pdf" class="cert-card" data-track="security" onclick="openCertModal(event, 'certificate_ethical hacker cisco.pdf')">
+        <div class="cert-image-container">
+          <img src="ethical-hacker.png" alt="ethical-hacker">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Ethical Hacker" data-ar="الاختراق الاخلاقي">Ethical Hacker</h3>
+          <p class="cert-issuer">Ethical Hacker / NTI</p>
+          <p class="cert-date" data-en="Feb 2025" data-ar="فبراير 2025">Feb 2025</p>
+          <div class="cert-tags">
+            <span class="tag">Ethical Hacker</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="instant diploma.pdf" class="cert-card" data-track="security" onclick="openCertModal(event, 'instant diploma.pdf')">
+        <div class="cert-image-container">
+          <img src="cyber_instant.png" alt="ethical-hacker">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Penteration testing" data-ar="الاختراق الاخلاقي">Penteration testing</h3>
+          <p class="cert-issuer">Penteration testing / Instant</p>
+          <p class="cert-date" data-en="Jul 2024 · 150 hrs" data-ar="يوليو 2024 · 150 ساعة">Jul 2024 · 150 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">Penteration testing</span>
+            <span class="tag">Instant</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="instant diplomaطول.pdf" class="cert-card" data-track="security" onclick="openCertModal(event, 'instant diplomaطول.pdf')">
+        <div class="cert-image-container">
+          <img src="cyber_instant_practise.png" alt="ethical-hacker">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Practise Penteration testing" data-ar="الاختراق الاخلاقي">Practise Penteration testing</h3>
+          <p class="cert-issuer">Penteration testing / Instant</p>
+          <p class="cert-date" data-en="Aug 2024 · 1 month" data-ar="أغسطس 2024 · شهر">Aug 2024 · 1 month</p>
+          <div class="cert-tags">
+            <span class="tag">Penteration testing</span>
+            <span class="tag">Instant</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="HCIA_Huawie.pdf" class="cert-card" data-track="security" onclick="openCertModal(event, 'HCIA_Huawie.pdf')">
+        <div class="cert-image-container">
+          <img src="HCIA_Huawie.png" alt="HCIA_Huawie">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="HCIA_Huawie" data-ar="أساسيات أمن الشبكات و الجدران النارية">HCIA_Huawie</h3>
+          <p class="cert-issuer">HCIA_Huawie / NTI</p>
+          <p class="cert-date" data-en="Dec 2025" data-ar="ديسمبر 2025">Dec 2025</p>
+          <div class="cert-tags">
+            <span class="tag">HCIA_Huawie</span>
+            <span class="tag">NTI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="HCIA Cloud - Adel Abdelatif Elgohary_نسخة (1).pdf" class="cert-card" data-track="cloud-devops" onclick="openCertModal(event, 'HCIA Cloud - Adel Abdelatif Elgohary_نسخة (1).pdf')">
+        <div class="cert-image-container">
+          <img src="hcia_cloud.png" alt="hcia_cloud">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="HCIA Cloud" data-ar="خدمات السحابة">HCIA Cloud</h3>
+          <p class="cert-issuer">HCIA Cloud / ICT Academy</p>
+          <p class="cert-date" data-en="May 2025 · 48 hrs" data-ar="مايو 2025 · 48 ساعة">May 2025 · 48 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">HCIA Cloud</span>
+            <span class="tag">ICT Academy</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="web.pdf" class="cert-card" data-track="web" onclick="openCertModal(event, 'web.pdf')">
+        <div class="cert-image-container">
+          <img src="web_dev.png" alt="web_dev">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Web Development" data-ar="تطوير الويب">Web Development</h3>
+          <p class="cert-issuer">Web Development/ Itida</p>
+          <p class="cert-date" data-en="Nov 2024 · 42 hrs" data-ar="نوفمبر 2024 · 42 ساعة">Nov 2024 · 42 hrs</p>
+          <div class="cert-tags">
+            <span class="tag">Web Development</span>
+            <span class="tag">Itida</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="digitopia.pdf" class="cert-card" data-track="web" onclick="openCertModal(event, 'digitopia.pdf')">
+        <div class="cert-image-container">
+          <img src="digitopia.png" alt="digitopia">
+        </div>
+        <div class="cert-content">
+          <h3 data-en="Digitopia" data-ar="ديجيتوبيا">Digitopia</h3>
+          <p class="cert-issuer">Digitopia/ MCIT</p>
+          <p class="cert-date" data-en="Oct 2025" data-ar="أكتوبر 2025">Oct 2025</p>
+          <div class="cert-tags">
+            <span class="tag">Digitopia</span>
+            <span class="tag">MCIT</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <p class="cert-empty" id="certEmpty" data-en="No certificates in this track yet." data-ar="لا توجد شهادات في هذا المسار حتى الآن.">No certificates in this track yet.</p>
+  </div>
+</section>
+
+<!-- CERT MODAL -->
+<div id="certModal" class="cert-modal" onclick="closeCertModal(event)">
+  <div class="cert-modal-inner">
+    <button class="cert-modal-close" onclick="closeCertModal(event)" aria-label="Close">&times;</button>
+    <iframe id="certModalFrame" src="" frameborder="0"></iframe>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="wrap">
+<div class="section-tag" data-en="06 — Skills" data-ar="06 — المهارات">06 — Skills</div>
+<h2 class="section-title" data-en="Technical toolkit" data-ar="الأدوات والمهارات التقنية">Technical toolkit</h2>
+<p class="section-sub" data-en="Organized by where each tool sits in the stack — from the network layer up to orchestration and observability." data-ar="منظمة حسب موقع كل أداة في البنية التحتية — من طبقة الشبكات وحتى الأتمتة والمراقبة.">Organized by where each tool sits in the stack — from the network layer up to orchestration and observability.</p>
+<div class="skills-grid">
+<div class="skill-card">
+<div class="cat" data-en="CLOUD" data-ar="الحوسبة السحابية">CLOUD</div>
+<ul><li>AWS</li><li data-en="Cloud Architecture" data-ar="معمارية السحابة">Cloud Architecture</li></ul>
+</div>
+<div class="skill-card">
+<div class="cat" data-en="DEVOPS & AUTOMATION" data-ar="DEVOPS والأتمتة">DEVOPS & AUTOMATION</div>
+<ul><li>Docker</li><li>Kubernetes</li><li>Jenkins</li><li>CI/CD</li><li>Git</li><li>GitHub</li></ul>
+</div>
+<div class="skill-card">
+<div class="cat" data-en="INFRASTRUCTURE AS CODE" data-ar="البنية التحتية ككود">INFRASTRUCTURE AS CODE</div>
+<ul><li>Terraform</li><li>Ansible</li></ul>
+</div>
+<div class="skill-card">
+<div class="cat" data-en="NETWORKING & SECURITY" data-ar="الشبكات والأمان">NETWORKING & SECURITY</div>
+<ul><li>TCP/IP</li><li>DNS</li><li>HTTP/HTTPS</li><li>VLANs</li><li>OSPF</li><li>VPN (IPsec/SSL)</li><li data-en="Firewalls" data-ar="الجدران النارية">Firewalls</li><li data-en="Linux Security" data-ar="أمان لينكس">Linux Security</li></ul>
+</div>
+<div class="skill-card">
+<div class="cat" data-en="MONITORING & OBSERVABILITY" data-ar="المراقبة والتحليل">MONITORING & OBSERVABILITY</div>
+<ul><li>Prometheus</li><li>Grafana</li></ul>
+</div>
+<div class="skill-card">
+<div class="cat" data-en="SCRIPTING & LANGUAGES" data-ar="اللغات والبرمجة النصية">SCRIPTING & LANGUAGES</div>
+<ul><li>Python</li><li>Bash</li><li>YAML</li><li>JSON</li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-tag" data-en="07 — Achievements" data-ar="07 — الإنجازات">07 — Achievements</div>
+    <h2 class="section-title" data-en="Milestones so far" data-ar="أبرز المحطات حتى الآن">Milestones so far</h2>
+    <p class="section-sub" data-en="A quick snapshot of the training, results, and programs behind the work." data-ar="لمحة سريعة عن التدريب والنتائج والبرامج اللي وراء الشغل.">A quick snapshot of the training, results, and programs behind the work.</p>
+
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-icon">🎓</div>
+        <div class="ach-num">20+</div>
+        <div class="ach-title" data-en="Certifications earned" data-ar="شهادة حاصل عليها">Certifications earned</div>
+        <div class="ach-desc" data-en="Across cloud, networking, Linux, and security." data-ar="في السحابة والشبكات ولينكس والأمن السيبراني.">Across cloud, networking, Linux, and security.</div>
+      </div>
+      <!--
+      <div class="ach-card">
+        <div class="ach-icon">🏆</div>
+        <div class="ach-num">98.5%</div>
+        <div class="ach-title" data-en="Top program score" data-ar="أعلى نتيجة في برنامج">Top program score</div>
+        <div class="ach-desc" data-en="HCIA-Security at NTI." data-ar="HCIA-Security في NTI.">HCIA-Security at NTI.</div>
+      </div>
+      -->
+      <div class="ach-card">
+        <div class="ach-icon">🇪🇬</div>
+        <div class="ach-num">12</div>
+        <div class="ach-title" data-en="NTI programs completed" data-ar="برامج NTI مكتملة">NTI programs completed</div>
+        <div class="ach-desc" data-en="Hands-on, instructor-led training." data-ar="تدريب عملي بإشراف مدربين.">Hands-on, instructor-led training.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🚀</div>
+        <div class="ach-num">DEPI</div>
+        <div class="ach-title" data-en="DevOps Engineering track" data-ar="مسار هندسة DevOps">DevOps Engineering track</div>
+        <div class="ach-desc" data-en="Digital Egypt Pioneers Initiative, 2026." data-ar="مبادرة رواد مصر الرقمية، 2026.">Digital Egypt Pioneers Initiative, 2026.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="Services">
+  <div class="wrap">
+    <div class="section-tag" data-en="08 — Services" data-ar="08 — الخدمات">08 — Services</div>
+    <h2 class="section-title" data-en="What I do, and what it costs" data-ar="إيه بتقدّم، وبكام">What I do, and what it costs</h2>
+    <p class="section-sub" data-en="Practical infrastructure work, scoped to the problem it solves." data-ar="شغل بنية تحتية عملي، محدد حسب المشكلة اللي بيحلها.">Practical infrastructure work, scoped to the problem it solves.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🧱</div>
+        <h3 data-en="Infrastructure as Code" data-ar="البنية التحتية كـ كود">Infrastructure as Code</h3>
+        <p class="service-problem" data-en="Manual server setup that breaks when someone else tries to repeat it."
+           data-ar="سيرفرات بتتظبط يدوي وبتتعطل لما حد تاني يحاول يكررها.">Manual server setup that breaks when someone else tries to repeat it.</p>
+        <p class="service-what" data-en="I write Terraform + Ansible playbooks that provision and configure infrastructure reproducibly."
+           data-ar="بكتب Terraform + Ansible playbooks تبني وتظبط البنية التحتية بشكل قابل للتكرار.">I write Terraform + Ansible playbooks that provision and configure infrastructure reproducibly.</p>
+        <p class="service-result" data-en="Result: environments spin up in minutes, identically, every time."
+           data-ar="النتيجة: بيئات بتتبني في دقايق، بنفس الشكل، كل مرة.">Result: environments spin up in minutes, identically, every time.</p>
+        <div class="service-tags">
+          <span class="tag">Terraform</span>
+          <span class="tag">Ansible</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3 data-en="CI/CD Pipeline Setup" data-ar="بناء CI/CD Pipeline">CI/CD Pipeline Setup</h3>
+        <p class="service-problem" data-en="Deployments that depend on someone manually running commands in the right order."
+           data-ar="عمليات نشر معتمدة على حد يشغّل أوامر يدويًا بترتيب معيّن.">Deployments that depend on someone manually running commands in the right order.</p>
+        <p class="service-what" data-en="I set up Jenkins pipelines that build, test, and deploy automatically on every push."
+           data-ar="بظبط Jenkins pipelines تعمل build وtest وdeploy أوتوماتيك مع كل push.">I set up Jenkins pipelines that build, test, and deploy automatically on every push.</p>
+        <p class="service-result" data-en="Result: fewer deployment mistakes, faster release cycles."
+           data-ar="النتيجة: أخطاء نشر أقل، ودورة إصدار أسرع.">Result: fewer deployment mistakes, faster release cycles.</p>
+        <div class="service-tags">
+          <span class="tag">Jenkins</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <h3 data-en="Cloud Deployment & Monitoring" data-ar="النشر السحابي والمراقبة">Cloud Deployment & Monitoring</h3>
+        <p class="service-problem" data-en="Apps running in the cloud with no visibility into whether they're actually healthy."
+           data-ar="تطبيقات شغالة على الكلاود من غير أي رؤية لو هي فعلاً شغالة صح.">Apps running in the cloud with no visibility into whether they're actually healthy.</p>
+        <p class="service-what" data-en="I deploy on AWS with Kubernetes orchestration, and wire up Prometheus for monitoring."
+           data-ar="بعمل نشر على AWS باستخدام Kubernetes، وبربط Prometheus للمراقبة.">I deploy on AWS with Kubernetes orchestration, and wire up Prometheus for monitoring.</p>
+        <p class="service-result" data-en="Result: problems get caught before users notice them."
+           data-ar="النتيجة: المشاكل بتتكشف قبل ما المستخدم يحسها.">Result: problems get caught before users notice them.</p>
+        <div class="service-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Prometheus</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pricing-cta">
+      <button type="button" class="btn btn-primary" id="pricingBtn" onclick="openPricingModal()" data-en="View Pricing Plan" data-ar="عرض خطط الأسعار">View Pricing Plan</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING MODAL -->
+<!-- ✏️ EDIT PRICES HERE: change the numbers inside each <div class="price-amount"> -->
+<div id="pricingModal" class="cert-modal" onclick="closePricingModal(event)">
+  <div class="pricing-modal-inner" role="dialog" aria-modal="true" aria-labelledby="pricingTitle">
+    <button class="cert-modal-close" onclick="closePricingModal(event)" aria-label="Close">&times;</button>
+    <h3 class="pricing-title" id="pricingTitle" data-en="Pricing Plans" data-ar="خطط الأسعار">Pricing Plans</h3>
+    <p class="pricing-sub" data-en="Starting prices for each service. Every project is scoped individually, so the final quote depends on what you need." data-ar="أسعار البداية لكل خدمة. كل مشروع بيتقيّم لوحده، فالسعر النهائي بيعتمد على المطلوب.">Starting prices for each service. Every project is scoped individually, so the final quote depends on what you need.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-icon">🧱</div>
+        <div class="price-name" data-en="Infrastructure as Code" data-ar="البنية التحتية كـ كود">Infrastructure as Code</div>
+        <div class="price-from" data-en="Starting from" data-ar="يبدأ من">Starting from</div>
+        <div class="price-amount">$80</div>
+        <ul class="price-list">
+          <li data-en="Terraform code for your AWS resources" data-ar="كود Terraform لموارد AWS بتاعتك">Terraform code for your AWS resources</li>
+          <li data-en="Ansible playbooks for server configuration" data-ar="Ansible playbooks لتظبيط السيرفرات">Ansible playbooks for server configuration</li>
+          <li data-en="Documentation and handover" data-ar="توثيق وتسليم كامل">Documentation and handover</li>
+        </ul>
+        <button type="button" class="btn btn-ghost" onclick="pricingToContact()" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</button>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-icon">🔄</div>
+        <div class="price-name" data-en="CI/CD Pipeline Setup" data-ar="بناء CI/CD Pipeline">CI/CD Pipeline Setup</div>
+        <div class="price-from" data-en="Starting from" data-ar="يبدأ من">Starting from</div>
+        <div class="price-amount">$100</div>
+        <ul class="price-list">
+          <li data-en="Jenkins pipeline: build, test, deploy" data-ar="Jenkins pipeline: build وtest وdeploy">Jenkins pipeline: build, test, deploy</li>
+          <li data-en="Docker image build and push" data-ar="بناء ورفع Docker image">Docker image build and push</li>
+          <li data-en="Auto-trigger on every Git push" data-ar="تشغيل أوتوماتيك مع كل Git push">Auto-trigger on every Git push</li>
+        </ul>
+        <button type="button" class="btn btn-primary" onclick="pricingToContact()" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</button>
+      </div>
+
+      <div class="price-card">
+        <div class="price-icon">☁️</div>
+        <div class="price-name" data-en="Cloud Deployment & Monitoring" data-ar="النشر السحابي والمراقبة">Cloud Deployment & Monitoring</div>
+        <div class="price-from" data-en="Starting from" data-ar="يبدأ من">Starting from</div>
+        <div class="price-amount">$150</div>
+        <ul class="price-list">
+          <li data-en="AWS deployment with Kubernetes" data-ar="نشر على AWS باستخدام Kubernetes">AWS deployment with Kubernetes</li>
+          <li data-en="Prometheus and Grafana dashboards" data-ar="لوحات Prometheus وGrafana">Prometheus and Grafana dashboards</li>
+          <li data-en="Alert rules for key metrics" data-ar="قواعد تنبيه للمقاييس المهمة">Alert rules for key metrics</li>
+        </ul>
+        <button type="button" class="btn btn-ghost" onclick="pricingToContact()" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</button>
+      </div>
+    </div>
+
+    <p class="pricing-note" data-en="Prices in USD. Final cost depends on project size and scope." data-ar="الأسعار بالدولار. التكلفة النهائية بتعتمد على حجم المشروع ونطاقه.">Prices in USD. Final cost depends on project size and scope.</p>
+  </div>
+</div>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-tag" data-en="09 — Testimonials" data-ar="09 — آراء العملاء">09 — Testimonials</div>
+    <h2 class="section-title" data-en="What people say" data-ar="رأي اللي اشتغلوا معايا">What people say</h2>
+    <p class="section-sub" data-en="Real feedback from mentors, teammates, and clients. Tap any screenshot to view it in full." data-ar="آراء حقيقية من المدربين وزملاء الفريق والعملاء. اضغط على أي صورة لعرضها كاملة.">Real feedback from mentors, teammates, and clients. Tap any screenshot to view it in full.</p>
+
+    <!-- ✏️ Put each screenshot in a "testimonials" folder next to index.html
+         and name it feedback-1.png, feedback-2.png, feedback-3.png (or change the src below).
+         Then replace "Full Name" and the role under each one. To add more, copy a <figure> block. -->
+    <div class="testi-grid">
+      <figure class="testi-card">
+        <button type="button" class="testi-shot" onclick="if(!this.classList.contains('is-empty')) openImageModal(this.querySelector('img').getAttribute('src'))" aria-label="View full feedback">
+          <img src="testimonials/feedback-1.png" alt="Feedback screenshot 1" loading="lazy" onerror="this.parentElement.classList.add('is-empty')">
+          <span class="testi-empty">Add your image here:<br>testimonials/feedback-1.png</span>
+        </button>
+        <figcaption class="testi-author">
+          <div class="testi-avatar">AB</div>
+          <div>
+            <div class="testi-name">Full Name</div>
+            <div class="testi-role" data-en="Mentor · NTI" data-ar="مدرب · NTI">Mentor · NTI</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="testi-card">
+        <button type="button" class="testi-shot" onclick="if(!this.classList.contains('is-empty')) openImageModal(this.querySelector('img').getAttribute('src'))" aria-label="View full feedback">
+          <img src="testimonials/feedback-2.png" alt="Feedback screenshot 2" loading="lazy" onerror="this.parentElement.classList.add('is-empty')">
+          <span class="testi-empty">Add your image here:<br>testimonials/feedback-2.png</span>
+        </button>
+        <figcaption class="testi-author">
+          <div class="testi-avatar">CD</div>
+          <div>
+            <div class="testi-name">Full Name</div>
+            <div class="testi-role" data-en="Teammate · DEPI" data-ar="زميل · DEPI">Teammate · DEPI</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="testi-card">
+        <button type="button" class="testi-shot" onclick="if(!this.classList.contains('is-empty')) openImageModal(this.querySelector('img').getAttribute('src'))" aria-label="View full feedback">
+          <img src="testimonials/feedback-3.png" alt="Feedback screenshot 3" loading="lazy" onerror="this.parentElement.classList.add('is-empty')">
+          <span class="testi-empty">Add your image here:<br>testimonials/feedback-3.png</span>
+        </button>
+        <figcaption class="testi-author">
+          <div class="testi-avatar">EF</div>
+          <div>
+            <div class="testi-name">Full Name</div>
+            <div class="testi-role" data-en="Client · Freelance" data-ar="عميل · فري لانس">Client · Freelance</div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+<div class="wrap">
+<div class="section-tag" data-en="10 — Contact" data-ar="10 — تواصل معي">10 — Contact</div>
+<h2 class="section-title" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
+<p class="section-sub" data-en="Have a project in mind or looking for a DevOps Engineer? Feel free to reach out." data-ar="هل لديك مشروع أو بصدد البحث عن مهندس DevOps؟ لا تتردد في التواصل معي.">Have a project in mind or looking for a DevOps Engineer? Feel free to reach out.</p>
+  <div class="contact-layout">
+    <!-- LEFT BOX: FORM -->
+    <div class="contact-box">
+      <h3 class="contact-box-title" data-en="Send Me a Message" data-ar="أرسل لي رسالة">Send Me a Message</h3>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message feature ready!');">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Your Name" data-ar="الاسم">Your Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name" data-placeholder-en="Enter your name" data-placeholder-ar="أدخل اسمك" required>
+          </div>
+          <div class="form-group">
+            <label data-en="Your Email" data-ar="البريد الإلكتروني">Your Email</label>
+            <input type="email" class="form-control" placeholder="Enter your email" data-placeholder-en="Enter your email" data-placeholder-ar="أدخل بريدك الإلكتروني" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label data-en="Subject" data-ar="الموضوع">Subject</label>
+          <input type="text" class="form-control" placeholder="Enter message subject" data-placeholder-en="Enter message subject" data-placeholder-ar="عنوان الرسالة" required>
+        </div>
+
+        <div class="form-group">
+          <label data-en="Your Message" data-ar="الرسالة">Your Message</label>
+          <textarea class="form-control" placeholder="Write your message here..." data-placeholder-en="Write your message here..." data-placeholder-ar="اكتب رسالتك هنا..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
+      </form>
+    </div>
+
+    <!-- RIGHT BOX: CONTACT INFO -->
+    <div class="contact-box">
+      <h3 class="contact-box-title" data-en="Contact Information" data-ar="معلومات التواصل">Contact Information</h3>
+      <p class="info-text" data-en="Feel free to reach out through any of these channels" data-ar="يسعدني التواصل معك عبر أي من الوسائل التالية">Feel free to reach out through any of these channels</p>
+
+      <div class="info-cards">
+        <!-- Email -->
+        <a href="mailto:adel.elgohary404@gmail.com" class="info-item">
+          <div class="info-icon icon-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="info-content">
+            <span class="info-label" data-en="Email" data-ar="البريد الإلكتروني">Email</span>
+            <span class="info-val">adel.elgohary404@gmail.com</span>
+          </div>
+        </a>
+
+        <!-- Whatsapp -->
+        <a href="https://wa.me/201102298554" target="_blank" rel="noopener noreferrer" class="info-item">
+          <div class="info-icon icon-whatsapp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </div>
+          <div class="info-content">
+            <span class="info-label">Whatsapp</span>
+            <span class="info-val">+20 110 229 8554</span>
+          </div>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+201102298554" class="info-item">
+          <div class="info-icon icon-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div class="info-content">
+            <span class="info-label" data-en="Phone" data-ar="الهاتف">Phone</span>
+            <span class="info-val">+20 110 229 8554</span>
+          </div>
+        </a>
+
+        <!-- Location -->
+        <div class="info-item">
+          <div class="info-icon icon-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="info-content">
+            <span class="info-label" data-en="Location" data-ar="الموقع">Location</span>
+            <span class="info-val" data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-title" data-en="Follow Me On" data-ar="تابعني على">Follow Me On</div>
+      <div class="social-links">
+        <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<!-- FOOTER SECTION -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Column 1: Let's Connect -->
+    <div class="footer-col">
+      <h3 class="footer-heading">LET'S CONNECT</h3>
+      <p class="footer-text">
+        I'm always open to discussing new DevOps opportunities, cloud infrastructure optimization, and CI/CD automation projects.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/adel-elgohary" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/adel-elgohary99" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/201102298554" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <h3 class="footer-heading footer-freelance-heading" data-en="FREELANCE PROFILES" data-ar="حساباتي على مواقع الفري لانس">FREELANCE PROFILES</h3>
+      <div class="freelance-links">
+        <a href="https://www.upwork.com/freelancers/~0119ed033b5599be45" target="_blank" rel="noopener noreferrer" aria-label="Upwork">
+          <img src="upwork.png" alt="" class="freelance-icon"><span>Upwork</span>
+        </a>
+        <a href="https://khamsat.com/user/adel_elgohary" target="_blank" rel="noopener noreferrer" aria-label="Khamsat">
+          <img src="khamsat-1.svg" alt="" class="freelance-icon"><span>Khamsat</span>
+        </a>
+        <a href="https://kafiil.com/u/adel_elgohary" target="_blank" rel="noopener noreferrer" aria-label="Kafiil">
+          <img src="kafiil-logo.png" alt="" class="freelance-icon"><span>Kafiil</span>
+        </a>
+        <a href="https://nafezly.com/u/adel_elgohary" target="_blank" rel="noopener noreferrer" aria-label="Nafezly">
+          <img src="nafezly-logo.jpg" alt="" class="freelance-icon"><span>Nafezly</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 2: Brand / Logo Center -->
+    <div class="footer-col footer-center">
+      <div class="footer-logo">
+        <span class="logo-badge">AE</span>
+        <span class="logo-text">. Adel Elgohary</span>
+      </div>
+      <p class="footer-subtext">DevOps & Cloud Engineer - Egypt</p>
+      <div class="tech-stack-icons">
+        <span class="tech-badge" title="Docker"><i class="fab fa-docker"></i></span>
+        <span class="tech-badge" title="AWS"><i class="fab fa-aws"></i></span>
+        <span class="tech-badge" title="Linux"><i class="fab fa-linux"></i></span>
+        <span class="tech-badge" title="Python"><i class="fab fa-python"></i></span>
+      </div>
+    </div>
+
+    <!-- Column 3: Who Am I -->
+    <div class="footer-col">
+      <h3 class="footer-heading align-right">WHO AM I?</h3>
+      <p class="footer-text align-right">
+        I'm <strong>Adel Elgohary</strong>, a DevOps & Cloud Engineer passionate about building scalable infrastructure, automating workflows, and securing network deployments.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Adel Elgohary. All Rights Reserved | Built with ♥ & Code</p>
+    <button id="scrollToTopBtn" aria-label="Scroll to top">↑</button>
+  </div>
+</footer>
+
+<script>
+// Scroll To Top Button functionality
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+if(scrollToTopBtn) {
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// Mobile Nav Toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if(navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+// Language Switcher
+const langToggle = document.getElementById('langToggle');
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    const isAr = document.documentElement.getAttribute('dir') === 'rtl';
+    if (isAr) {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.documentElement.setAttribute('lang', 'en');
+      langToggle.textContent = 'عربي';
+    } else {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('lang', 'ar');
+      langToggle.textContent = 'English';
+    }
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = isAr ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+      if(text) el.textContent = text;
+    });
+
+    document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+      const placeholder = isAr ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-ar');
+      if(placeholder) el.setAttribute('placeholder', placeholder);
+    });
+  });
+}
+
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+if(themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+  });
+}
+
+// Typing Effect for Command Prompt
+const words = ["terraform plan", "kubectl apply -f app.yaml", "docker compose up -d", "ansible-playbook site.yml"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typedEl = document.getElementById("typed");
+function typeEffect() {
+  if(!typedEl) return;
+  const currentWord = words[wordIndex];
+  if (isDeleting) {
+    typedEl.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typedEl.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+  }
+  let speed = isDeleting ? 30 : 70;
+  if (!isDeleting && charIndex === currentWord.length) {
+    speed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    speed = 400;
+  }
+  setTimeout(typeEffect, speed);
+}
+document.addEventListener("DOMContentLoaded", typeEffect);
+
+// Greeting Typing Effect Script
+const greetingEl = document.getElementById("typed-greeting");
+let greetingIndex = 0;
+let greetingCharIndex = 0;
+let isGreetingDeleting = false;
+function typeGreetingEffect() {
+  if (!greetingEl) return;
+  const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+  const greetings = isRTL
+    ? [" أهلاً، أنا", " مرحباً بك، أنا"]
+    : [" HELLO, I'M", " WELCOME, I'M"];
+
+  const currentGreeting = greetings[greetingIndex % greetings.length];
+
+  if (isGreetingDeleting) {
+    greetingEl.textContent = currentGreeting.substring(0, greetingCharIndex - 1);
+    greetingCharIndex--;
+  } else {
+    greetingEl.textContent = currentGreeting.substring(0, greetingCharIndex + 1);
+    greetingCharIndex++;
+  }
+
+  let speed = isGreetingDeleting ? 40 : 80;
+
+  if (!isGreetingDeleting && greetingCharIndex === currentGreeting.length) {
+    speed = 2500;
+    isGreetingDeleting = true;
+  } else if (isGreetingDeleting && greetingCharIndex === 0) {
+    isGreetingDeleting = false;
+    greetingIndex++;
+    speed = 500;
+  }
+
+  setTimeout(typeGreetingEffect, speed);
+}
+document.addEventListener("DOMContentLoaded", typeGreetingEffect);
+
+// Certificate Modal
+function openCertModal(e, url) {
+  e.preventDefault();
+  const modal = document.getElementById('certModal');
+  const frame = document.getElementById('certModalFrame');
+  frame.src = url;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeCertModal(e) {
+  if (e.target.id === 'certModal' || e.target.classList.contains('cert-modal-close')) {
+    const modal = document.getElementById('certModal');
+    const frame = document.getElementById('certModalFrame');
+    modal.classList.remove('active');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+}
+
+// Project Image Modal
+function openImageModal(src) {
+  const modal = document.getElementById('imageModal');
+  const img = document.getElementById('imageModalImg');
+  img.src = src;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeImageModal(e) {
+  if (e.target.id === 'imageModal' || e.target.classList.contains('cert-modal-close')) {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('imageModalImg');
+    modal.classList.remove('active');
+    img.src = '';
+    document.body.style.overflow = '';
+  }
+}
+
+// Pricing Modal
+function openPricingModal() {
+  document.getElementById('pricingModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closePricingModal(e) {
+  if (!e || e.target.id === 'pricingModal' || e.target.classList.contains('cert-modal-close')) {
+    document.getElementById('pricingModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+function pricingToContact() {
+  closePricingModal();
+  const contact = document.getElementById('contact');
+  if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Close any open popup with the Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  const certModal = document.getElementById('certModal');
+  const imageModal = document.getElementById('imageModal');
+  if (certModal.classList.contains('active')) {
+    certModal.classList.remove('active');
+    document.getElementById('certModalFrame').src = '';
+  }
+  if (imageModal.classList.contains('active')) {
+    imageModal.classList.remove('active');
+    document.getElementById('imageModalImg').src = '';
+  }
+  closePricingModal();
+  document.body.style.overflow = '';
+});
+
+// Certification Track Tabs
+(function () {
+  const tabs = document.querySelectorAll('#certTabs .cert-tab');
+  const cards = document.querySelectorAll('#certGrid .cert-card');
+  const empty = document.getElementById('certEmpty');
+  if (!tabs.length || !cards.length) return;
+
+  // Fill in the counts on each tab automatically
+  tabs.forEach(tab => {
+    const filter = tab.dataset.filter;
+    const n = filter === 'all'
+      ? cards.length
+      : [...cards].filter(c => (c.dataset.track || '').split(' ').includes(filter)).length;
+    const badge = tab.querySelector('.count');
+    if (badge) badge.textContent = n;
+  });
+
+  function applyFilter(filter) {
+    let visible = 0;
+    cards.forEach(card => {
+      const tracks = (card.dataset.track || '').split(' ');
+      const show = filter === 'all' || tracks.includes(filter);
+      card.classList.toggle('is-hidden', !show);
+      if (show) {
+        visible++;
+        card.classList.add('in'); // make sure revealed cards are visible right away
+      }
+    });
+    if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      applyFilter(tab.dataset.filter);
+    });
+  });
+})();
+
+// Scroll Reveal Animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('in');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal, .skill-card, .project-card, .education-card, .cert-card, .contact-box, .ach-card, .testi-card').forEach(el => {
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

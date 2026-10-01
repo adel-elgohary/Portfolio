@@ -1480,8 +1480,8 @@ justify-content: center;
 <nav class="wrap">
 <!-- Logo only (no text next to it) -->
 <a href="#home" class="brand" aria-label="Adel Elgohary — Home">
-<img class="logo-en" src="logo-AE-new.svg" alt="Adel Elgohary logo">
-<img class="logo-ar" src="logo-1-arabic-name.svg" alt="شعار عادل الجوهري">
+<img class="logo-en" src="logo-AE-new(1).svg" alt="Adel Elgohary logo">
+<img class="logo-ar" src="logo-1-arabic-name(1).svg" alt="شعار عادل الجوهري">
 </a>
 
 <!-- Same order as the page sections -->
@@ -1741,6 +1741,17 @@ justify-content: center;
     </div>
 
     <div class="cert-grid" id="certGrid">
+       <a href="certified_practitioner.pdf" class="cert-card" data-track="cloud aws" onclick="openCertModal(event, 'certified_practitioner.pdf')">
+        <span class="cert-open"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        <div class="cert-image-container"><img src="certified_practitioner.jpg" alt="Certified AWS Practitioner"></div>
+        <div class="cert-content">
+          <h3 data-en="aws" data-ar="aws">Certified AWS Practitioner</h3>
+          <p class="cert-issuer"> AWS </p>
+          <p class="cert-date" data-en="Aug 2026 - Aug 2029" data-ar="أغسطس 2029 - أغسطس 2026">Aug 2026 - Aug 2029 </p>
+          <div class="cert-tags"><span class="tag">AWS</span></div>
+        </div>
+      </a>
+      
       <a href="CCNA Certificate.pdf" class="cert-card" data-track="networking nti" onclick="openCertModal(event, 'CCNA Certificate.pdf')">
         <span class="cert-open"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
         <div class="cert-image-container"><img src="CCNA.png" alt="CCNA Certificate"></div>
@@ -2076,7 +2087,7 @@ justify-content: center;
     <div class="tl-item">
       <div class="tl-head">
         <!-- Put the DEPI logo at depi-logo.png (next to index.html). Until then "DEPI" text shows. -->
-        <div class="org-logo"><span class="fb">DEPI</span><img src="depi-logo.png" alt="DEPI logo" onerror="this.remove()"></div>
+        <div class="org-logo"><span class="fb">DEPI</span><img src="depi-logo.jpg" alt="DEPI logo" onerror="this.remove()"></div>
         <div>
           <div class="tl-date">2026 — Present</div>
           <div class="tl-role" data-en="DevOps Engineering Trainee" data-ar="متدرب هندسة DevOps">DevOps Engineering Trainee</div>
@@ -2410,7 +2421,7 @@ justify-content: center;
         <div class="ach-actions"><a href="CCNA Certificate.pdf" class="ach-btn" onclick="openCertModal(event, 'CCNA Certificate.pdf')"><span data-en="View certificate" data-ar="عرض الشهادة">View certificate</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
       </div>
       <div class="ach-card">
-        <div class="ach-icon ach-logo"><span class="fb">DEPI</span><img src="depi-logo.png" alt="DEPI logo" loading="lazy" onerror="this.remove()"></div>
+        <div class="ach-icon ach-logo"><span class="fb">DEPI</span><img src="depi-logo.jpg" alt="DEPI logo" loading="lazy" onerror="this.remove()"></div>
         <div class="ach-title" data-en="DEPI DevOps Track" data-ar="مسار DevOps في DEPI">DEPI DevOps Track</div>
         <div class="ach-issuer">Digital Egypt Pioneers Initiative</div>
         <div class="ach-desc" data-en="Joined Egypt's national DevOps Engineering track in 2026, building CI/CD and cloud projects hands-on." data-ar="انضممت إلى مسار هندسة DevOps الوطني في 2026، وأبني مشاريع CI/CD وسحابة بشكل عملي.">Joined Egypt's national DevOps Engineering track in 2026, building CI/CD and cloud projects hands-on.</div>
@@ -2474,7 +2485,7 @@ justify-content: center;
             <div class="testi-role" data-en="Teammates · DEPI" data-ar="زملاء · DEPI">Teammates · DEPI</div>
           </div>
         </figcaption>
-        <a class="testi-link" href="https://www.linkedin.com/in/adel-elgohary99/details/recommendations/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i><span data-en="View recommendation on LinkedIn" data-ar="عرض التوصية على LinkedIn">View recommendation on LinkedIn</span></a>
+        <!-- <a class="testi-link" href="https://www.linkedin.com/in/adel-elgohary99/details/recommendations/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i><span data-en="View recommendation on LinkedIn" data-ar="عرض التوصية على LinkedIn">View recommendation on LinkedIn</span></a> -->
       </figure>
 
       <figure class="testi-card">
@@ -2492,7 +2503,7 @@ justify-content: center;
             <div class="testi-role" data-en="Clients · Freelance" data-ar="عملاء · فري لانس">Clients · Freelance</div>
           </div>
         </figcaption>
-        <a class="testi-link" href="https://www.upwork.com/freelancers/~0119ed033b5599be45" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" style="color:#14A800"></i><span data-en="View reviews on Upwork" data-ar="عرض التقييمات على Upwork">View reviews on Upwork</span></a>
+        <!-- <a class="testi-link" href="https://www.upwork.com/freelancers/~0119ed033b5599be45" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" style="color:#14A800"></i><span data-en="View reviews on Upwork" data-ar="عرض التقييمات على Upwork">View reviews on Upwork</span></a> -->
       </figure>
     </div>
 
@@ -2678,14 +2689,14 @@ justify-content: center;
           <img src="nafezly-logo.jpg" alt="" class="freelance-icon">
         </a>
         <!-- TODO: replace the three links below with your own profile URLs -->
-        <a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" aria-label="Fiverr" data-name="Fiverr">
-          <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="" class="freelance-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><b class="freelance-icon fi-fallback" aria-hidden="true">F</b>
+        <a href="https://freelanceyard.com/en/freelancers/adel-elgohary-1" target="_blank" rel="noopener noreferrer" aria-label="freelanceyard" data-name="freelanceyard">
+          <img src="freelanceyard.png" alt="" class="freelance-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><b class="freelance-icon fi-fallback" aria-hidden="true">F</b>
         </a>
-        <a href="https://www.freelancer.com" target="_blank" rel="noopener noreferrer" aria-label="Freelancer" data-name="Freelancer">
-          <img src="https://cdn.simpleicons.org/freelancer/29B2FE" alt="" class="freelance-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><b class="freelance-icon fi-fallback" aria-hidden="true">F</b>
+        <a href="https://www.freelancer.com/u/adelelgohary" target="_blank" rel="noopener noreferrer" aria-label="Freelancer" data-name="Freelancer">
+          <img src="freelancer.png" alt="" class="freelance-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><b class="freelance-icon fi-fallback" aria-hidden="true">F</b>
         </a>
-        <a href="https://www.toptal.com" target="_blank" rel="noopener noreferrer" aria-label="Toptal" data-name="Toptal">
-          <img src="https://cdn.simpleicons.org/toptal/3863A0" alt="" class="freelance-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><b class="freelance-icon fi-fallback" aria-hidden="true">T</b>
+        <a href="https://mostaql.com/u/Dola99" target="_blank" rel="noopener noreferrer" aria-label="mostaql" data-name="mostaql">
+          <img src="mostaql.png" alt="" class="freelance-icon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><b class="freelance-icon fi-fallback" aria-hidden="true">T</b>
         </a>
       </div>
     </div>
